@@ -8398,7 +8398,7 @@
           "message": {
             "type": "string"
           },
-          "data": {
+          "images": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ImageGetResponse"

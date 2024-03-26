@@ -29,8 +29,8 @@ class Images(BaseModel):
     """ # noqa: E501
     status: Optional[StrictBool] = None
     message: Optional[StrictStr] = None
-    data: Optional[List[ImageGetResponse]] = None
-    __properties: ClassVar[List[str]] = ["status", "message", "data"]
+    images: Optional[List[ImageGetResponse]] = None
+    __properties: ClassVar[List[str]] = ["status", "message", "images"]
 
     model_config = {
         "populate_by_name": True,
@@ -71,13 +71,13 @@ class Images(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in data (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in images (list)
         _items = []
-        if self.data:
-            for _item in self.data:
+        if self.images:
+            for _item in self.images:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['data'] = _items
+            _dict['images'] = _items
         return _dict
 
     @classmethod
@@ -92,7 +92,7 @@ class Images(BaseModel):
         _obj = cls.model_validate({
             "status": obj.get("status"),
             "message": obj.get("message"),
-            "data": [ImageGetResponse.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
+            "images": [ImageGetResponse.from_dict(_item) for _item in obj["images"]] if obj.get("images") is not None else None
         })
         return _obj
 
