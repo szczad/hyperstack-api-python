@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **bool** |  | [optional] 
 **message** | **str** |  | [optional] 
-**data** | [**List[ImageGetResponse]**](ImageGetResponse.md) |  | [optional] 
+**images** | [**List[ImageGetResponse]**](ImageGetResponse.md) |  | [optional] 
 
 ## Example
 
