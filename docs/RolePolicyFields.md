@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of RolePolicyFields from a JSON string
 role_policy_fields_instance = RolePolicyFields.from_json(json)
 # print the JSON string representation of the object
-print RolePolicyFields.to_json()
+print(RolePolicyFields.to_json())
 
 # convert the object into a dict
 role_policy_fields_dict = role_policy_fields_instance.to_dict()

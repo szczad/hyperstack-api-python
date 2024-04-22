@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of Lastdaycostresponse from a JSON string
 lastdaycostresponse_instance = Lastdaycostresponse.from_json(json)
 # print the JSON string representation of the object
-print Lastdaycostresponse.to_json()
+print(Lastdaycostresponse.to_json())
 
 # convert the object into a dict
 lastdaycostresponse_dict = lastdaycostresponse_instance.to_dict()

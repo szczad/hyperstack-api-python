@@ -41,7 +41,14 @@ class TestImageFields(unittest.TestCase):
                 type = '',
                 version = '',
                 size = 56,
-                display_size = ''
+                display_size = '',
+                description = '',
+                labels = [
+                    hyperstack.models.lable_resonse.LableResonse(
+                        id = 56, 
+                        label = '', )
+                    ],
+                is_public = True
             )
         else:
             return ImageFields(

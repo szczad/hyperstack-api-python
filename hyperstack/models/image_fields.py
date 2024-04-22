@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from hyperstack.models.lable_resonse import LableResonse
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -33,13 +34,16 @@ class ImageFields(BaseModel):
     version: Optional[StrictStr] = None
     size: Optional[StrictInt] = None
     display_size: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["id", "name", "region_name", "type", "version", "size", "display_size"]
+    description: Optional[StrictStr] = None
+    labels: Optional[List[LableResonse]] = None
+    is_public: Optional[StrictBool] = None
+    __properties: ClassVar[List[str]] = ["id", "name", "region_name", "type", "version", "size", "display_size", "description", "labels", "is_public"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -74,6 +78,13 @@ class ImageFields(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in labels (list)
+        _items = []
+        if self.labels:
+            for _item in self.labels:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['labels'] = _items
         return _dict
 
     @classmethod
@@ -92,7 +103,10 @@ class ImageFields(BaseModel):
             "type": obj.get("type"),
             "version": obj.get("version"),
             "size": obj.get("size"),
-            "display_size": obj.get("display_size")
+            "display_size": obj.get("display_size"),
+            "description": obj.get("description"),
+            "labels": [LableResonse.from_dict(_item) for _item in obj["labels"]] if obj.get("labels") is not None else None,
+            "is_public": obj.get("is_public")
         })
         return _obj
 

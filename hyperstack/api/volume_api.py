@@ -58,8 +58,9 @@ class VolumeApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Volume:
-        """Create Volume
+        """Create volume
 
+        Creates a volume that can be attached to a virtual machine, expanding its storage capacity. Specify the volume type and custom configuration in the request body. For additional details on volumes, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/volumes-available-features).
 
         :param payload: (required)
         :type payload: CreateVolumePayload
@@ -130,8 +131,9 @@ class VolumeApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Volume]:
-        """Create Volume
+        """Create volume
 
+        Creates a volume that can be attached to a virtual machine, expanding its storage capacity. Specify the volume type and custom configuration in the request body. For additional details on volumes, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/volumes-available-features).
 
         :param payload: (required)
         :type payload: CreateVolumePayload
@@ -202,8 +204,9 @@ class VolumeApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Create Volume
+        """Create volume
 
+        Creates a volume that can be attached to a virtual machine, expanding its storage capacity. Specify the volume type and custom configuration in the request body. For additional details on volumes, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/volumes-available-features).
 
         :param payload: (required)
         :type payload: CreateVolumePayload
@@ -345,8 +348,9 @@ class VolumeApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ResponseModel:
-        """Delete Volume
+        """Delete volume
 
+        Deletes a volume permanently. Provide the volume ID in the path to specify the volume to be deleted.
 
         :param id: (required)
         :type id: int
@@ -415,8 +419,9 @@ class VolumeApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ResponseModel]:
-        """Delete Volume
+        """Delete volume
 
+        Deletes a volume permanently. Provide the volume ID in the path to specify the volume to be deleted.
 
         :param id: (required)
         :type id: int
@@ -485,8 +490,9 @@ class VolumeApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Delete Volume
+        """Delete volume
 
+        Deletes a volume permanently. Provide the volume ID in the path to specify the volume to be deleted.
 
         :param id: (required)
         :type id: int
@@ -597,7 +603,7 @@ class VolumeApi:
 
 
     @validate_call
-    def get_volume_types(
+    def list_volume_types(
         self,
         _request_timeout: Union[
             None,
@@ -612,8 +618,9 @@ class VolumeApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> VolumeTypes:
-        """GET Volume Types
+        """List volume types
 
+        Retrieves a list of available volume types that can be used in the creation of a new volume.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -637,7 +644,7 @@ class VolumeApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_volume_types_serialize(
+        _param = self._list_volume_types_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -662,7 +669,7 @@ class VolumeApi:
 
 
     @validate_call
-    def get_volume_types_with_http_info(
+    def list_volume_types_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -677,8 +684,9 @@ class VolumeApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[VolumeTypes]:
-        """GET Volume Types
+        """List volume types
 
+        Retrieves a list of available volume types that can be used in the creation of a new volume.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -702,7 +710,7 @@ class VolumeApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_volume_types_serialize(
+        _param = self._list_volume_types_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -727,7 +735,7 @@ class VolumeApi:
 
 
     @validate_call
-    def get_volume_types_without_preload_content(
+    def list_volume_types_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -742,8 +750,9 @@ class VolumeApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """GET Volume Types
+        """List volume types
 
+        Retrieves a list of available volume types that can be used in the creation of a new volume.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -767,7 +776,7 @@ class VolumeApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_volume_types_serialize(
+        _param = self._list_volume_types_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -787,7 +796,7 @@ class VolumeApi:
         return response_data.response
 
 
-    def _get_volume_types_serialize(
+    def _list_volume_types_serialize(
         self,
         _request_auth,
         _content_type,
@@ -862,8 +871,9 @@ class VolumeApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Volumes:
-        """List Volumes
+        """List volumes
 
+        Returns a list of your existing volumes, providing details for each. For more information on volumes, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/volumes-available-features).
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -927,8 +937,9 @@ class VolumeApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Volumes]:
-        """List Volumes
+        """List volumes
 
+        Returns a list of your existing volumes, providing details for each. For more information on volumes, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/volumes-available-features).
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -992,8 +1003,9 @@ class VolumeApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """List Volumes
+        """List volumes
 
+        Returns a list of your existing volumes, providing details for each. For more information on volumes, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/volumes-available-features).
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

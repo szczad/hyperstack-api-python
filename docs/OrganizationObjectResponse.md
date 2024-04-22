@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of OrganizationObjectResponse from a JSON string
 organization_object_response_instance = OrganizationObjectResponse.from_json(json)
 # print the JSON string representation of the object
-print OrganizationObjectResponse.to_json()
+print(OrganizationObjectResponse.to_json())
 
 # convert the object into a dict
 organization_object_response_dict = organization_object_response_instance.to_dict()

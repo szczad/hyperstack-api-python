@@ -29,35 +29,35 @@ class TestTemplateApi(unittest.TestCase):
     def test_create_template(self) -> None:
         """Test case for create_template
 
-        Create Template
+        Create template
         """
         pass
 
-    def test_delete_a_template(self) -> None:
-        """Test case for delete_a_template
+    def test_delete_template(self) -> None:
+        """Test case for delete_template
 
-        Delete a Template
-        """
-        pass
-
-    def test_details_of_a_template_by_id(self) -> None:
-        """Test case for details_of_a_template_by_id
-
-        Details of a Template by ID
+        Delete template
         """
         pass
 
     def test_list_templates(self) -> None:
         """Test case for list_templates
 
-        List Templates
+        List templates
+        """
+        pass
+
+    def test_retrieve_template_details(self) -> None:
+        """Test case for retrieve_template_details
+
+        Retrieve template details
         """
         pass
 
     def test_update_template(self) -> None:
         """Test case for update_template
 
-        Update Template
+        Update template
         """
         pass
 

@@ -11,7 +11,10 @@ Name | Type | Description | Notes
 **status** | **str** |  | [optional] 
 **provision_date** | **datetime** |  | [optional] 
 **sunset_date** | **datetime** |  | [optional] 
+**flavors** | **List[str]** |  | [optional] 
+**projects** | **List[str]** |  | [optional] 
 **stocks** | [**List[NodeStocksPayload]**](NodeStocksPayload.md) |  | [optional] 
+**organizations** | **List[int]** |  | [optional] 
 
 ## Example
 
@@ -23,7 +26,7 @@ json = "{}"
 # create an instance of NodeModel from a JSON string
 node_model_instance = NodeModel.from_json(json)
 # print the JSON string representation of the object
-print NodeModel.to_json()
+print(NodeModel.to_json())
 
 # convert the object into a dict
 node_model_dict = node_model_instance.to_dict()

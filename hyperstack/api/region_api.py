@@ -37,7 +37,7 @@ class RegionApi:
 
 
     @validate_call
-    def getting_regions(
+    def list_regions(
         self,
         _request_timeout: Union[
             None,
@@ -52,8 +52,9 @@ class RegionApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Regions:
-        """Getting regions
+        """List regions
 
+        Lists the currently available regions, each representing a distinct geographic location housing a data center. For additional information on regions, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/regions).
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -77,7 +78,7 @@ class RegionApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._getting_regions_serialize(
+        _param = self._list_regions_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -102,7 +103,7 @@ class RegionApi:
 
 
     @validate_call
-    def getting_regions_with_http_info(
+    def list_regions_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -117,8 +118,9 @@ class RegionApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Regions]:
-        """Getting regions
+        """List regions
 
+        Lists the currently available regions, each representing a distinct geographic location housing a data center. For additional information on regions, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/regions).
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -142,7 +144,7 @@ class RegionApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._getting_regions_serialize(
+        _param = self._list_regions_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -167,7 +169,7 @@ class RegionApi:
 
 
     @validate_call
-    def getting_regions_without_preload_content(
+    def list_regions_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -182,8 +184,9 @@ class RegionApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Getting regions
+        """List regions
 
+        Lists the currently available regions, each representing a distinct geographic location housing a data center. For additional information on regions, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/regions).
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -207,7 +210,7 @@ class RegionApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._getting_regions_serialize(
+        _param = self._list_regions_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -227,7 +230,7 @@ class RegionApi:
         return response_data.response
 
 
-    def _getting_regions_serialize(
+    def _list_regions_serialize(
         self,
         _request_auth,
         _content_type,

@@ -26,10 +26,10 @@ class TestRegionApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_getting_regions(self) -> None:
-        """Test case for getting_regions
+    def test_list_regions(self) -> None:
+        """Test case for list_regions
 
-        Getting regions
+        List regions
         """
         pass
 

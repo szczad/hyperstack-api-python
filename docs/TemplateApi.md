@@ -4,17 +4,19 @@ All URIs are relative to *https://infrahub-api.nexgencloud.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_template**](TemplateApi.md#create_template) | **POST** /core/marketplace/templates | Create Template
-[**delete_a_template**](TemplateApi.md#delete_a_template) | **DELETE** /core/marketplace/templates/{id} | Delete a Template
-[**details_of_a_template_by_id**](TemplateApi.md#details_of_a_template_by_id) | **GET** /core/marketplace/templates/{id} | Details of a Template by ID
-[**list_templates**](TemplateApi.md#list_templates) | **GET** /core/marketplace/templates | List Templates
-[**update_template**](TemplateApi.md#update_template) | **PUT** /core/marketplace/templates/{id} | Update Template
+[**create_template**](TemplateApi.md#create_template) | **POST** /core/marketplace/templates | Create template
+[**delete_template**](TemplateApi.md#delete_template) | **DELETE** /core/marketplace/templates/{id} | Delete template
+[**list_templates**](TemplateApi.md#list_templates) | **GET** /core/marketplace/templates | List templates
+[**retrieve_template_details**](TemplateApi.md#retrieve_template_details) | **GET** /core/marketplace/templates/{id} | Retrieve template details
+[**update_template**](TemplateApi.md#update_template) | **PUT** /core/marketplace/templates/{id} | Update template
 
 
 # **create_template**
 > Template create_template(name, description, is_public, content)
 
-Create Template
+Create template
+
+Creates a resource template for deployment.
 
 ### Example
 
@@ -60,7 +62,7 @@ with hyperstack.ApiClient(configuration) as api_client:
     content = None # bytearray | YAML file is required
 
     try:
-        # Create Template
+        # Create template
         api_response = api_instance.create_template(name, description, is_public, content)
         print("The response of TemplateApi->create_template:\n")
         pprint(api_response)
@@ -104,10 +106,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_a_template**
-> ResponseModel delete_a_template(id)
+# **delete_template**
+> ResponseModel delete_template(id)
 
-Delete a Template
+Delete template
+
+Permanently deletes a template. Supply the template ID in the path to delete the specified template.
 
 ### Example
 
@@ -150,12 +154,12 @@ with hyperstack.ApiClient(configuration) as api_client:
     id = 56 # int | 
 
     try:
-        # Delete a Template
-        api_response = api_instance.delete_a_template(id)
-        print("The response of TemplateApi->delete_a_template:\n")
+        # Delete template
+        api_response = api_instance.delete_template(id)
+        print("The response of TemplateApi->delete_template:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TemplateApi->delete_a_template: %s\n" % e)
+        print("Exception when calling TemplateApi->delete_template: %s\n" % e)
 ```
 
 
@@ -184,7 +188,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | Template deleted successfully. |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -192,10 +196,102 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **details_of_a_template_by_id**
-> Template details_of_a_template_by_id(id)
+# **list_templates**
+> Templates list_templates(visibility=visibility)
 
-Details of a Template by ID
+List templates
+
+Returns a comprehensive list of templates, providing resource configuration details for each. Optionally, specify the `visibility` as `public` or `private` to retrieve templates with the desired visibility status. To learn more about the templates feature, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/templates#view-a-list-of-templates).
+
+### Example
+
+* Api Key Authentication (apiKey):
+* Api Key Authentication (accessToken):
+
+```python
+import hyperstack
+from hyperstack.models.templates import Templates
+from hyperstack.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://infrahub-api.nexgencloud.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = hyperstack.Configuration(
+    host = "https://infrahub-api.nexgencloud.com/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKey
+configuration.api_key['apiKey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
+
+# Configure API key authorization: accessToken
+configuration.api_key['accessToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['accessToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with hyperstack.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = hyperstack.TemplateApi(api_client)
+    visibility = None # object | Specify the `visibility` status as either `public` or `private` to filter and retrieve templates with the desired visibility. (optional)
+
+    try:
+        # List templates
+        api_response = api_instance.list_templates(visibility=visibility)
+        print("The response of TemplateApi->list_templates:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TemplateApi->list_templates: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **visibility** | [**object**](.md)| Specify the &#x60;visibility&#x60; status as either &#x60;public&#x60; or &#x60;private&#x60; to filter and retrieve templates with the desired visibility. | [optional] 
+
+### Return type
+
+[**Templates**](Templates.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [accessToken](../README.md#accessToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Templates list successfully retrieved. |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**406** | Not Acceptable |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **retrieve_template_details**
+> Template retrieve_template_details(id)
+
+Retrieve template details
+
+Retrieves the resource configuration details for a specified template. Provide the template ID in the path to retrieve details for the specified template. For additional information on template configuration details, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/templates#retrieve-the-details-for-a-template).
 
 ### Example
 
@@ -238,12 +334,12 @@ with hyperstack.ApiClient(configuration) as api_client:
     id = 56 # int | 
 
     try:
-        # Details of a Template by ID
-        api_response = api_instance.details_of_a_template_by_id(id)
-        print("The response of TemplateApi->details_of_a_template_by_id:\n")
+        # Retrieve template details
+        api_response = api_instance.retrieve_template_details(id)
+        print("The response of TemplateApi->retrieve_template_details:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TemplateApi->details_of_a_template_by_id: %s\n" % e)
+        print("Exception when calling TemplateApi->retrieve_template_details: %s\n" % e)
 ```
 
 
@@ -272,7 +368,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Getting template detail success |  -  |
+**200** | Template details retrieved successfully. |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -280,98 +376,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_templates**
-> Templates list_templates(visibility=visibility)
-
-List Templates
-
-### Example
-
-* Api Key Authentication (apiKey):
-* Api Key Authentication (accessToken):
-
-```python
-import hyperstack
-from hyperstack.models.templates import Templates
-from hyperstack.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://infrahub-api.nexgencloud.com/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = hyperstack.Configuration(
-    host = "https://infrahub-api.nexgencloud.com/v1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKey
-configuration.api_key['apiKey'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKey'] = 'Bearer'
-
-# Configure API key authorization: accessToken
-configuration.api_key['accessToken'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['accessToken'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with hyperstack.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = hyperstack.TemplateApi(api_client)
-    visibility = None # object | visibility: public/private (optional)
-
-    try:
-        # List Templates
-        api_response = api_instance.list_templates(visibility=visibility)
-        print("The response of TemplateApi->list_templates:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling TemplateApi->list_templates: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **visibility** | [**object**](.md)| visibility: public/private | [optional] 
-
-### Return type
-
-[**Templates**](Templates.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey), [accessToken](../README.md#accessToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Getting templates success |  -  |
-**400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
-**406** | Not Acceptable |  -  |
-**500** | Internal Server Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **update_template**
 > Template update_template(id, payload)
 
-Update Template
+Update template
+
+Updates the details of a template. Modify the template name, description and/or `is_public` status to change the public/private visibility of the template.
 
 ### Example
 
@@ -416,7 +426,7 @@ with hyperstack.ApiClient(configuration) as api_client:
     payload = hyperstack.UpdateTemplate() # UpdateTemplate | 
 
     try:
-        # Update Template
+        # Update template
         api_response = api_instance.update_template(id, payload)
         print("The response of TemplateApi->update_template:\n")
         pprint(api_response)
@@ -451,7 +461,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Template updated successfully |  -  |
+**200** | Template updated successfully. |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |

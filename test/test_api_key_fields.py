@@ -14,10 +14,10 @@
 
 import unittest
 
-from hyperstack.models.api_key_fields import APIKeyFields
+from hyperstack.models.api_key_fields import ApiKeyFields
 
-class TestAPIKeyFields(unittest.TestCase):
-    """APIKeyFields unit test stubs"""
+class TestApiKeyFields(unittest.TestCase):
+    """ApiKeyFields unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,25 +25,25 @@ class TestAPIKeyFields(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> APIKeyFields:
-        """Test APIKeyFields
+    def make_instance(self, include_optional) -> ApiKeyFields:
+        """Test ApiKeyFields
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `APIKeyFields`
+        # uncomment below to create an instance of `ApiKeyFields`
         """
-        model = APIKeyFields()
+        model = ApiKeyFields()
         if include_optional:
-            return APIKeyFields(
+            return ApiKeyFields(
                 key = ''
             )
         else:
-            return APIKeyFields(
+            return ApiKeyFields(
         )
         """
 
-    def testAPIKeyFields(self):
-        """Test APIKeyFields"""
+    def testApiKeyFields(self):
+        """Test ApiKeyFields"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

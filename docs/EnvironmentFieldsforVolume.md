@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of EnvironmentFieldsforVolume from a JSON string
 environment_fieldsfor_volume_instance = EnvironmentFieldsforVolume.from_json(json)
 # print the JSON string representation of the object
-print EnvironmentFieldsforVolume.to_json()
+print(EnvironmentFieldsforVolume.to_json())
 
 # convert the object into a dict
 environment_fieldsfor_volume_dict = environment_fieldsfor_volume_instance.to_dict()

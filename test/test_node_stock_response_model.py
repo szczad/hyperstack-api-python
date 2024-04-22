@@ -46,12 +46,21 @@ class TestNodeStockResponseModel(unittest.TestCase):
                                 status = '', 
                                 provision_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                 sunset_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                flavors = [
+                                    ''
+                                    ], 
+                                projects = [
+                                    ''
+                                    ], 
                                 stocks = [
                                     hyperstack.models.node_stocks_payload.NodeStocksPayload(
                                         name = '', 
                                         type = '', 
                                         total = 56, 
                                         in_use = 56, )
+                                    ], 
+                                organizations = [
+                                    56
                                     ], )
                             ], )
                     ]

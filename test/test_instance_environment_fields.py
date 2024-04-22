@@ -35,6 +35,7 @@ class TestInstanceEnvironmentFields(unittest.TestCase):
         model = InstanceEnvironmentFields()
         if include_optional:
             return InstanceEnvironmentFields(
+                id = 56,
                 name = '',
                 org_id = 56,
                 region = ''

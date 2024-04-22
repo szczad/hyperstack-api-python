@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from hyperstack.models.pricebook_resource_object_response import PricebookResourceObjectResponse
 from typing import Optional, Set
@@ -41,11 +41,11 @@ class InfrahubResourceObjectResponse(BaseModel):
     nexgen_actual_price: Optional[Union[StrictFloat, StrictInt]] = None
     __properties: ClassVar[List[str]] = ["type", "name", "infrahub_id", "status", "host", "resources", "price", "actual_price", "host_price", "actual_host_price", "nexgen_price", "nexgen_actual_price"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of NewStockResponse from a JSON string
 new_stock_response_instance = NewStockResponse.from_json(json)
 # print the JSON string representation of the object
-print NewStockResponse.to_json()
+print(NewStockResponse.to_json())
 
 # convert the object into a dict
 new_stock_response_dict = new_stock_response_instance.to_dict()

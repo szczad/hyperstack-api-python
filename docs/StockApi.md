@@ -4,13 +4,15 @@ All URIs are relative to *https://infrahub-api.nexgencloud.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**retrieve_stocks**](StockApi.md#retrieve_stocks) | **GET** /core/stocks | 
+[**retrieve_gpu_stocks**](StockApi.md#retrieve_gpu_stocks) | **GET** /core/stocks | 
 
 
-# **retrieve_stocks**
-> NewStockRetriveResponse retrieve_stocks()
+# **retrieve_gpu_stocks**
+> NewStockRetriveResponse retrieve_gpu_stocks()
 
 
+
+Returns information on current and upcoming GPU availability, organized by region and GPU model. For additional information on GPU stocks, [**click here**](https://infrahub-doc.nexgencloud.com/docs/hardware/gpu-stock-information).
 
 ### Example
 
@@ -52,11 +54,11 @@ with hyperstack.ApiClient(configuration) as api_client:
     api_instance = hyperstack.StockApi(api_client)
 
     try:
-        api_response = api_instance.retrieve_stocks()
-        print("The response of StockApi->retrieve_stocks:\n")
+        api_response = api_instance.retrieve_gpu_stocks()
+        print("The response of StockApi->retrieve_gpu_stocks:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling StockApi->retrieve_stocks: %s\n" % e)
+        print("Exception when calling StockApi->retrieve_gpu_stocks: %s\n" % e)
 ```
 
 
@@ -82,7 +84,7 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Stocks Retrived Successfully. |  -  |
+**200** | GPU stocks retrieved successfully. |  -  |
 **401** | Unauthorized |  -  |
 **404** | Stocks Not Found |  -  |
 **500** | Internal Server Error |  -  |

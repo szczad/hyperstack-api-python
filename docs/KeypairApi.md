@@ -4,16 +4,18 @@ All URIs are relative to *https://infrahub-api.nexgencloud.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_keypair**](KeypairApi.md#delete_keypair) | **DELETE** /core/keypair/{id} | Delete Keypair
-[**import_keypair**](KeypairApi.md#import_keypair) | **POST** /core/keypairs | Import Keypair
-[**retrieve_user_keypairs**](KeypairApi.md#retrieve_user_keypairs) | **GET** /core/keypairs | Retrieve Keypairs
-[**update_keypair_name**](KeypairApi.md#update_keypair_name) | **PUT** /core/keypair/{id} | Update Keypair name
+[**delete_key_pair**](KeypairApi.md#delete_key_pair) | **DELETE** /core/keypair/{id} | Delete key pair
+[**import_key_pair**](KeypairApi.md#import_key_pair) | **POST** /core/keypairs | Import key pair
+[**list_key_pairs**](KeypairApi.md#list_key_pairs) | **GET** /core/keypairs | List key pairs
+[**update_key_pair_name**](KeypairApi.md#update_key_pair_name) | **PUT** /core/keypair/{id} | Update key pair name
 
 
-# **delete_keypair**
-> ResponseModel delete_keypair(id)
+# **delete_key_pair**
+> ResponseModel delete_key_pair(id)
 
-Delete Keypair
+Delete key pair
+
+Permanently deletes a specified key pair. Include the key pair ID in the request path to remove the designated key pair.
 
 ### Example
 
@@ -56,12 +58,12 @@ with hyperstack.ApiClient(configuration) as api_client:
     id = 56 # int | 
 
     try:
-        # Delete Keypair
-        api_response = api_instance.delete_keypair(id)
-        print("The response of KeypairApi->delete_keypair:\n")
+        # Delete key pair
+        api_response = api_instance.delete_key_pair(id)
+        print("The response of KeypairApi->delete_key_pair:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling KeypairApi->delete_keypair: %s\n" % e)
+        print("Exception when calling KeypairApi->delete_key_pair: %s\n" % e)
 ```
 
 
@@ -90,7 +92,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | Keypair successfully deleted. |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -98,10 +100,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **import_keypair**
-> ImportKeypairResponse import_keypair(payload)
+# **import_key_pair**
+> ImportKeypairResponse import_key_pair(payload)
 
-Import Keypair
+Import key pair
+
+Imports a new key pair for secure shell (SSH) access to your resources. To import a new key pair, include the key name, environment name, and public key in the request body. For additional information on importing SSH key pairs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/getting-started/create-keypair#importing-an-ssh-key).
 
 ### Example
 
@@ -145,12 +149,12 @@ with hyperstack.ApiClient(configuration) as api_client:
     payload = hyperstack.ImportKeypairPayload() # ImportKeypairPayload | 
 
     try:
-        # Import Keypair
-        api_response = api_instance.import_keypair(payload)
-        print("The response of KeypairApi->import_keypair:\n")
+        # Import key pair
+        api_response = api_instance.import_key_pair(payload)
+        print("The response of KeypairApi->import_key_pair:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling KeypairApi->import_keypair: %s\n" % e)
+        print("Exception when calling KeypairApi->import_key_pair: %s\n" % e)
 ```
 
 
@@ -188,10 +192,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **retrieve_user_keypairs**
-> Keypairs retrieve_user_keypairs()
+# **list_key_pairs**
+> Keypairs list_key_pairs()
 
-Retrieve Keypairs
+List key pairs
+
+Retrieves a list of your existing SSH key pairs, providing details for each. For additional information on SSH key pairs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/keypairs-available-features).
 
 ### Example
 
@@ -233,12 +239,12 @@ with hyperstack.ApiClient(configuration) as api_client:
     api_instance = hyperstack.KeypairApi(api_client)
 
     try:
-        # Retrieve Keypairs
-        api_response = api_instance.retrieve_user_keypairs()
-        print("The response of KeypairApi->retrieve_user_keypairs:\n")
+        # List key pairs
+        api_response = api_instance.list_key_pairs()
+        print("The response of KeypairApi->list_key_pairs:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling KeypairApi->retrieve_user_keypairs: %s\n" % e)
+        print("Exception when calling KeypairApi->list_key_pairs: %s\n" % e)
 ```
 
 
@@ -264,17 +270,19 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Getting user keypairs successful |  -  |
+**200** | Retrieval of key pairs list successful. |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_keypair_name**
-> UpdateKeypairnameresponse update_keypair_name(id, payload)
+# **update_key_pair_name**
+> UpdateKeypairnameresponse update_key_pair_name(id, payload)
 
-Update Keypair name
+Update key pair name
+
+Updates the name of a specified key pair. Include the key pair ID in the request path and the new `name` of the key pair in the request body.
 
 ### Example
 
@@ -319,12 +327,12 @@ with hyperstack.ApiClient(configuration) as api_client:
     payload = hyperstack.UpdateKeypairName() # UpdateKeypairName | 
 
     try:
-        # Update Keypair name
-        api_response = api_instance.update_keypair_name(id, payload)
-        print("The response of KeypairApi->update_keypair_name:\n")
+        # Update key pair name
+        api_response = api_instance.update_key_pair_name(id, payload)
+        print("The response of KeypairApi->update_key_pair_name:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling KeypairApi->update_keypair_name: %s\n" % e)
+        print("Exception when calling KeypairApi->update_key_pair_name: %s\n" % e)
 ```
 
 
@@ -354,7 +362,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Keypair name updated successfully |  -  |
+**200** | Keypair name updated successfully. |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |

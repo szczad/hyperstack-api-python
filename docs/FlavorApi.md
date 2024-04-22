@@ -4,13 +4,15 @@ All URIs are relative to *https://infrahub-api.nexgencloud.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**retrieve_flavors**](FlavorApi.md#retrieve_flavors) | **GET** /core/flavors | Retrieve Flavors
+[**list_flavors**](FlavorApi.md#list_flavors) | **GET** /core/flavors | List flavors
 
 
-# **retrieve_flavors**
-> FlavorListResponse retrieve_flavors(region=region)
+# **list_flavors**
+> FlavorListResponse list_flavors(region=region)
 
-Retrieve Flavors
+List flavors
+
+Returns a list of available virtual machine specification configurations, referred to as **flavors**. Include a `region_name` in the query string of the request to return only the flavors available in the specified region; the default value will retrieve flavors available in all regions. For more details on flavors, [**click here**](https://infrahub-doc.nexgencloud.com/docs/hardware/flavors).
 
 ### Example
 
@@ -53,12 +55,12 @@ with hyperstack.ApiClient(configuration) as api_client:
     region = None # object | Region Name (optional)
 
     try:
-        # Retrieve Flavors
-        api_response = api_instance.retrieve_flavors(region=region)
-        print("The response of FlavorApi->retrieve_flavors:\n")
+        # List flavors
+        api_response = api_instance.list_flavors(region=region)
+        print("The response of FlavorApi->list_flavors:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling FlavorApi->retrieve_flavors: %s\n" % e)
+        print("Exception when calling FlavorApi->list_flavors: %s\n" % e)
 ```
 
 
@@ -87,7 +89,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Getting flavors successful |  -  |
+**200** | Successful retrieval of flavors list. |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |

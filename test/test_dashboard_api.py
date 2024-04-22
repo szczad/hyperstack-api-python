@@ -26,10 +26,10 @@ class TestDashboardApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_get_instances_containers_and_volumes_overview(self) -> None:
-        """Test case for get_instances_containers_and_volumes_overview
+    def test_retrieve_dashboard(self) -> None:
+        """Test case for retrieve_dashboard
 
-        Get Instances, Containers and Volumes Overview
+        Retrieve Dashboard
         """
         pass
 

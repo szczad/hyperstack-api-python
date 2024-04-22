@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of FlavorObjectFields from a JSON string
 flavor_object_fields_instance = FlavorObjectFields.from_json(json)
 # print the JSON string representation of the object
-print FlavorObjectFields.to_json()
+print(FlavorObjectFields.to_json())
 
 # convert the object into a dict
 flavor_object_fields_dict = flavor_object_fields_instance.to_dict()

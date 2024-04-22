@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of SecurityRulesProtocolFields from a JSON string
 security_rules_protocol_fields_instance = SecurityRulesProtocolFields.from_json(json)
 # print the JSON string representation of the object
-print SecurityRulesProtocolFields.to_json()
+print(SecurityRulesProtocolFields.to_json())
 
 # convert the object into a dict
 security_rules_protocol_fields_dict = security_rules_protocol_fields_instance.to_dict()

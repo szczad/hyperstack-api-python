@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of VolumeOverviewFields from a JSON string
 volume_overview_fields_instance = VolumeOverviewFields.from_json(json)
 # print the JSON string representation of the object
-print VolumeOverviewFields.to_json()
+print(VolumeOverviewFields.to_json())
 
 # convert the object into a dict
 volume_overview_fields_dict = volume_overview_fields_instance.to_dict()

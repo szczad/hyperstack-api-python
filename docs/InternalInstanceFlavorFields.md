@@ -25,7 +25,7 @@ json = "{}"
 # create an instance of InternalInstanceFlavorFields from a JSON string
 internal_instance_flavor_fields_instance = InternalInstanceFlavorFields.from_json(json)
 # print the JSON string representation of the object
-print InternalInstanceFlavorFields.to_json()
+print(InternalInstanceFlavorFields.to_json())
 
 # convert the object into a dict
 internal_instance_flavor_fields_dict = internal_instance_flavor_fields_instance.to_dict()

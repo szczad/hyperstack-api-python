@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of BillingResponse from a JSON string
 billing_response_instance = BillingResponse.from_json(json)
 # print the JSON string representation of the object
-print BillingResponse.to_json()
+print(BillingResponse.to_json())
 
 # convert the object into a dict
 billing_response_dict = billing_response_instance.to_dict()

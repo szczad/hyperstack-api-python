@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **delete_invite**
-> ResponseModel delete_invite(id)
+> CommonResponseModel delete_invite(id)
 
 Delete Invite
 
@@ -21,7 +21,7 @@ Delete Invite
 
 ```python
 import hyperstack
-from hyperstack.models.response_model import ResponseModel
+from hyperstack.models.common_response_model import CommonResponseModel
 from hyperstack.rest import ApiException
 from pprint import pprint
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseModel**](ResponseModel.md)
+[**CommonResponseModel**](CommonResponseModel.md)
 
 ### Authorization
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **invite_an_user_to_organization**
-> Invite invite_an_user_to_organization(payload)
+> InviteUserResponseModel invite_an_user_to_organization(payload)
 
 Invite an user to organization
 
@@ -109,8 +109,8 @@ Invite an user to organization
 
 ```python
 import hyperstack
-from hyperstack.models.invite import Invite
-from hyperstack.models.invite_user import InviteUser
+from hyperstack.models.invite_user_payload import InviteUserPayload
+from hyperstack.models.invite_user_response_model import InviteUserResponseModel
 from hyperstack.rest import ApiException
 from pprint import pprint
 
@@ -141,7 +141,7 @@ configuration.api_key['accessToken'] = os.environ["API_KEY"]
 with hyperstack.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = hyperstack.InviteApi(api_client)
-    payload = hyperstack.InviteUser() # InviteUser | 
+    payload = hyperstack.InviteUserPayload() # InviteUserPayload | 
 
     try:
         # Invite an user to organization
@@ -159,11 +159,11 @@ with hyperstack.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payload** | [**InviteUser**](InviteUser.md)|  | 
+ **payload** | [**InviteUserPayload**](InviteUserPayload.md)|  | 
 
 ### Return type
 
-[**Invite**](Invite.md)
+[**InviteUserResponseModel**](InviteUserResponseModel.md)
 
 ### Authorization
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Inviting user successful |  -  |
+**201** | Success |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **409** | Conflict |  -  |
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_invites**
-> Invites list_invites()
+> GetInvitesResponseModel list_invites()
 
 List Invites
 
@@ -198,7 +198,7 @@ List Invites
 
 ```python
 import hyperstack
-from hyperstack.models.invites import Invites
+from hyperstack.models.get_invites_response_model import GetInvitesResponseModel
 from hyperstack.rest import ApiException
 from pprint import pprint
 
@@ -247,7 +247,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Invites**](Invites.md)
+[**GetInvitesResponseModel**](GetInvitesResponseModel.md)
 
 ### Authorization
 
@@ -262,7 +262,7 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Getting invites successful |  -  |
+**200** | Success |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **500** | Internal Server Error |  -  |

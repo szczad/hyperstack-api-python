@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of InstanceKeypairFields from a JSON string
 instance_keypair_fields_instance = InstanceKeypairFields.from_json(json)
 # print the JSON string representation of the object
-print InstanceKeypairFields.to_json()
+print(InstanceKeypairFields.to_json())
 
 # convert the object into a dict
 instance_keypair_fields_dict = instance_keypair_fields_instance.to_dict()

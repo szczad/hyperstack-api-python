@@ -4,13 +4,15 @@ All URIs are relative to *https://infrahub-api.nexgencloud.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**retrieve_images**](ImageApi.md#retrieve_images) | **GET** /core/images | Retrieve Images
+[**list_images**](ImageApi.md#list_images) | **GET** /core/images | List images
 
 
-# **retrieve_images**
-> Images retrieve_images(region=region)
+# **list_images**
+> Images list_images(region=region)
 
-Retrieve Images
+List images
+
+Returns a list of all available operating system (OS) images, providing details about each image's corresponding virtual machine operating system. Include the optional `region` parameter in the query string of the request to specifically return OS images from the designated region. For more information on OS images, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/images).
 
 ### Example
 
@@ -53,12 +55,12 @@ with hyperstack.ApiClient(configuration) as api_client:
     region = None # object | Region Name (optional)
 
     try:
-        # Retrieve Images
-        api_response = api_instance.retrieve_images(region=region)
-        print("The response of ImageApi->retrieve_images:\n")
+        # List images
+        api_response = api_instance.list_images(region=region)
+        print("The response of ImageApi->list_images:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ImageApi->retrieve_images: %s\n" % e)
+        print("Exception when calling ImageApi->list_images: %s\n" % e)
 ```
 
 
@@ -87,7 +89,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Getting images successful |  -  |
+**200** | Retrieval of images list successful. |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |

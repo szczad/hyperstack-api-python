@@ -4,13 +4,15 @@ All URIs are relative to *https://infrahub-api.nexgencloud.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_instances_containers_and_volumes_overview**](DashboardApi.md#get_instances_containers_and_volumes_overview) | **GET** /core/dashboard | Get Instances, Containers and Volumes Overview
+[**retrieve_dashboard**](DashboardApi.md#retrieve_dashboard) | **GET** /core/dashboard | Retrieve Dashboard
 
 
-# **get_instances_containers_and_volumes_overview**
-> DashboardInfoResponse get_instances_containers_and_volumes_overview()
+# **retrieve_dashboard**
+> DashboardInfoResponse retrieve_dashboard()
 
-Get Instances, Containers and Volumes Overview
+Retrieve Dashboard
+
+Returns hardware and pricing overview for your active resources, including virtual machines, containers, and volumes. For additional information on the Dashboard feature, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/dashboard).
 
 ### Example
 
@@ -52,12 +54,12 @@ with hyperstack.ApiClient(configuration) as api_client:
     api_instance = hyperstack.DashboardApi(api_client)
 
     try:
-        # Get Instances, Containers and Volumes Overview
-        api_response = api_instance.get_instances_containers_and_volumes_overview()
-        print("The response of DashboardApi->get_instances_containers_and_volumes_overview:\n")
+        # Retrieve Dashboard
+        api_response = api_instance.retrieve_dashboard()
+        print("The response of DashboardApi->retrieve_dashboard:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling DashboardApi->get_instances_containers_and_volumes_overview: %s\n" % e)
+        print("Exception when calling DashboardApi->retrieve_dashboard: %s\n" % e)
 ```
 
 

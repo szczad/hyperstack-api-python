@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of Adminthresholdpostpayload from a JSON string
 adminthresholdpostpayload_instance = Adminthresholdpostpayload.from_json(json)
 # print the JSON string representation of the object
-print Adminthresholdpostpayload.to_json()
+print(Adminthresholdpostpayload.to_json())
 
 # convert the object into a dict
 adminthresholdpostpayload_dict = adminthresholdpostpayload_instance.to_dict()

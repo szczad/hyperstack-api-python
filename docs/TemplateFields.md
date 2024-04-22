@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of TemplateFields from a JSON string
 template_fields_instance = TemplateFields.from_json(json)
 # print the JSON string representation of the object
-print TemplateFields.to_json()
+print(TemplateFields.to_json())
 
 # convert the object into a dict
 template_fields_dict = template_fields_instance.to_dict()

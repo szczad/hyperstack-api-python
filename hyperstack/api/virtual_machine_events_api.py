@@ -38,7 +38,7 @@ class VirtualMachineEventsApi:
 
 
     @validate_call
-    def fetch_all_of_the_instance_events(
+    def list_virtual_machine_events(
         self,
         virtual_machine_id: StrictStr,
         _request_timeout: Union[
@@ -54,8 +54,9 @@ class VirtualMachineEventsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> InstanceEvents:
-        """Fetch all of the instance events
+        """List virtual machine events
 
+        Retrieves a list of all events in a virtual machine's history, which records actions performed on the specified virtual machine. Include the virtual machine ID in the path to retrieve the history of events. For more details on virtual machine events history, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/vm-performance-metrics-and-events-history#events-history).
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: str
@@ -81,7 +82,7 @@ class VirtualMachineEventsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._fetch_all_of_the_instance_events_serialize(
+        _param = self._list_virtual_machine_events_serialize(
             virtual_machine_id=virtual_machine_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -108,7 +109,7 @@ class VirtualMachineEventsApi:
 
 
     @validate_call
-    def fetch_all_of_the_instance_events_with_http_info(
+    def list_virtual_machine_events_with_http_info(
         self,
         virtual_machine_id: StrictStr,
         _request_timeout: Union[
@@ -124,8 +125,9 @@ class VirtualMachineEventsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[InstanceEvents]:
-        """Fetch all of the instance events
+        """List virtual machine events
 
+        Retrieves a list of all events in a virtual machine's history, which records actions performed on the specified virtual machine. Include the virtual machine ID in the path to retrieve the history of events. For more details on virtual machine events history, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/vm-performance-metrics-and-events-history#events-history).
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: str
@@ -151,7 +153,7 @@ class VirtualMachineEventsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._fetch_all_of_the_instance_events_serialize(
+        _param = self._list_virtual_machine_events_serialize(
             virtual_machine_id=virtual_machine_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -178,7 +180,7 @@ class VirtualMachineEventsApi:
 
 
     @validate_call
-    def fetch_all_of_the_instance_events_without_preload_content(
+    def list_virtual_machine_events_without_preload_content(
         self,
         virtual_machine_id: StrictStr,
         _request_timeout: Union[
@@ -194,8 +196,9 @@ class VirtualMachineEventsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Fetch all of the instance events
+        """List virtual machine events
 
+        Retrieves a list of all events in a virtual machine's history, which records actions performed on the specified virtual machine. Include the virtual machine ID in the path to retrieve the history of events. For more details on virtual machine events history, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/vm-performance-metrics-and-events-history#events-history).
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: str
@@ -221,7 +224,7 @@ class VirtualMachineEventsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._fetch_all_of_the_instance_events_serialize(
+        _param = self._list_virtual_machine_events_serialize(
             virtual_machine_id=virtual_machine_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -243,7 +246,7 @@ class VirtualMachineEventsApi:
         return response_data.response
 
 
-    def _fetch_all_of_the_instance_events_serialize(
+    def _list_virtual_machine_events_serialize(
         self,
         virtual_machine_id,
         _request_auth,

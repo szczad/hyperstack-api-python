@@ -1,6 +1,7 @@
 # flake8: noqa
 
 # import apis into api package
+from hyperstack.api.customer_contract_api import CustomerContractApi
 from hyperstack.api.pricebook_api import PricebookApi
 from hyperstack.api.alive_api import AliveApi
 from hyperstack.api.api_key_api import ApiKeyApi
@@ -13,6 +14,8 @@ from hyperstack.api.credit_api import CreditApi
 from hyperstack.api.dashboard_api import DashboardApi
 from hyperstack.api.deployment_api import DeploymentApi
 from hyperstack.api.environment_api import EnvironmentApi
+from hyperstack.api.firewall_attachment_api import FirewallAttachmentApi
+from hyperstack.api.firewalls_api import FirewallsApi
 from hyperstack.api.flavor_api import FlavorApi
 from hyperstack.api.floating_ip_api import FloatingIpApi
 from hyperstack.api.gpu_api import GpuApi
@@ -29,6 +32,8 @@ from hyperstack.api.region_api import RegionApi
 from hyperstack.api.security_rules_api import SecurityRulesApi
 from hyperstack.api.stock_api import StockApi
 from hyperstack.api.template_api import TemplateApi
+from hyperstack.api.user_api import UserApi
+from hyperstack.api.user_detail_choice_api import UserDetailChoiceApi
 from hyperstack.api.user_permission_api import UserPermissionApi
 from hyperstack.api.virtual_machine_api import VirtualMachineApi
 from hyperstack.api.virtual_machine_events_api import VirtualMachineEventsApi

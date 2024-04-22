@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of VolumeFieldsforInstance from a JSON string
 volume_fieldsfor_instance_instance = VolumeFieldsforInstance.from_json(json)
 # print the JSON string representation of the object
-print VolumeFieldsforInstance.to_json()
+print(VolumeFieldsforInstance.to_json())
 
 # convert the object into a dict
 volume_fieldsfor_instance_dict = volume_fieldsfor_instance_instance.to_dict()

@@ -4,13 +4,15 @@ All URIs are relative to *https://infrahub-api.nexgencloud.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_gpu_list**](GpuApi.md#get_gpu_list) | **GET** /core/gpus | Get GPU List
+[**list_gpus**](GpuApi.md#list_gpus) | **GET** /core/gpus | List GPUs
 
 
-# **get_gpu_list**
-> GPUList get_gpu_list()
+# **list_gpus**
+> GPUList list_gpus()
 
-Get GPU List
+List GPUs
+
+Returns a list of all available GPUs that can be utilized in the creation of custom virtual machine configurations.
 
 ### Example
 
@@ -52,12 +54,12 @@ with hyperstack.ApiClient(configuration) as api_client:
     api_instance = hyperstack.GpuApi(api_client)
 
     try:
-        # Get GPU List
-        api_response = api_instance.get_gpu_list()
-        print("The response of GpuApi->get_gpu_list:\n")
+        # List GPUs
+        api_response = api_instance.list_gpus()
+        print("The response of GpuApi->list_gpus:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling GpuApi->get_gpu_list: %s\n" % e)
+        print("Exception when calling GpuApi->list_gpus: %s\n" % e)
 ```
 
 
@@ -83,7 +85,7 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Getting GPU list successful |  -  |
+**200** | Retrieval of GPUs list successful. |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **500** | Internal Server Error |  -  |

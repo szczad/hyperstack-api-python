@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of InternalVolumeFields from a JSON string
 internal_volume_fields_instance = InternalVolumeFields.from_json(json)
 # print the JSON string representation of the object
-print InternalVolumeFields.to_json()
+print(InternalVolumeFields.to_json())
 
 # convert the object into a dict
 internal_volume_fields_dict = internal_volume_fields_instance.to_dict()

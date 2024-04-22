@@ -38,7 +38,7 @@ class FloatingIpApi:
 
 
     @validate_call
-    def attach_floating_ip_to_instance(
+    def attach_public_ip_to_virtual_machine(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -54,8 +54,9 @@ class FloatingIpApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ResponseModel:
-        """Attach Floating IP to Instance
+        """Attach public IP to virtual machine
 
+        Initiates the creation of a public IP address and attaches it to an existing virtual machine, making it accessible through the internet. Include the virtual machine ID in the path to attach a public IP to the specified VM. For more information on public IP addresses, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/public-ip).
 
         :param id: (required)
         :type id: int
@@ -81,7 +82,7 @@ class FloatingIpApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._attach_floating_ip_to_instance_serialize(
+        _param = self._attach_public_ip_to_virtual_machine_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -108,7 +109,7 @@ class FloatingIpApi:
 
 
     @validate_call
-    def attach_floating_ip_to_instance_with_http_info(
+    def attach_public_ip_to_virtual_machine_with_http_info(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -124,8 +125,9 @@ class FloatingIpApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ResponseModel]:
-        """Attach Floating IP to Instance
+        """Attach public IP to virtual machine
 
+        Initiates the creation of a public IP address and attaches it to an existing virtual machine, making it accessible through the internet. Include the virtual machine ID in the path to attach a public IP to the specified VM. For more information on public IP addresses, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/public-ip).
 
         :param id: (required)
         :type id: int
@@ -151,7 +153,7 @@ class FloatingIpApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._attach_floating_ip_to_instance_serialize(
+        _param = self._attach_public_ip_to_virtual_machine_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -178,7 +180,7 @@ class FloatingIpApi:
 
 
     @validate_call
-    def attach_floating_ip_to_instance_without_preload_content(
+    def attach_public_ip_to_virtual_machine_without_preload_content(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -194,8 +196,9 @@ class FloatingIpApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Attach Floating IP to Instance
+        """Attach public IP to virtual machine
 
+        Initiates the creation of a public IP address and attaches it to an existing virtual machine, making it accessible through the internet. Include the virtual machine ID in the path to attach a public IP to the specified VM. For more information on public IP addresses, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/public-ip).
 
         :param id: (required)
         :type id: int
@@ -221,7 +224,7 @@ class FloatingIpApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._attach_floating_ip_to_instance_serialize(
+        _param = self._attach_public_ip_to_virtual_machine_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -243,7 +246,7 @@ class FloatingIpApi:
         return response_data.response
 
 
-    def _attach_floating_ip_to_instance_serialize(
+    def _attach_public_ip_to_virtual_machine_serialize(
         self,
         id,
         _request_auth,
@@ -306,7 +309,7 @@ class FloatingIpApi:
 
 
     @validate_call
-    def detach_floating_ip_to_instance(
+    def detach_public_ip_from_virtual_machine(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -322,8 +325,9 @@ class FloatingIpApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ResponseModel:
-        """Detach Floating IP to Instance
+        """Detach public IP from virtual machine
 
+        Removes a public IP address from an existing virtual machine, disabling internet accessibility to the VM. Include the virtual machine ID in the path to detach the public IP from the specified VM. For more information on public IP addresses, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/public-ip).
 
         :param id: (required)
         :type id: int
@@ -349,7 +353,7 @@ class FloatingIpApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._detach_floating_ip_to_instance_serialize(
+        _param = self._detach_public_ip_from_virtual_machine_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -376,7 +380,7 @@ class FloatingIpApi:
 
 
     @validate_call
-    def detach_floating_ip_to_instance_with_http_info(
+    def detach_public_ip_from_virtual_machine_with_http_info(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -392,8 +396,9 @@ class FloatingIpApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ResponseModel]:
-        """Detach Floating IP to Instance
+        """Detach public IP from virtual machine
 
+        Removes a public IP address from an existing virtual machine, disabling internet accessibility to the VM. Include the virtual machine ID in the path to detach the public IP from the specified VM. For more information on public IP addresses, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/public-ip).
 
         :param id: (required)
         :type id: int
@@ -419,7 +424,7 @@ class FloatingIpApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._detach_floating_ip_to_instance_serialize(
+        _param = self._detach_public_ip_from_virtual_machine_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -446,7 +451,7 @@ class FloatingIpApi:
 
 
     @validate_call
-    def detach_floating_ip_to_instance_without_preload_content(
+    def detach_public_ip_from_virtual_machine_without_preload_content(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -462,8 +467,9 @@ class FloatingIpApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Detach Floating IP to Instance
+        """Detach public IP from virtual machine
 
+        Removes a public IP address from an existing virtual machine, disabling internet accessibility to the VM. Include the virtual machine ID in the path to detach the public IP from the specified VM. For more information on public IP addresses, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/public-ip).
 
         :param id: (required)
         :type id: int
@@ -489,7 +495,7 @@ class FloatingIpApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._detach_floating_ip_to_instance_serialize(
+        _param = self._detach_public_ip_from_virtual_machine_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -511,7 +517,7 @@ class FloatingIpApi:
         return response_data.response
 
 
-    def _detach_floating_ip_to_instance_serialize(
+    def _detach_public_ip_from_virtual_machine_serialize(
         self,
         id,
         _request_auth,

@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of NodeStockPayloadModel from a JSON string
 node_stock_payload_model_instance = NodeStockPayloadModel.from_json(json)
 # print the JSON string representation of the object
-print NodeStockPayloadModel.to_json()
+print(NodeStockPayloadModel.to_json())
 
 # convert the object into a dict
 node_stock_payload_model_dict = node_stock_payload_model_instance.to_dict()

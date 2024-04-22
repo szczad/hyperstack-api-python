@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
+**name** | **str** | The new key pair name. | 
 
 ## Example
 
@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of UpdateKeypairName from a JSON string
 update_keypair_name_instance = UpdateKeypairName.from_json(json)
 # print the JSON string representation of the object
-print UpdateKeypairName.to_json()
+print(UpdateKeypairName.to_json())
 
 # convert the object into a dict
 update_keypair_name_dict = update_keypair_name_instance.to_dict()

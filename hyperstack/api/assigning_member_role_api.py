@@ -17,9 +17,9 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictInt
-from hyperstack.models.assign_rbac_role_payload import AssignRBACRolePayload
-from hyperstack.models.rbac_role import RBACRole
-from hyperstack.models.response_model import ResponseModel
+from hyperstack.models.assign_rbac_role_payload import AssignRbacRolePayload
+from hyperstack.models.common_response_model import CommonResponseModel
+from hyperstack.models.rbac_role_detail_response_model import RbacRoleDetailResponseModel
 
 from hyperstack.api_client import ApiClient, RequestSerialized
 from hyperstack.api_response import ApiResponse
@@ -43,7 +43,7 @@ class AssigningMemberRoleApi:
     def assign_rbac_roles(
         self,
         user_id: StrictInt,
-        payload: AssignRBACRolePayload,
+        payload: AssignRbacRolePayload,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -56,14 +56,14 @@ class AssigningMemberRoleApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RBACRole:
+    ) -> RbacRoleDetailResponseModel:
         """Assign RBAC Roles
 
 
         :param user_id: (required)
         :type user_id: int
         :param payload: (required)
-        :type payload: AssignRBACRolePayload
+        :type payload: AssignRbacRolePayload
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -96,7 +96,7 @@ class AssigningMemberRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RBACRole",
+            '200': "RbacRoleDetailResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
@@ -117,7 +117,7 @@ class AssigningMemberRoleApi:
     def assign_rbac_roles_with_http_info(
         self,
         user_id: StrictInt,
-        payload: AssignRBACRolePayload,
+        payload: AssignRbacRolePayload,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -130,14 +130,14 @@ class AssigningMemberRoleApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[RBACRole]:
+    ) -> ApiResponse[RbacRoleDetailResponseModel]:
         """Assign RBAC Roles
 
 
         :param user_id: (required)
         :type user_id: int
         :param payload: (required)
-        :type payload: AssignRBACRolePayload
+        :type payload: AssignRbacRolePayload
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -170,7 +170,7 @@ class AssigningMemberRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RBACRole",
+            '200': "RbacRoleDetailResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
@@ -191,7 +191,7 @@ class AssigningMemberRoleApi:
     def assign_rbac_roles_without_preload_content(
         self,
         user_id: StrictInt,
-        payload: AssignRBACRolePayload,
+        payload: AssignRbacRolePayload,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -211,7 +211,7 @@ class AssigningMemberRoleApi:
         :param user_id: (required)
         :type user_id: int
         :param payload: (required)
-        :type payload: AssignRBACRolePayload
+        :type payload: AssignRbacRolePayload
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -244,7 +244,7 @@ class AssigningMemberRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RBACRole",
+            '200': "RbacRoleDetailResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
@@ -351,7 +351,7 @@ class AssigningMemberRoleApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ResponseModel:
+    ) -> CommonResponseModel:
         """Remove role from a user
 
 
@@ -388,7 +388,7 @@ class AssigningMemberRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseModel",
+            '200': "CommonResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
@@ -421,7 +421,7 @@ class AssigningMemberRoleApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ResponseModel]:
+    ) -> ApiResponse[CommonResponseModel]:
         """Remove role from a user
 
 
@@ -458,7 +458,7 @@ class AssigningMemberRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseModel",
+            '200': "CommonResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
@@ -528,7 +528,7 @@ class AssigningMemberRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseModel",
+            '200': "CommonResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",

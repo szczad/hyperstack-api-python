@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
-**description** | **str** |  | [optional] 
-**data** | **Dict[str, str]** |  | 
+**name** | **str** | The name of the profile being created. | 
+**description** | **str** | The optional description for the profile being created. | [optional] 
+**data** | **Dict[str, str]** | The data object which contains the configuration of the virtual machine profile being created. | 
 
 ## Example
 
@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CreateProfilePayload from a JSON string
 create_profile_payload_instance = CreateProfilePayload.from_json(json)
 # print the JSON string representation of the object
-print CreateProfilePayload.to_json()
+print(CreateProfilePayload.to_json())
 
 # convert the object into a dict
 create_profile_payload_dict = create_profile_payload_instance.to_dict()

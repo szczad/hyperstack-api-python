@@ -12,6 +12,9 @@ Name | Type | Description | Notes
 **version** | **str** |  | [optional] 
 **size** | **int** |  | [optional] 
 **display_size** | **str** |  | [optional] 
+**description** | **str** |  | [optional] 
+**labels** | [**List[LableResonse]**](LableResonse.md) |  | [optional] 
+**is_public** | **bool** |  | [optional] 
 
 ## Example
 
@@ -23,7 +26,7 @@ json = "{}"
 # create an instance of ImageFields from a JSON string
 image_fields_instance = ImageFields.from_json(json)
 # print the JSON string representation of the object
-print ImageFields.to_json()
+print(ImageFields.to_json())
 
 # convert the object into a dict
 image_fields_dict = image_fields_instance.to_dict()

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,15 +31,16 @@ class InstanceFlavorFields(BaseModel):
     cpu: Optional[StrictInt] = None
     ram: Optional[Union[StrictFloat, StrictInt]] = None
     disk: Optional[StrictInt] = None
+    ephemeral: Optional[StrictInt] = None
     gpu: Optional[StrictStr] = None
     gpu_count: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["id", "name", "cpu", "ram", "disk", "gpu", "gpu_count"]
+    __properties: ClassVar[List[str]] = ["id", "name", "cpu", "ram", "disk", "ephemeral", "gpu", "gpu_count"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -91,6 +92,7 @@ class InstanceFlavorFields(BaseModel):
             "cpu": obj.get("cpu"),
             "ram": obj.get("ram"),
             "disk": obj.get("disk"),
+            "ephemeral": obj.get("ephemeral"),
             "gpu": obj.get("gpu"),
             "gpu_count": obj.get("gpu_count")
         })

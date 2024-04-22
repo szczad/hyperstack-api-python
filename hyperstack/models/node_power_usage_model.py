@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from hyperstack.models.node_stocks_payload import NodeStocksPayload
 from hyperstack.models.power_usage_model import PowerUsageModel
@@ -35,15 +35,18 @@ class NodePowerUsageModel(BaseModel):
     status: Optional[StrictStr] = None
     provision_date: Optional[datetime] = None
     sunset_date: Optional[datetime] = None
+    flavors: Optional[List[StrictStr]] = None
+    projects: Optional[List[StrictStr]] = None
     stocks: Optional[List[NodeStocksPayload]] = None
+    organizations: Optional[List[StrictInt]] = None
     power_usages: Optional[PowerUsageModel] = None
-    __properties: ClassVar[List[str]] = ["openstack_id", "openstack_name", "nexgen_name", "status", "provision_date", "sunset_date", "stocks", "power_usages"]
+    __properties: ClassVar[List[str]] = ["openstack_id", "openstack_name", "nexgen_name", "status", "provision_date", "sunset_date", "flavors", "projects", "stocks", "organizations", "power_usages"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -106,7 +109,10 @@ class NodePowerUsageModel(BaseModel):
             "status": obj.get("status"),
             "provision_date": obj.get("provision_date"),
             "sunset_date": obj.get("sunset_date"),
+            "flavors": obj.get("flavors"),
+            "projects": obj.get("projects"),
             "stocks": [NodeStocksPayload.from_dict(_item) for _item in obj["stocks"]] if obj.get("stocks") is not None else None,
+            "organizations": obj.get("organizations"),
             "power_usages": PowerUsageModel.from_dict(obj["power_usages"]) if obj.get("power_usages") is not None else None
         })
         return _obj

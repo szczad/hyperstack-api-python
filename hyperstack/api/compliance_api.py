@@ -59,7 +59,7 @@ class ComplianceApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> CreateUpdateComplianceResponse:
-        """Create Compliance
+        """Create compliance
 
 
         :param payload: (required)
@@ -131,7 +131,7 @@ class ComplianceApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[CreateUpdateComplianceResponse]:
-        """Create Compliance
+        """Create compliance
 
 
         :param payload: (required)
@@ -203,7 +203,7 @@ class ComplianceApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Create Compliance
+        """Create compliance
 
 
         :param payload: (required)
@@ -598,7 +598,7 @@ class ComplianceApi:
 
 
     @validate_call
-    def get_compliance_list(
+    def retrieve_compliance(
         self,
         gpu: Annotated[Optional[Any], Field(description="This is for gpu model")] = None,
         _request_timeout: Union[
@@ -614,8 +614,9 @@ class ComplianceApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ComplianceResponse:
-        """Get Compliance List
+        """Retrieve GPU compliance
 
+        Returns a list of compliance objects each corresponding to available GPU models. These compliance objects contain minimum and maximum values for RAM in GB, number of vCPUs, and system disk capacity in GB. Use the optional `gpu` model parameter in the query string to filter responses by GPU model. For additional details on GPU compliance, [**click here**](https://infrahub-doc.nexgencloud.com/docs/hardware/flavors#adhering-to-gpu-compliance).
 
         :param gpu: This is for gpu model
         :type gpu: object
@@ -641,7 +642,7 @@ class ComplianceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_compliance_list_serialize(
+        _param = self._retrieve_compliance_serialize(
             gpu=gpu,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -669,7 +670,7 @@ class ComplianceApi:
 
 
     @validate_call
-    def get_compliance_list_with_http_info(
+    def retrieve_compliance_with_http_info(
         self,
         gpu: Annotated[Optional[Any], Field(description="This is for gpu model")] = None,
         _request_timeout: Union[
@@ -685,8 +686,9 @@ class ComplianceApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ComplianceResponse]:
-        """Get Compliance List
+        """Retrieve GPU compliance
 
+        Returns a list of compliance objects each corresponding to available GPU models. These compliance objects contain minimum and maximum values for RAM in GB, number of vCPUs, and system disk capacity in GB. Use the optional `gpu` model parameter in the query string to filter responses by GPU model. For additional details on GPU compliance, [**click here**](https://infrahub-doc.nexgencloud.com/docs/hardware/flavors#adhering-to-gpu-compliance).
 
         :param gpu: This is for gpu model
         :type gpu: object
@@ -712,7 +714,7 @@ class ComplianceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_compliance_list_serialize(
+        _param = self._retrieve_compliance_serialize(
             gpu=gpu,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -740,7 +742,7 @@ class ComplianceApi:
 
 
     @validate_call
-    def get_compliance_list_without_preload_content(
+    def retrieve_compliance_without_preload_content(
         self,
         gpu: Annotated[Optional[Any], Field(description="This is for gpu model")] = None,
         _request_timeout: Union[
@@ -756,8 +758,9 @@ class ComplianceApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get Compliance List
+        """Retrieve GPU compliance
 
+        Returns a list of compliance objects each corresponding to available GPU models. These compliance objects contain minimum and maximum values for RAM in GB, number of vCPUs, and system disk capacity in GB. Use the optional `gpu` model parameter in the query string to filter responses by GPU model. For additional details on GPU compliance, [**click here**](https://infrahub-doc.nexgencloud.com/docs/hardware/flavors#adhering-to-gpu-compliance).
 
         :param gpu: This is for gpu model
         :type gpu: object
@@ -783,7 +786,7 @@ class ComplianceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_compliance_list_serialize(
+        _param = self._retrieve_compliance_serialize(
             gpu=gpu,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -806,7 +809,7 @@ class ComplianceApi:
         return response_data.response
 
 
-    def _get_compliance_list_serialize(
+    def _retrieve_compliance_serialize(
         self,
         gpu,
         _request_auth,

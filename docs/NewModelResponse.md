@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of NewModelResponse from a JSON string
 new_model_response_instance = NewModelResponse.from_json(json)
 # print the JSON string representation of the object
-print NewModelResponse.to_json()
+print(NewModelResponse.to_json())
 
 # convert the object into a dict
 new_model_response_dict = new_model_response_instance.to_dict()

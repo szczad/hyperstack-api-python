@@ -1,4 +1,4 @@
-.PHONY: all generate clean
+.PHONY: all generate clean remove
 
 UID := $(shell id -u)
 API_URL := https://infrahub-api-doc.nexgencloud.com/api.json
@@ -27,3 +27,6 @@ openapi/api.patch: openapi/api.orig.json openapi/api.json
 
 clean:
 	rm -f openapi/api.orig.json openapi/api.json openapi/api.patch
+
+remove:
+	rm -rf hyperstack docs test .github .openapi-generator .openapi-generator-ignore .gitlab-ci.yml .travis.yml README.md git_push.sh pyproject.toml requirements.txt setup.py setup.cfg test-requirements.txt tox.ini

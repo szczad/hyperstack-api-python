@@ -4,14 +4,16 @@ All URIs are relative to *https://infrahub-api.nexgencloud.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**attach_floating_ip_to_instance**](FloatingIpApi.md#attach_floating_ip_to_instance) | **POST** /core/virtual-machines/{id}/attach-floatingip | Attach Floating IP to Instance
-[**detach_floating_ip_to_instance**](FloatingIpApi.md#detach_floating_ip_to_instance) | **POST** /core/virtual-machines/{id}/detach-floatingip | Detach Floating IP to Instance
+[**attach_public_ip_to_virtual_machine**](FloatingIpApi.md#attach_public_ip_to_virtual_machine) | **POST** /core/virtual-machines/{id}/attach-floatingip | Attach public IP to virtual machine
+[**detach_public_ip_from_virtual_machine**](FloatingIpApi.md#detach_public_ip_from_virtual_machine) | **POST** /core/virtual-machines/{id}/detach-floatingip | Detach public IP from virtual machine
 
 
-# **attach_floating_ip_to_instance**
-> ResponseModel attach_floating_ip_to_instance(id)
+# **attach_public_ip_to_virtual_machine**
+> ResponseModel attach_public_ip_to_virtual_machine(id)
 
-Attach Floating IP to Instance
+Attach public IP to virtual machine
+
+Initiates the creation of a public IP address and attaches it to an existing virtual machine, making it accessible through the internet. Include the virtual machine ID in the path to attach a public IP to the specified VM. For more information on public IP addresses, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/public-ip).
 
 ### Example
 
@@ -54,12 +56,12 @@ with hyperstack.ApiClient(configuration) as api_client:
     id = 56 # int | 
 
     try:
-        # Attach Floating IP to Instance
-        api_response = api_instance.attach_floating_ip_to_instance(id)
-        print("The response of FloatingIpApi->attach_floating_ip_to_instance:\n")
+        # Attach public IP to virtual machine
+        api_response = api_instance.attach_public_ip_to_virtual_machine(id)
+        print("The response of FloatingIpApi->attach_public_ip_to_virtual_machine:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling FloatingIpApi->attach_floating_ip_to_instance: %s\n" % e)
+        print("Exception when calling FloatingIpApi->attach_public_ip_to_virtual_machine: %s\n" % e)
 ```
 
 
@@ -88,7 +90,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | Public IP successfully attached to VM. |  -  |
 **400** | Insufficient balance to create the resource |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -96,10 +98,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **detach_floating_ip_to_instance**
-> ResponseModel detach_floating_ip_to_instance(id)
+# **detach_public_ip_from_virtual_machine**
+> ResponseModel detach_public_ip_from_virtual_machine(id)
 
-Detach Floating IP to Instance
+Detach public IP from virtual machine
+
+Removes a public IP address from an existing virtual machine, disabling internet accessibility to the VM. Include the virtual machine ID in the path to detach the public IP from the specified VM. For more information on public IP addresses, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/public-ip).
 
 ### Example
 
@@ -142,12 +146,12 @@ with hyperstack.ApiClient(configuration) as api_client:
     id = 56 # int | 
 
     try:
-        # Detach Floating IP to Instance
-        api_response = api_instance.detach_floating_ip_to_instance(id)
-        print("The response of FloatingIpApi->detach_floating_ip_to_instance:\n")
+        # Detach public IP from virtual machine
+        api_response = api_instance.detach_public_ip_from_virtual_machine(id)
+        print("The response of FloatingIpApi->detach_public_ip_from_virtual_machine:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling FloatingIpApi->detach_floating_ip_to_instance: %s\n" % e)
+        print("Exception when calling FloatingIpApi->detach_public_ip_from_virtual_machine: %s\n" % e)
 ```
 
 

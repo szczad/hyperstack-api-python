@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of DetachVolumesPayload from a JSON string
 detach_volumes_payload_instance = DetachVolumesPayload.from_json(json)
 # print the JSON string representation of the object
-print DetachVolumesPayload.to_json()
+print(DetachVolumesPayload.to_json())
 
 # convert the object into a dict
 detach_volumes_payload_dict = detach_volumes_payload_instance.to_dict()

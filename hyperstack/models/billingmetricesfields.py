@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, StrictBool, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
@@ -37,13 +37,14 @@ class Billingmetricesfields(BaseModel):
     total_up_time: Optional[Union[StrictFloat, StrictInt]] = None
     total_bill: Optional[Union[StrictFloat, StrictInt]] = None
     active: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["resource_id", "resource_type", "name", "organization_id", "bill_per_minute", "create_time", "terminate_time", "total_up_time", "total_bill", "active"]
+    exclude_billing: Optional[StrictBool] = None
+    __properties: ClassVar[List[str]] = ["resource_id", "resource_type", "name", "organization_id", "bill_per_minute", "create_time", "terminate_time", "total_up_time", "total_bill", "active", "exclude_billing"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -99,7 +100,8 @@ class Billingmetricesfields(BaseModel):
             "terminate_time": obj.get("terminate_time"),
             "total_up_time": obj.get("total_up_time"),
             "total_bill": obj.get("total_bill"),
-            "active": obj.get("active")
+            "active": obj.get("active"),
+            "exclude_billing": obj.get("exclude_billing")
         })
         return _obj
 

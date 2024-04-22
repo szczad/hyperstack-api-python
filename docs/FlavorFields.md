@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **cpu** | **int** |  | [optional] 
 **ram** | **float** |  | [optional] 
 **disk** | **int** |  | [optional] 
+**ephemeral** | **int** |  | [optional] 
 **gpu** | **str** |  | [optional] 
 **gpu_count** | **int** |  | [optional] 
 **stock_available** | **bool** |  | [optional] 
@@ -26,7 +27,7 @@ json = "{}"
 # create an instance of FlavorFields from a JSON string
 flavor_fields_instance = FlavorFields.from_json(json)
 # print the JSON string representation of the object
-print FlavorFields.to_json()
+print(FlavorFields.to_json())
 
 # convert the object into a dict
 flavor_fields_dict = flavor_fields_instance.to_dict()

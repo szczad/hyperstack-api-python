@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of Environment from a JSON string
 environment_instance = Environment.from_json(json)
 # print the JSON string representation of the object
-print Environment.to_json()
+print(Environment.to_json())
 
 # convert the object into a dict
 environment_dict = environment_instance.to_dict()

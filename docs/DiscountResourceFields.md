@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of DiscountResourceFields from a JSON string
 discount_resource_fields_instance = DiscountResourceFields.from_json(json)
 # print the JSON string representation of the object
-print DiscountResourceFields.to_json()
+print(DiscountResourceFields.to_json())
 
 # convert the object into a dict
 discount_resource_fields_dict = discount_resource_fields_instance.to_dict()

@@ -17,9 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from hyperstack.models.instance_admin_fields import InstanceAdminFields
+from hyperstack.models.instance_fields import InstanceFields
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,14 +29,14 @@ class Instance(BaseModel):
     """ # noqa: E501
     status: Optional[StrictBool] = None
     message: Optional[StrictStr] = None
-    instance: Optional[InstanceAdminFields] = None
+    instance: Optional[InstanceFields] = None
     __properties: ClassVar[List[str]] = ["status", "message", "instance"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -88,7 +88,7 @@ class Instance(BaseModel):
         _obj = cls.model_validate({
             "status": obj.get("status"),
             "message": obj.get("message"),
-            "instance": InstanceAdminFields.from_dict(obj["instance"]) if obj.get("instance") is not None else None
+            "instance": InstanceFields.from_dict(obj["instance"]) if obj.get("instance") is not None else None
         })
         return _obj
 

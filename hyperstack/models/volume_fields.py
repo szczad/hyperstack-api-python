@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from hyperstack.models.environment_fieldsfor_volume import EnvironmentFieldsforVolume
 from typing import Optional, Set
@@ -42,11 +42,11 @@ class VolumeFields(BaseModel):
     updated_at: Optional[datetime] = None
     __properties: ClassVar[List[str]] = ["id", "name", "environment", "description", "volume_type", "size", "status", "bootable", "image_id", "callback_url", "created_at", "updated_at"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

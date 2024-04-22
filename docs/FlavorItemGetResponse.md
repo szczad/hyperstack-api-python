@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of FlavorItemGetResponse from a JSON string
 flavor_item_get_response_instance = FlavorItemGetResponse.from_json(json)
 # print the JSON string representation of the object
-print FlavorItemGetResponse.to_json()
+print(FlavorItemGetResponse.to_json())
 
 # convert the object into a dict
 flavor_item_get_response_dict = flavor_item_get_response_instance.to_dict()

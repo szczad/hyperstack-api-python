@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from hyperstack.models.node_response_model import NodeResponseModel
 from typing import Optional, Set
@@ -30,11 +30,11 @@ class NodeStockResponseModel(BaseModel):
     stocks: Optional[List[NodeResponseModel]] = None
     __properties: ClassVar[List[str]] = ["stocks"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

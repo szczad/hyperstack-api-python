@@ -17,10 +17,10 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictInt
-from hyperstack.models.rbac_role import RBACRole
-from hyperstack.models.rbac_role_payload import RBACRolePayload
-from hyperstack.models.rbac_roles import RBACRoles
-from hyperstack.models.response_model import ResponseModel
+from hyperstack.models.common_response_model import CommonResponseModel
+from hyperstack.models.create_update_rbac_role_payload import CreateUpdateRbacRolePayload
+from hyperstack.models.get_rbac_roles_response_model import GetRbacRolesResponseModel
+from hyperstack.models.rbac_role_detail_response_model import RbacRoleDetailResponseModel
 
 from hyperstack.api_client import ApiClient, RequestSerialized
 from hyperstack.api_response import ApiResponse
@@ -43,7 +43,7 @@ class RbacRoleApi:
     @validate_call
     def create_rbac_role(
         self,
-        payload: RBACRolePayload,
+        payload: CreateUpdateRbacRolePayload,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -56,12 +56,12 @@ class RbacRoleApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RBACRole:
+    ) -> RbacRoleDetailResponseModel:
         """Create RBAC Role
 
 
         :param payload: (required)
-        :type payload: RBACRolePayload
+        :type payload: CreateUpdateRbacRolePayload
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -93,7 +93,7 @@ class RbacRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "RBACRole",
+            '201': "RbacRoleDetailResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '409': "ErrorResponseModel",
@@ -113,7 +113,7 @@ class RbacRoleApi:
     @validate_call
     def create_rbac_role_with_http_info(
         self,
-        payload: RBACRolePayload,
+        payload: CreateUpdateRbacRolePayload,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -126,12 +126,12 @@ class RbacRoleApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[RBACRole]:
+    ) -> ApiResponse[RbacRoleDetailResponseModel]:
         """Create RBAC Role
 
 
         :param payload: (required)
-        :type payload: RBACRolePayload
+        :type payload: CreateUpdateRbacRolePayload
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -163,7 +163,7 @@ class RbacRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "RBACRole",
+            '201': "RbacRoleDetailResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '409': "ErrorResponseModel",
@@ -183,7 +183,7 @@ class RbacRoleApi:
     @validate_call
     def create_rbac_role_without_preload_content(
         self,
-        payload: RBACRolePayload,
+        payload: CreateUpdateRbacRolePayload,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -201,7 +201,7 @@ class RbacRoleApi:
 
 
         :param payload: (required)
-        :type payload: RBACRolePayload
+        :type payload: CreateUpdateRbacRolePayload
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -233,7 +233,7 @@ class RbacRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "RBACRole",
+            '201': "RbacRoleDetailResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '409': "ErrorResponseModel",
@@ -337,7 +337,7 @@ class RbacRoleApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ResponseModel:
+    ) -> CommonResponseModel:
         """Delete a RBAC Role
 
 
@@ -374,7 +374,7 @@ class RbacRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseModel",
+            '200': "CommonResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
@@ -407,7 +407,7 @@ class RbacRoleApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ResponseModel]:
+    ) -> ApiResponse[CommonResponseModel]:
         """Delete a RBAC Role
 
 
@@ -444,7 +444,7 @@ class RbacRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseModel",
+            '200': "CommonResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
@@ -514,7 +514,7 @@ class RbacRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseModel",
+            '200': "CommonResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
@@ -605,7 +605,7 @@ class RbacRoleApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RBACRole:
+    ) -> RbacRoleDetailResponseModel:
         """Get a RBAC Role Detail
 
 
@@ -642,7 +642,7 @@ class RbacRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RBACRole",
+            '200': "RbacRoleDetailResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
@@ -675,7 +675,7 @@ class RbacRoleApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[RBACRole]:
+    ) -> ApiResponse[RbacRoleDetailResponseModel]:
         """Get a RBAC Role Detail
 
 
@@ -712,7 +712,7 @@ class RbacRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RBACRole",
+            '200': "RbacRoleDetailResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
@@ -782,7 +782,7 @@ class RbacRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RBACRole",
+            '200': "RbacRoleDetailResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
@@ -872,7 +872,7 @@ class RbacRoleApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RBACRoles:
+    ) -> GetRbacRolesResponseModel:
         """List RBAC Roles
 
 
@@ -906,7 +906,7 @@ class RbacRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RBACRoles",
+            '200': "GetRbacRolesResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '500': None,
@@ -937,7 +937,7 @@ class RbacRoleApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[RBACRoles]:
+    ) -> ApiResponse[GetRbacRolesResponseModel]:
         """List RBAC Roles
 
 
@@ -971,7 +971,7 @@ class RbacRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RBACRoles",
+            '200': "GetRbacRolesResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '500': None,
@@ -1036,7 +1036,7 @@ class RbacRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RBACRoles",
+            '200': "GetRbacRolesResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '500': None,
@@ -1111,7 +1111,7 @@ class RbacRoleApi:
     def update_a_rbac_role(
         self,
         id: StrictInt,
-        payload: RBACRolePayload,
+        payload: CreateUpdateRbacRolePayload,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1124,14 +1124,14 @@ class RbacRoleApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RBACRole:
+    ) -> RbacRoleDetailResponseModel:
         """Update a RBAC Role
 
 
         :param id: (required)
         :type id: int
         :param payload: (required)
-        :type payload: RBACRolePayload
+        :type payload: CreateUpdateRbacRolePayload
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1164,7 +1164,7 @@ class RbacRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RBACRole",
+            '200': "RbacRoleDetailResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
@@ -1185,7 +1185,7 @@ class RbacRoleApi:
     def update_a_rbac_role_with_http_info(
         self,
         id: StrictInt,
-        payload: RBACRolePayload,
+        payload: CreateUpdateRbacRolePayload,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1198,14 +1198,14 @@ class RbacRoleApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[RBACRole]:
+    ) -> ApiResponse[RbacRoleDetailResponseModel]:
         """Update a RBAC Role
 
 
         :param id: (required)
         :type id: int
         :param payload: (required)
-        :type payload: RBACRolePayload
+        :type payload: CreateUpdateRbacRolePayload
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1238,7 +1238,7 @@ class RbacRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RBACRole",
+            '200': "RbacRoleDetailResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
@@ -1259,7 +1259,7 @@ class RbacRoleApi:
     def update_a_rbac_role_without_preload_content(
         self,
         id: StrictInt,
-        payload: RBACRolePayload,
+        payload: CreateUpdateRbacRolePayload,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1279,7 +1279,7 @@ class RbacRoleApi:
         :param id: (required)
         :type id: int
         :param payload: (required)
-        :type payload: RBACRolePayload
+        :type payload: CreateUpdateRbacRolePayload
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1312,7 +1312,7 @@ class RbacRoleApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RBACRole",
+            '200': "RbacRoleDetailResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",

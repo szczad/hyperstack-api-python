@@ -18,11 +18,15 @@ from typing_extensions import Annotated
 
 from pydantic import StrictInt, StrictStr, field_validator
 from typing import Optional
+from hyperstack.models.attach_firewalls_to_vm_payload import AttachFirewallsToVMPayload
+from hyperstack.models.contract_instances_response import ContractInstancesResponse
 from hyperstack.models.create_instances_payload import CreateInstancesPayload
 from hyperstack.models.create_security_rule_payload import CreateSecurityRulePayload
+from hyperstack.models.editlabelofanexisting_vm_payload import EditlabelofanexistingVMPayload
 from hyperstack.models.instance import Instance
 from hyperstack.models.instance_resize_payload import InstanceResizePayload
 from hyperstack.models.instances import Instances
+from hyperstack.models.metrics_fields import MetricsFields
 from hyperstack.models.response_model import ResponseModel
 from hyperstack.models.security_group_rule import SecurityGroupRule
 
@@ -45,7 +49,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def add_security_rule(
+    def add_firewall_rule_to_virtual_machine(
         self,
         id: StrictInt,
         payload: CreateSecurityRulePayload,
@@ -62,8 +66,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> SecurityGroupRule:
-        """Add Security Rule
+        """Add firewall rule to virtual machine
 
+        Creates a firewall rule and associates it with a virtual machine. Include the virtual machine ID in the path, and provide the firewall rule configuration in the request body, as detailed below. For additional information on firewall rules, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/security-rules).
 
         :param id: (required)
         :type id: int
@@ -91,7 +96,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._add_security_rule_serialize(
+        _param = self._add_firewall_rule_to_virtual_machine_serialize(
             id=id,
             payload=payload,
             _request_auth=_request_auth,
@@ -120,7 +125,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def add_security_rule_with_http_info(
+    def add_firewall_rule_to_virtual_machine_with_http_info(
         self,
         id: StrictInt,
         payload: CreateSecurityRulePayload,
@@ -137,8 +142,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[SecurityGroupRule]:
-        """Add Security Rule
+        """Add firewall rule to virtual machine
 
+        Creates a firewall rule and associates it with a virtual machine. Include the virtual machine ID in the path, and provide the firewall rule configuration in the request body, as detailed below. For additional information on firewall rules, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/security-rules).
 
         :param id: (required)
         :type id: int
@@ -166,7 +172,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._add_security_rule_serialize(
+        _param = self._add_firewall_rule_to_virtual_machine_serialize(
             id=id,
             payload=payload,
             _request_auth=_request_auth,
@@ -195,7 +201,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def add_security_rule_without_preload_content(
+    def add_firewall_rule_to_virtual_machine_without_preload_content(
         self,
         id: StrictInt,
         payload: CreateSecurityRulePayload,
@@ -212,8 +218,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Add Security Rule
+        """Add firewall rule to virtual machine
 
+        Creates a firewall rule and associates it with a virtual machine. Include the virtual machine ID in the path, and provide the firewall rule configuration in the request body, as detailed below. For additional information on firewall rules, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/security-rules).
 
         :param id: (required)
         :type id: int
@@ -241,7 +248,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._add_security_rule_serialize(
+        _param = self._add_firewall_rule_to_virtual_machine_serialize(
             id=id,
             payload=payload,
             _request_auth=_request_auth,
@@ -265,7 +272,7 @@ class VirtualMachineApi:
         return response_data.response
 
 
-    def _add_security_rule_serialize(
+    def _add_firewall_rule_to_virtual_machine_serialize(
         self,
         id,
         payload,
@@ -344,7 +351,306 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def create_instances(
+    def attach_firewalls_to_a_vm(
+        self,
+        vm_id: StrictInt,
+        payload: AttachFirewallsToVMPayload,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ResponseModel:
+        """Attach Firewalls to a VM
+
+        Attach Firewalls to a VM
+
+        :param vm_id: (required)
+        :type vm_id: int
+        :param payload: (required)
+        :type payload: AttachFirewallsToVMPayload
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._attach_firewalls_to_a_vm_serialize(
+            vm_id=vm_id,
+            payload=payload,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ResponseModel",
+            '400': "ErrorResponseModel",
+            '401': "ErrorResponseModel",
+            '404': "ErrorResponseModel",
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def attach_firewalls_to_a_vm_with_http_info(
+        self,
+        vm_id: StrictInt,
+        payload: AttachFirewallsToVMPayload,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[ResponseModel]:
+        """Attach Firewalls to a VM
+
+        Attach Firewalls to a VM
+
+        :param vm_id: (required)
+        :type vm_id: int
+        :param payload: (required)
+        :type payload: AttachFirewallsToVMPayload
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._attach_firewalls_to_a_vm_serialize(
+            vm_id=vm_id,
+            payload=payload,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ResponseModel",
+            '400': "ErrorResponseModel",
+            '401': "ErrorResponseModel",
+            '404': "ErrorResponseModel",
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def attach_firewalls_to_a_vm_without_preload_content(
+        self,
+        vm_id: StrictInt,
+        payload: AttachFirewallsToVMPayload,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Attach Firewalls to a VM
+
+        Attach Firewalls to a VM
+
+        :param vm_id: (required)
+        :type vm_id: int
+        :param payload: (required)
+        :type payload: AttachFirewallsToVMPayload
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._attach_firewalls_to_a_vm_serialize(
+            vm_id=vm_id,
+            payload=payload,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ResponseModel",
+            '400': "ErrorResponseModel",
+            '401': "ErrorResponseModel",
+            '404': "ErrorResponseModel",
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _attach_firewalls_to_a_vm_serialize(
+        self,
+        vm_id,
+        payload,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if vm_id is not None:
+            _path_params['vm_id'] = vm_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if payload is not None:
+            _body_params = payload
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'apiKey', 
+            'accessToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/core/virtual-machines/{vm_id}/attach-firewalls',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def create_virtual_machine(
         self,
         payload: CreateInstancesPayload,
         _request_timeout: Union[
@@ -360,8 +666,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Instances:
-        """Create Instances
+        """Create virtual machine
 
+        Creates one or more virtual machines with the specified custom configuration and features provided in the request body. For more information about the virtual machine features offered by Infrahub, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/virtual-machine-features#create-a-virtual-machine-with-custom-features).
 
         :param payload: (required)
         :type payload: CreateInstancesPayload
@@ -387,7 +694,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_instances_serialize(
+        _param = self._create_virtual_machine_serialize(
             payload=payload,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -416,7 +723,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def create_instances_with_http_info(
+    def create_virtual_machine_with_http_info(
         self,
         payload: CreateInstancesPayload,
         _request_timeout: Union[
@@ -432,8 +739,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Instances]:
-        """Create Instances
+        """Create virtual machine
 
+        Creates one or more virtual machines with the specified custom configuration and features provided in the request body. For more information about the virtual machine features offered by Infrahub, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/virtual-machine-features#create-a-virtual-machine-with-custom-features).
 
         :param payload: (required)
         :type payload: CreateInstancesPayload
@@ -459,7 +767,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_instances_serialize(
+        _param = self._create_virtual_machine_serialize(
             payload=payload,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -488,7 +796,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def create_instances_without_preload_content(
+    def create_virtual_machine_without_preload_content(
         self,
         payload: CreateInstancesPayload,
         _request_timeout: Union[
@@ -504,8 +812,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Create Instances
+        """Create virtual machine
 
+        Creates one or more virtual machines with the specified custom configuration and features provided in the request body. For more information about the virtual machine features offered by Infrahub, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/virtual-machine-features#create-a-virtual-machine-with-custom-features).
 
         :param payload: (required)
         :type payload: CreateInstancesPayload
@@ -531,7 +840,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_instances_serialize(
+        _param = self._create_virtual_machine_serialize(
             payload=payload,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -555,7 +864,7 @@ class VirtualMachineApi:
         return response_data.response
 
 
-    def _create_instances_serialize(
+    def _create_virtual_machine_serialize(
         self,
         payload,
         _request_auth,
@@ -631,7 +940,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def delete_a_security_rule(
+    def delete_firewall_rule_from_virtual_machine(
         self,
         virtual_machine_id: StrictInt,
         sg_rule_id: StrictInt,
@@ -648,8 +957,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ResponseModel:
-        """Delete a security group rule
+        """Delete firewall rule from virtual machine
 
+        Deletes a firewall rule associated with a virtual machine. Provide the virtual machine ID and the firewall rule ID in the path to remove the specified rule from the specified virtual machine.
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -677,7 +987,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_a_security_rule_serialize(
+        _param = self._delete_firewall_rule_from_virtual_machine_serialize(
             virtual_machine_id=virtual_machine_id,
             sg_rule_id=sg_rule_id,
             _request_auth=_request_auth,
@@ -705,7 +1015,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def delete_a_security_rule_with_http_info(
+    def delete_firewall_rule_from_virtual_machine_with_http_info(
         self,
         virtual_machine_id: StrictInt,
         sg_rule_id: StrictInt,
@@ -722,8 +1032,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ResponseModel]:
-        """Delete a security group rule
+        """Delete firewall rule from virtual machine
 
+        Deletes a firewall rule associated with a virtual machine. Provide the virtual machine ID and the firewall rule ID in the path to remove the specified rule from the specified virtual machine.
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -751,7 +1062,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_a_security_rule_serialize(
+        _param = self._delete_firewall_rule_from_virtual_machine_serialize(
             virtual_machine_id=virtual_machine_id,
             sg_rule_id=sg_rule_id,
             _request_auth=_request_auth,
@@ -779,7 +1090,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def delete_a_security_rule_without_preload_content(
+    def delete_firewall_rule_from_virtual_machine_without_preload_content(
         self,
         virtual_machine_id: StrictInt,
         sg_rule_id: StrictInt,
@@ -796,8 +1107,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Delete a security group rule
+        """Delete firewall rule from virtual machine
 
+        Deletes a firewall rule associated with a virtual machine. Provide the virtual machine ID and the firewall rule ID in the path to remove the specified rule from the specified virtual machine.
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -825,7 +1137,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_a_security_rule_serialize(
+        _param = self._delete_firewall_rule_from_virtual_machine_serialize(
             virtual_machine_id=virtual_machine_id,
             sg_rule_id=sg_rule_id,
             _request_auth=_request_auth,
@@ -848,7 +1160,7 @@ class VirtualMachineApi:
         return response_data.response
 
 
-    def _delete_a_security_rule_serialize(
+    def _delete_firewall_rule_from_virtual_machine_serialize(
         self,
         virtual_machine_id,
         sg_rule_id,
@@ -914,7 +1226,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def delete_an_instance(
+    def delete_virtual_machine(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -930,8 +1242,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ResponseModel:
-        """Delete an instance
+        """Delete virtual machine
 
+        Permanently deletes a virtual machine. Supply the virtual machine ID in the path to delete the specified virtual machine.
 
         :param id: (required)
         :type id: int
@@ -957,7 +1270,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_an_instance_serialize(
+        _param = self._delete_virtual_machine_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -970,6 +1283,7 @@ class VirtualMachineApi:
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
+            '409': "ErrorResponseModel",
             '500': None,
         }
         response_data = self.api_client.call_api(
@@ -984,7 +1298,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def delete_an_instance_with_http_info(
+    def delete_virtual_machine_with_http_info(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -1000,8 +1314,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ResponseModel]:
-        """Delete an instance
+        """Delete virtual machine
 
+        Permanently deletes a virtual machine. Supply the virtual machine ID in the path to delete the specified virtual machine.
 
         :param id: (required)
         :type id: int
@@ -1027,7 +1342,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_an_instance_serialize(
+        _param = self._delete_virtual_machine_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1040,6 +1355,7 @@ class VirtualMachineApi:
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
+            '409': "ErrorResponseModel",
             '500': None,
         }
         response_data = self.api_client.call_api(
@@ -1054,7 +1370,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def delete_an_instance_without_preload_content(
+    def delete_virtual_machine_without_preload_content(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -1070,8 +1386,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Delete an instance
+        """Delete virtual machine
 
+        Permanently deletes a virtual machine. Supply the virtual machine ID in the path to delete the specified virtual machine.
 
         :param id: (required)
         :type id: int
@@ -1097,7 +1414,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_an_instance_serialize(
+        _param = self._delete_virtual_machine_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1110,6 +1427,7 @@ class VirtualMachineApi:
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
+            '409': "ErrorResponseModel",
             '500': None,
         }
         response_data = self.api_client.call_api(
@@ -1119,7 +1437,7 @@ class VirtualMachineApi:
         return response_data.response
 
 
-    def _delete_an_instance_serialize(
+    def _delete_virtual_machine_serialize(
         self,
         id,
         _request_auth,
@@ -1182,9 +1500,10 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def get_an_instance_details(
+    def edit_labels_of_an_existing_vm(
         self,
-        id: StrictInt,
+        virtual_machine_id: StrictInt,
+        payload: EditlabelofanexistingVMPayload,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1197,12 +1516,14 @@ class VirtualMachineApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Instance:
-        """Get an instance details
+    ) -> ResponseModel:
+        """Edit labels of an existing VM
 
 
-        :param id: (required)
-        :type id: int
+        :param virtual_machine_id: (required)
+        :type virtual_machine_id: int
+        :param payload: (required)
+        :type payload: EditlabelofanexistingVMPayload
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1225,8 +1546,9 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_an_instance_details_serialize(
-            id=id,
+        _param = self._edit_labels_of_an_existing_vm_serialize(
+            virtual_machine_id=virtual_machine_id,
+            payload=payload,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1234,10 +1556,11 @@ class VirtualMachineApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Instance",
+            '200': "ResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
+            '409': "ErrorResponseModel",
             '500': None,
         }
         response_data = self.api_client.call_api(
@@ -1252,9 +1575,10 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def get_an_instance_details_with_http_info(
+    def edit_labels_of_an_existing_vm_with_http_info(
         self,
-        id: StrictInt,
+        virtual_machine_id: StrictInt,
+        payload: EditlabelofanexistingVMPayload,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1267,12 +1591,14 @@ class VirtualMachineApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Instance]:
-        """Get an instance details
+    ) -> ApiResponse[ResponseModel]:
+        """Edit labels of an existing VM
 
 
-        :param id: (required)
-        :type id: int
+        :param virtual_machine_id: (required)
+        :type virtual_machine_id: int
+        :param payload: (required)
+        :type payload: EditlabelofanexistingVMPayload
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1295,8 +1621,9 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_an_instance_details_serialize(
-            id=id,
+        _param = self._edit_labels_of_an_existing_vm_serialize(
+            virtual_machine_id=virtual_machine_id,
+            payload=payload,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1304,10 +1631,11 @@ class VirtualMachineApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Instance",
+            '200': "ResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
+            '409': "ErrorResponseModel",
             '500': None,
         }
         response_data = self.api_client.call_api(
@@ -1322,9 +1650,10 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def get_an_instance_details_without_preload_content(
+    def edit_labels_of_an_existing_vm_without_preload_content(
         self,
-        id: StrictInt,
+        virtual_machine_id: StrictInt,
+        payload: EditlabelofanexistingVMPayload,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1338,11 +1667,13 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get an instance details
+        """Edit labels of an existing VM
 
 
-        :param id: (required)
-        :type id: int
+        :param virtual_machine_id: (required)
+        :type virtual_machine_id: int
+        :param payload: (required)
+        :type payload: EditlabelofanexistingVMPayload
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1365,8 +1696,9 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_an_instance_details_serialize(
-            id=id,
+        _param = self._edit_labels_of_an_existing_vm_serialize(
+            virtual_machine_id=virtual_machine_id,
+            payload=payload,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1374,10 +1706,11 @@ class VirtualMachineApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Instance",
+            '200': "ResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
+            '409': "ErrorResponseModel",
             '500': None,
         }
         response_data = self.api_client.call_api(
@@ -1387,9 +1720,10 @@ class VirtualMachineApi:
         return response_data.response
 
 
-    def _get_an_instance_details_serialize(
+    def _edit_labels_of_an_existing_vm_serialize(
         self,
-        id,
+        virtual_machine_id,
+        payload,
         _request_auth,
         _content_type,
         _headers,
@@ -1409,12 +1743,14 @@ class VirtualMachineApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
+        if virtual_machine_id is not None:
+            _path_params['virtual_machine_id'] = virtual_machine_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
+        if payload is not None:
+            _body_params = payload
 
 
         # set the HTTP header `Accept`
@@ -1424,6 +1760,19 @@ class VirtualMachineApi:
             ]
         )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1432,8 +1781,8 @@ class VirtualMachineApi:
         ]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/core/virtual-machines/{id}',
+            method='PUT',
+            resource_path='/core/virtual-machines/{virtual_machine_id}/label',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1450,7 +1799,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def hard_reboot_instance(
+    def hard_reboot_virtual_machine(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -1466,8 +1815,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ResponseModel:
-        """Hard Reboot Instance
+        """Hard reboot virtual machine
 
+        Initiates a hard reboot for a virtual machine, simulating the process of unplugging and rebooting a physical machine. Provide the virtual machine ID in the path to execute a hard reboot for the specified virtual machine.
 
         :param id: (required)
         :type id: int
@@ -1493,7 +1843,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._hard_reboot_instance_serialize(
+        _param = self._hard_reboot_virtual_machine_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1520,7 +1870,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def hard_reboot_instance_with_http_info(
+    def hard_reboot_virtual_machine_with_http_info(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -1536,8 +1886,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ResponseModel]:
-        """Hard Reboot Instance
+        """Hard reboot virtual machine
 
+        Initiates a hard reboot for a virtual machine, simulating the process of unplugging and rebooting a physical machine. Provide the virtual machine ID in the path to execute a hard reboot for the specified virtual machine.
 
         :param id: (required)
         :type id: int
@@ -1563,7 +1914,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._hard_reboot_instance_serialize(
+        _param = self._hard_reboot_virtual_machine_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1590,7 +1941,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def hard_reboot_instance_without_preload_content(
+    def hard_reboot_virtual_machine_without_preload_content(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -1606,8 +1957,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Hard Reboot Instance
+        """Hard reboot virtual machine
 
+        Initiates a hard reboot for a virtual machine, simulating the process of unplugging and rebooting a physical machine. Provide the virtual machine ID in the path to execute a hard reboot for the specified virtual machine.
 
         :param id: (required)
         :type id: int
@@ -1633,7 +1985,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._hard_reboot_instance_serialize(
+        _param = self._hard_reboot_virtual_machine_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1655,7 +2007,7 @@ class VirtualMachineApi:
         return response_data.response
 
 
-    def _hard_reboot_instance_serialize(
+    def _hard_reboot_virtual_machine_serialize(
         self,
         id,
         _request_auth,
@@ -1718,7 +2070,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def hibernate_instance(
+    def hibernate_virtual_machine(
         self,
         virtual_machine_id: StrictInt,
         _request_timeout: Union[
@@ -1734,8 +2086,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ResponseModel:
-        """Hibernate Instance
+        """Hibernate virtual machine
 
+        Initiates the hibernation of a virtual machine, saving its current state to disk before powering off. Provide the virtual machine ID in the path to specify the virtual machine to be hibernated.
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -1761,7 +2114,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._hibernate_instance_serialize(
+        _param = self._hibernate_virtual_machine_serialize(
             virtual_machine_id=virtual_machine_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1788,7 +2141,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def hibernate_instance_with_http_info(
+    def hibernate_virtual_machine_with_http_info(
         self,
         virtual_machine_id: StrictInt,
         _request_timeout: Union[
@@ -1804,8 +2157,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ResponseModel]:
-        """Hibernate Instance
+        """Hibernate virtual machine
 
+        Initiates the hibernation of a virtual machine, saving its current state to disk before powering off. Provide the virtual machine ID in the path to specify the virtual machine to be hibernated.
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -1831,7 +2185,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._hibernate_instance_serialize(
+        _param = self._hibernate_virtual_machine_serialize(
             virtual_machine_id=virtual_machine_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1858,7 +2212,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def hibernate_instance_without_preload_content(
+    def hibernate_virtual_machine_without_preload_content(
         self,
         virtual_machine_id: StrictInt,
         _request_timeout: Union[
@@ -1874,8 +2228,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Hibernate Instance
+        """Hibernate virtual machine
 
+        Initiates the hibernation of a virtual machine, saving its current state to disk before powering off. Provide the virtual machine ID in the path to specify the virtual machine to be hibernated.
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -1901,7 +2256,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._hibernate_instance_serialize(
+        _param = self._hibernate_virtual_machine_serialize(
             virtual_machine_id=virtual_machine_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1923,7 +2278,7 @@ class VirtualMachineApi:
         return response_data.response
 
 
-    def _hibernate_instance_serialize(
+    def _hibernate_virtual_machine_serialize(
         self,
         virtual_machine_id,
         _request_auth,
@@ -1986,7 +2341,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def list_instances(
+    def list_virtual_machines(
         self,
         _request_timeout: Union[
             None,
@@ -2001,8 +2356,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Instances:
-        """List Instances
+        """List all virtual machines
 
+        Returns a list of your existing virtual machines, providing configuration details for each. The list is sorted by creation date, with the oldest virtual machines displayed first.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2026,7 +2382,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_instances_serialize(
+        _param = self._list_virtual_machines_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2051,7 +2407,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def list_instances_with_http_info(
+    def list_virtual_machines_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -2066,8 +2422,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Instances]:
-        """List Instances
+        """List all virtual machines
 
+        Returns a list of your existing virtual machines, providing configuration details for each. The list is sorted by creation date, with the oldest virtual machines displayed first.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2091,7 +2448,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_instances_serialize(
+        _param = self._list_virtual_machines_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2116,7 +2473,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def list_instances_without_preload_content(
+    def list_virtual_machines_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -2131,8 +2488,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """List Instances
+        """List all virtual machines
 
+        Returns a list of your existing virtual machines, providing configuration details for each. The list is sorted by creation date, with the oldest virtual machines displayed first.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2156,7 +2514,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_instances_serialize(
+        _param = self._list_virtual_machines_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2176,7 +2534,7 @@ class VirtualMachineApi:
         return response_data.response
 
 
-    def _list_instances_serialize(
+    def _list_virtual_machines_serialize(
         self,
         _request_auth,
         _content_type,
@@ -2253,8 +2611,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ResponseModel:
-        """Resize Virtual Machine
+        """Resize virtual machine
 
+        Updates the configuration specifications for an existing virtual machine. Include the virtual machine ID in the path and provide the new configuration, referred to as a `flavor`, in the body of the request. For additional information resizing, [**click here**](https://infrahub-doc.nexgencloud.com/docs/hardware/flavors#modify-the-flavor-of-an-existing-virtual-machine).
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -2328,8 +2687,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ResponseModel]:
-        """Resize Virtual Machine
+        """Resize virtual machine
 
+        Updates the configuration specifications for an existing virtual machine. Include the virtual machine ID in the path and provide the new configuration, referred to as a `flavor`, in the body of the request. For additional information resizing, [**click here**](https://infrahub-doc.nexgencloud.com/docs/hardware/flavors#modify-the-flavor-of-an-existing-virtual-machine).
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -2403,8 +2763,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Resize Virtual Machine
+        """Resize virtual machine
 
+        Updates the configuration specifications for an existing virtual machine. Include the virtual machine ID in the path and provide the new configuration, referred to as a `flavor`, in the body of the request. For additional information resizing, [**click here**](https://infrahub-doc.nexgencloud.com/docs/hardware/flavors#modify-the-flavor-of-an-existing-virtual-machine).
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -2535,7 +2896,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def restore_instance_from_hibernation(
+    def restore_virtual_machine_from_hibernation(
         self,
         virtual_machine_id: StrictInt,
         _request_timeout: Union[
@@ -2551,8 +2912,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ResponseModel:
-        """Restore Instance from Hibernation
+        """Restore virtual machine from hibernation
 
+        Resumes a virtual machine from hibernation, bringing it back to an active state. Provide the virtual machine ID in the path to specify the virtual machine to be restored from hibernation.
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -2578,7 +2940,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._restore_instance_from_hibernation_serialize(
+        _param = self._restore_virtual_machine_from_hibernation_serialize(
             virtual_machine_id=virtual_machine_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2605,7 +2967,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def restore_instance_from_hibernation_with_http_info(
+    def restore_virtual_machine_from_hibernation_with_http_info(
         self,
         virtual_machine_id: StrictInt,
         _request_timeout: Union[
@@ -2621,8 +2983,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ResponseModel]:
-        """Restore Instance from Hibernation
+        """Restore virtual machine from hibernation
 
+        Resumes a virtual machine from hibernation, bringing it back to an active state. Provide the virtual machine ID in the path to specify the virtual machine to be restored from hibernation.
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -2648,7 +3011,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._restore_instance_from_hibernation_serialize(
+        _param = self._restore_virtual_machine_from_hibernation_serialize(
             virtual_machine_id=virtual_machine_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2675,7 +3038,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def restore_instance_from_hibernation_without_preload_content(
+    def restore_virtual_machine_from_hibernation_without_preload_content(
         self,
         virtual_machine_id: StrictInt,
         _request_timeout: Union[
@@ -2691,8 +3054,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Restore Instance from Hibernation
+        """Restore virtual machine from hibernation
 
+        Resumes a virtual machine from hibernation, bringing it back to an active state. Provide the virtual machine ID in the path to specify the virtual machine to be restored from hibernation.
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -2718,7 +3082,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._restore_instance_from_hibernation_serialize(
+        _param = self._restore_virtual_machine_from_hibernation_serialize(
             virtual_machine_id=virtual_machine_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2740,7 +3104,7 @@ class VirtualMachineApi:
         return response_data.response
 
 
-    def _restore_instance_from_hibernation_serialize(
+    def _restore_virtual_machine_from_hibernation_serialize(
         self,
         virtual_machine_id,
         _request_auth,
@@ -2803,7 +3167,278 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def retrieved_metrics_successfully(
+    def retrieve_virtual_machine_details(
+        self,
+        id: StrictInt,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> Instance:
+        """Retrieve virtual machine details
+
+        Retrieves the details of an existing virtual machine. Supply the virtual machine ID in the path, and Infrahub will return the corresponding Virtual Machine object.
+
+        :param id: (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._retrieve_virtual_machine_details_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "Instance",
+            '400': "ErrorResponseModel",
+            '401': "ErrorResponseModel",
+            '404': "ErrorResponseModel",
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def retrieve_virtual_machine_details_with_http_info(
+        self,
+        id: StrictInt,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[Instance]:
+        """Retrieve virtual machine details
+
+        Retrieves the details of an existing virtual machine. Supply the virtual machine ID in the path, and Infrahub will return the corresponding Virtual Machine object.
+
+        :param id: (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._retrieve_virtual_machine_details_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "Instance",
+            '400': "ErrorResponseModel",
+            '401': "ErrorResponseModel",
+            '404': "ErrorResponseModel",
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def retrieve_virtual_machine_details_without_preload_content(
+        self,
+        id: StrictInt,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve virtual machine details
+
+        Retrieves the details of an existing virtual machine. Supply the virtual machine ID in the path, and Infrahub will return the corresponding Virtual Machine object.
+
+        :param id: (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._retrieve_virtual_machine_details_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "Instance",
+            '400': "ErrorResponseModel",
+            '401': "ErrorResponseModel",
+            '404': "ErrorResponseModel",
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _retrieve_virtual_machine_details_serialize(
+        self,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'apiKey', 
+            'accessToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/core/virtual-machines/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def retrieve_virtual_machine_performance_metrics(
         self,
         virtual_machine_id: StrictInt,
         duration: Optional[StrictStr] = None,
@@ -2819,9 +3454,10 @@ class VirtualMachineApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ResponseModel:
-        """Get instance metrics
+    ) -> MetricsFields:
+        """Retrieve virtual machine performance metrics
 
+        Retrieves performance metrics data for a virtual machine. Provide the virtual machine ID in the path to retrieve the following data for the specified virtual machine: CPU usage, memory usage (RAM), `network.in`, `network.out`, `disk.read`, and `disk.write`. The optional `duration` parameter can be used to specify the period for retrieving performance metrics; the default value will retrieve all available data. To learn more about virtual machine performance metrics, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/vm-performance-metrics-and-events-history#performance-metrics).
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -2849,7 +3485,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._retrieved_metrics_successfully_serialize(
+        _param = self._retrieve_virtual_machine_performance_metrics_serialize(
             virtual_machine_id=virtual_machine_id,
             duration=duration,
             _request_auth=_request_auth,
@@ -2859,7 +3495,7 @@ class VirtualMachineApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseModel",
+            '200': "MetricsFields",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
@@ -2878,7 +3514,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def retrieved_metrics_successfully_with_http_info(
+    def retrieve_virtual_machine_performance_metrics_with_http_info(
         self,
         virtual_machine_id: StrictInt,
         duration: Optional[StrictStr] = None,
@@ -2894,9 +3530,10 @@ class VirtualMachineApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ResponseModel]:
-        """Get instance metrics
+    ) -> ApiResponse[MetricsFields]:
+        """Retrieve virtual machine performance metrics
 
+        Retrieves performance metrics data for a virtual machine. Provide the virtual machine ID in the path to retrieve the following data for the specified virtual machine: CPU usage, memory usage (RAM), `network.in`, `network.out`, `disk.read`, and `disk.write`. The optional `duration` parameter can be used to specify the period for retrieving performance metrics; the default value will retrieve all available data. To learn more about virtual machine performance metrics, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/vm-performance-metrics-and-events-history#performance-metrics).
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -2924,7 +3561,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._retrieved_metrics_successfully_serialize(
+        _param = self._retrieve_virtual_machine_performance_metrics_serialize(
             virtual_machine_id=virtual_machine_id,
             duration=duration,
             _request_auth=_request_auth,
@@ -2934,7 +3571,7 @@ class VirtualMachineApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseModel",
+            '200': "MetricsFields",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
@@ -2953,7 +3590,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def retrieved_metrics_successfully_without_preload_content(
+    def retrieve_virtual_machine_performance_metrics_without_preload_content(
         self,
         virtual_machine_id: StrictInt,
         duration: Optional[StrictStr] = None,
@@ -2970,8 +3607,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get instance metrics
+        """Retrieve virtual machine performance metrics
 
+        Retrieves performance metrics data for a virtual machine. Provide the virtual machine ID in the path to retrieve the following data for the specified virtual machine: CPU usage, memory usage (RAM), `network.in`, `network.out`, `disk.read`, and `disk.write`. The optional `duration` parameter can be used to specify the period for retrieving performance metrics; the default value will retrieve all available data. To learn more about virtual machine performance metrics, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/vm-performance-metrics-and-events-history#performance-metrics).
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -2999,7 +3637,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._retrieved_metrics_successfully_serialize(
+        _param = self._retrieve_virtual_machine_performance_metrics_serialize(
             virtual_machine_id=virtual_machine_id,
             duration=duration,
             _request_auth=_request_auth,
@@ -3009,7 +3647,7 @@ class VirtualMachineApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseModel",
+            '200': "MetricsFields",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
@@ -3023,7 +3661,7 @@ class VirtualMachineApi:
         return response_data.response
 
 
-    def _retrieved_metrics_successfully_serialize(
+    def _retrieve_virtual_machine_performance_metrics_serialize(
         self,
         virtual_machine_id,
         duration,
@@ -3091,7 +3729,272 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def start_instance(
+    def retrieve_virtual_machines_associated_with_a_contract(
+        self,
+        contract_id: StrictInt,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ContractInstancesResponse:
+        """Retrieve virtual machines associated with a contract
+
+
+        :param contract_id: (required)
+        :type contract_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._retrieve_virtual_machines_associated_with_a_contract_serialize(
+            contract_id=contract_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ContractInstancesResponse",
+            '400': "ErrorResponseModel",
+            '401': "ErrorResponseModel",
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def retrieve_virtual_machines_associated_with_a_contract_with_http_info(
+        self,
+        contract_id: StrictInt,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[ContractInstancesResponse]:
+        """Retrieve virtual machines associated with a contract
+
+
+        :param contract_id: (required)
+        :type contract_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._retrieve_virtual_machines_associated_with_a_contract_serialize(
+            contract_id=contract_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ContractInstancesResponse",
+            '400': "ErrorResponseModel",
+            '401': "ErrorResponseModel",
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def retrieve_virtual_machines_associated_with_a_contract_without_preload_content(
+        self,
+        contract_id: StrictInt,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve virtual machines associated with a contract
+
+
+        :param contract_id: (required)
+        :type contract_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._retrieve_virtual_machines_associated_with_a_contract_serialize(
+            contract_id=contract_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ContractInstancesResponse",
+            '400': "ErrorResponseModel",
+            '401': "ErrorResponseModel",
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _retrieve_virtual_machines_associated_with_a_contract_serialize(
+        self,
+        contract_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if contract_id is not None:
+            _path_params['contract_id'] = contract_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'apiKey', 
+            'accessToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/core/virtual-machines/contract/{contract_id}/virtual-machines',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def start_virtual_machine(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -3107,8 +4010,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ResponseModel:
-        """Start Instance
+        """Start virtual machine
 
+        Initiates the startup of a virtual machine. Supply the virtual machine ID in the path to initiate the starting of the specified virtual machine.
 
         :param id: (required)
         :type id: int
@@ -3134,7 +4038,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_instance_serialize(
+        _param = self._start_virtual_machine_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3161,7 +4065,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def start_instance_with_http_info(
+    def start_virtual_machine_with_http_info(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -3177,8 +4081,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ResponseModel]:
-        """Start Instance
+        """Start virtual machine
 
+        Initiates the startup of a virtual machine. Supply the virtual machine ID in the path to initiate the starting of the specified virtual machine.
 
         :param id: (required)
         :type id: int
@@ -3204,7 +4109,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_instance_serialize(
+        _param = self._start_virtual_machine_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3231,7 +4136,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def start_instance_without_preload_content(
+    def start_virtual_machine_without_preload_content(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -3247,8 +4152,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Start Instance
+        """Start virtual machine
 
+        Initiates the startup of a virtual machine. Supply the virtual machine ID in the path to initiate the starting of the specified virtual machine.
 
         :param id: (required)
         :type id: int
@@ -3274,7 +4180,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_instance_serialize(
+        _param = self._start_virtual_machine_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3296,7 +4202,7 @@ class VirtualMachineApi:
         return response_data.response
 
 
-    def _start_instance_serialize(
+    def _start_virtual_machine_serialize(
         self,
         id,
         _request_auth,
@@ -3359,7 +4265,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def stop_instance(
+    def stop_virtual_machine(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -3375,8 +4281,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ResponseModel:
-        """Stop Instance
+        """Stop virtual machine
 
+        Shuts down a virtual machine. Provide the virtual machine ID in the path to initiate the shutdown process for the specified virtual machine.
 
         :param id: (required)
         :type id: int
@@ -3402,7 +4309,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._stop_instance_serialize(
+        _param = self._stop_virtual_machine_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3429,7 +4336,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def stop_instance_with_http_info(
+    def stop_virtual_machine_with_http_info(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -3445,8 +4352,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ResponseModel]:
-        """Stop Instance
+        """Stop virtual machine
 
+        Shuts down a virtual machine. Provide the virtual machine ID in the path to initiate the shutdown process for the specified virtual machine.
 
         :param id: (required)
         :type id: int
@@ -3472,7 +4380,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._stop_instance_serialize(
+        _param = self._stop_virtual_machine_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3499,7 +4407,7 @@ class VirtualMachineApi:
 
 
     @validate_call
-    def stop_instance_without_preload_content(
+    def stop_virtual_machine_without_preload_content(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -3515,8 +4423,9 @@ class VirtualMachineApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Stop Instance
+        """Stop virtual machine
 
+        Shuts down a virtual machine. Provide the virtual machine ID in the path to initiate the shutdown process for the specified virtual machine.
 
         :param id: (required)
         :type id: int
@@ -3542,7 +4451,7 @@ class VirtualMachineApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._stop_instance_serialize(
+        _param = self._stop_virtual_machine_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3564,7 +4473,7 @@ class VirtualMachineApi:
         return response_data.response
 
 
-    def _stop_instance_serialize(
+    def _stop_virtual_machine_serialize(
         self,
         id,
         _request_auth,

@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of UpdateDiscountsStatusPayload from a JSON string
 update_discounts_status_payload_instance = UpdateDiscountsStatusPayload.from_json(json)
 # print the JSON string representation of the object
-print UpdateDiscountsStatusPayload.to_json()
+print(UpdateDiscountsStatusPayload.to_json())
 
 # convert the object into a dict
 update_discounts_status_payload_dict = update_discounts_status_payload_instance.to_dict()

@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of InstanceResizePayload from a JSON string
 instance_resize_payload_instance = InstanceResizePayload.from_json(json)
 # print the JSON string representation of the object
-print InstanceResizePayload.to_json()
+print(InstanceResizePayload.to_json())
 
 # convert the object into a dict
 instance_resize_payload_dict = instance_resize_payload_instance.to_dict()

@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of Keypairs from a JSON string
 keypairs_instance = Keypairs.from_json(json)
 # print the JSON string representation of the object
-print Keypairs.to_json()
+print(Keypairs.to_json())
 
 # convert the object into a dict
 keypairs_dict = keypairs_instance.to_dict()

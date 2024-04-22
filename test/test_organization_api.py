@@ -40,6 +40,13 @@ class TestOrganizationApi(unittest.TestCase):
         """
         pass
 
+    def test_update_organization_info(self) -> None:
+        """Test case for update_organization_info
+
+        Update organization info
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

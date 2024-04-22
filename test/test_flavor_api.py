@@ -26,10 +26,10 @@ class TestFlavorApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_retrieve_flavors(self) -> None:
-        """Test case for retrieve_flavors
+    def test_list_flavors(self) -> None:
+        """Test case for list_flavors
 
-        Retrieve Flavors
+        List flavors
         """
         pass
 

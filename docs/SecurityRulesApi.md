@@ -4,13 +4,15 @@ All URIs are relative to *https://infrahub-api.nexgencloud.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**retrieve_security_rule_protocols**](SecurityRulesApi.md#retrieve_security_rule_protocols) | **GET** /core/sg-rules-protocols | Retrieve Security Rule Protocols
+[**list_firewall_rule_protocols**](SecurityRulesApi.md#list_firewall_rule_protocols) | **GET** /core/sg-rules-protocols | List firewall rule protocols
 
 
-# **retrieve_security_rule_protocols**
-> SecurityRulesProtocolFields retrieve_security_rule_protocols()
+# **list_firewall_rule_protocols**
+> SecurityRulesProtocolFields list_firewall_rule_protocols()
 
-Retrieve Security Rule Protocols
+List firewall rule protocols
+
+Returns a list of all available protocols that can be used in the creation of firewall rules for your virtual machines.
 
 ### Example
 
@@ -52,12 +54,12 @@ with hyperstack.ApiClient(configuration) as api_client:
     api_instance = hyperstack.SecurityRulesApi(api_client)
 
     try:
-        # Retrieve Security Rule Protocols
-        api_response = api_instance.retrieve_security_rule_protocols()
-        print("The response of SecurityRulesApi->retrieve_security_rule_protocols:\n")
+        # List firewall rule protocols
+        api_response = api_instance.list_firewall_rule_protocols()
+        print("The response of SecurityRulesApi->list_firewall_rule_protocols:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling SecurityRulesApi->retrieve_security_rule_protocols: %s\n" % e)
+        print("Exception when calling SecurityRulesApi->list_firewall_rule_protocols: %s\n" % e)
 ```
 
 
@@ -83,7 +85,7 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Getting security rule protocols successful |  -  |
+**200** | Protocols list successfully retrieved. |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **500** | Internal Server Error |  -  |

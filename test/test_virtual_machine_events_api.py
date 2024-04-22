@@ -26,10 +26,10 @@ class TestVirtualMachineEventsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_fetch_all_of_the_instance_events(self) -> None:
-        """Test case for fetch_all_of_the_instance_events
+    def test_list_virtual_machine_events(self) -> None:
+        """Test case for list_virtual_machine_events
 
-        Fetch all of the instance events
+        List virtual machine events
         """
         pass
 

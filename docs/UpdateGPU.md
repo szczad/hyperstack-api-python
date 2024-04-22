@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
 **regions** | **List[str]** |  | [optional] 
-**example_metadata** | **str** |  | [optional] 
+**example_metadata** | **str** | A valid JSON string. | [optional] 
 
 ## Example
 
@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of UpdateGPU from a JSON string
 update_gpu_instance = UpdateGPU.from_json(json)
 # print the JSON string representation of the object
-print UpdateGPU.to_json()
+print(UpdateGPU.to_json())
 
 # convert the object into a dict
 update_gpu_dict = update_gpu_instance.to_dict()

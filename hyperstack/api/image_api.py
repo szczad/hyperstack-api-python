@@ -40,7 +40,7 @@ class ImageApi:
 
 
     @validate_call
-    def retrieve_images(
+    def list_images(
         self,
         region: Annotated[Optional[Any], Field(description="Region Name")] = None,
         _request_timeout: Union[
@@ -56,8 +56,9 @@ class ImageApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Images:
-        """Retrieve Images
+        """List images
 
+        Returns a list of all available operating system (OS) images, providing details about each image's corresponding virtual machine operating system. Include the optional `region` parameter in the query string of the request to specifically return OS images from the designated region. For more information on OS images, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/images).
 
         :param region: Region Name
         :type region: object
@@ -83,7 +84,7 @@ class ImageApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._retrieve_images_serialize(
+        _param = self._list_images_serialize(
             region=region,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -111,7 +112,7 @@ class ImageApi:
 
 
     @validate_call
-    def retrieve_images_with_http_info(
+    def list_images_with_http_info(
         self,
         region: Annotated[Optional[Any], Field(description="Region Name")] = None,
         _request_timeout: Union[
@@ -127,8 +128,9 @@ class ImageApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Images]:
-        """Retrieve Images
+        """List images
 
+        Returns a list of all available operating system (OS) images, providing details about each image's corresponding virtual machine operating system. Include the optional `region` parameter in the query string of the request to specifically return OS images from the designated region. For more information on OS images, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/images).
 
         :param region: Region Name
         :type region: object
@@ -154,7 +156,7 @@ class ImageApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._retrieve_images_serialize(
+        _param = self._list_images_serialize(
             region=region,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -182,7 +184,7 @@ class ImageApi:
 
 
     @validate_call
-    def retrieve_images_without_preload_content(
+    def list_images_without_preload_content(
         self,
         region: Annotated[Optional[Any], Field(description="Region Name")] = None,
         _request_timeout: Union[
@@ -198,8 +200,9 @@ class ImageApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Retrieve Images
+        """List images
 
+        Returns a list of all available operating system (OS) images, providing details about each image's corresponding virtual machine operating system. Include the optional `region` parameter in the query string of the request to specifically return OS images from the designated region. For more information on OS images, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/images).
 
         :param region: Region Name
         :type region: object
@@ -225,7 +228,7 @@ class ImageApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._retrieve_images_serialize(
+        _param = self._list_images_serialize(
             region=region,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -248,7 +251,7 @@ class ImageApi:
         return response_data.response
 
 
-    def _retrieve_images_serialize(
+    def _list_images_serialize(
         self,
         region,
         _request_auth,

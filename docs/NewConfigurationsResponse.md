@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of NewConfigurationsResponse from a JSON string
 new_configurations_response_instance = NewConfigurationsResponse.from_json(json)
 # print the JSON string representation of the object
-print NewConfigurationsResponse.to_json()
+print(NewConfigurationsResponse.to_json())
 
 # convert the object into a dict
 new_configurations_response_dict = new_configurations_response_instance.to_dict()

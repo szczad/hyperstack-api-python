@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of GPUFields from a JSON string
 gpu_fields_instance = GPUFields.from_json(json)
 # print the JSON string representation of the object
-print GPUFields.to_json()
+print(GPUFields.to_json())
 
 # convert the object into a dict
 gpu_fields_dict = gpu_fields_instance.to_dict()

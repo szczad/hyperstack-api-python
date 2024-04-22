@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of AttachCallbackPayload from a JSON string
 attach_callback_payload_instance = AttachCallbackPayload.from_json(json)
 # print the JSON string representation of the object
-print AttachCallbackPayload.to_json()
+print(AttachCallbackPayload.to_json())
 
 # convert the object into a dict
 attach_callback_payload_dict = attach_callback_payload_instance.to_dict()

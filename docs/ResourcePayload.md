@@ -6,7 +6,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **resource_id** | **int** |  | 
-**discount_percent** | **float** |  | 
+**discount_percent** | **float** |  | [optional] 
+**discount_type** | **str** |  | 
+**discount_amount** | **float** |  | [optional] 
+**resource_count** | **int** |  | [optional] 
 
 ## Example
 
@@ -18,7 +21,7 @@ json = "{}"
 # create an instance of ResourcePayload from a JSON string
 resource_payload_instance = ResourcePayload.from_json(json)
 # print the JSON string representation of the object
-print ResourcePayload.to_json()
+print(ResourcePayload.to_json())
 
 # convert the object into a dict
 resource_payload_dict = resource_payload_instance.to_dict()

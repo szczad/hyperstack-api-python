@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
-**environment_name** | **str** |  | 
-**public_key** | **str** |  | 
+**name** | **str** | The name of the key pair that is being created. | 
+**environment_name** | **str** | The name of the environment where the key pair is being created. | 
+**public_key** | **str** | The public key that is being used to import an SSH key pair. | 
 
 ## Example
 
@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of ImportKeypairPayload from a JSON string
 import_keypair_payload_instance = ImportKeypairPayload.from_json(json)
 # print the JSON string representation of the object
-print ImportKeypairPayload.to_json()
+print(ImportKeypairPayload.to_json())
 
 # convert the object into a dict
 import_keypair_payload_dict = import_keypair_payload_instance.to_dict()

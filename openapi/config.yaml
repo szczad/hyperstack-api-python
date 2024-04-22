@@ -3,4 +3,4 @@ inputSpec: /local/openapi/api.json
 outputDir: /local/
 additionalProperties:
   packageName: hyperstack
-  packageVersion: 1.0.0
+  packageVersion: 1.1.0

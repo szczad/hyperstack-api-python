@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of PolicyPermissionFields from a JSON string
 policy_permission_fields_instance = PolicyPermissionFields.from_json(json)
 # print the JSON string representation of the object
-print PolicyPermissionFields.to_json()
+print(PolicyPermissionFields.to_json())
 
 # convert the object into a dict
 policy_permission_fields_dict = policy_permission_fields_instance.to_dict()

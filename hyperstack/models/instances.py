@@ -17,9 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from hyperstack.models.instance_admin_fields import InstanceAdminFields
+from hyperstack.models.instance_fields import InstanceFields
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,15 +29,14 @@ class Instances(BaseModel):
     """ # noqa: E501
     status: Optional[StrictBool] = None
     message: Optional[StrictStr] = None
-    instances: Optional[List[InstanceAdminFields]] = None
-    instance_count: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["status", "message", "instances", "instance_count"]
+    instances: Optional[List[InstanceFields]] = None
+    __properties: ClassVar[List[str]] = ["status", "message", "instances"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -93,8 +92,7 @@ class Instances(BaseModel):
         _obj = cls.model_validate({
             "status": obj.get("status"),
             "message": obj.get("message"),
-            "instances": [InstanceAdminFields.from_dict(_item) for _item in obj["instances"]] if obj.get("instances") is not None else None,
-            "instance_count": obj.get("instance_count")
+            "instances": [InstanceFields.from_dict(_item) for _item in obj["instances"]] if obj.get("instances") is not None else None
         })
         return _obj
 

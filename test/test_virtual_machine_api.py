@@ -26,94 +26,115 @@ class TestVirtualMachineApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_add_security_rule(self) -> None:
-        """Test case for add_security_rule
+    def test_add_firewall_rule_to_virtual_machine(self) -> None:
+        """Test case for add_firewall_rule_to_virtual_machine
 
-        Add Security Rule
+        Add firewall rule to virtual machine
         """
         pass
 
-    def test_create_instances(self) -> None:
-        """Test case for create_instances
+    def test_attach_firewalls_to_a_vm(self) -> None:
+        """Test case for attach_firewalls_to_a_vm
 
-        Create Instances
+        Attach Firewalls to a VM
         """
         pass
 
-    def test_delete_a_security_rule(self) -> None:
-        """Test case for delete_a_security_rule
+    def test_create_virtual_machine(self) -> None:
+        """Test case for create_virtual_machine
 
-        Delete a security group rule
+        Create virtual machine
         """
         pass
 
-    def test_delete_an_instance(self) -> None:
-        """Test case for delete_an_instance
+    def test_delete_firewall_rule_from_virtual_machine(self) -> None:
+        """Test case for delete_firewall_rule_from_virtual_machine
 
-        Delete an instance
+        Delete firewall rule from virtual machine
         """
         pass
 
-    def test_get_an_instance_details(self) -> None:
-        """Test case for get_an_instance_details
+    def test_delete_virtual_machine(self) -> None:
+        """Test case for delete_virtual_machine
 
-        Get an instance details
+        Delete virtual machine
         """
         pass
 
-    def test_hard_reboot_instance(self) -> None:
-        """Test case for hard_reboot_instance
+    def test_edit_labels_of_an_existing_vm(self) -> None:
+        """Test case for edit_labels_of_an_existing_vm
 
-        Hard Reboot Instance
+        Edit labels of an existing VM
         """
         pass
 
-    def test_hibernate_instance(self) -> None:
-        """Test case for hibernate_instance
+    def test_hard_reboot_virtual_machine(self) -> None:
+        """Test case for hard_reboot_virtual_machine
 
-        Hibernate Instance
+        Hard reboot virtual machine
         """
         pass
 
-    def test_list_instances(self) -> None:
-        """Test case for list_instances
+    def test_hibernate_virtual_machine(self) -> None:
+        """Test case for hibernate_virtual_machine
 
-        List Instances
+        Hibernate virtual machine
+        """
+        pass
+
+    def test_list_virtual_machines(self) -> None:
+        """Test case for list_virtual_machines
+
+        List all virtual machines
         """
         pass
 
     def test_resize_virtual_machine(self) -> None:
         """Test case for resize_virtual_machine
 
-        Resize Virtual Machine
+        Resize virtual machine
         """
         pass
 
-    def test_restore_instance_from_hibernation(self) -> None:
-        """Test case for restore_instance_from_hibernation
+    def test_restore_virtual_machine_from_hibernation(self) -> None:
+        """Test case for restore_virtual_machine_from_hibernation
 
-        Restore Instance from Hibernation
+        Restore virtual machine from hibernation
         """
         pass
 
-    def test_retrieved_metrics_successfully(self) -> None:
-        """Test case for retrieved_metrics_successfully
+    def test_retrieve_virtual_machine_details(self) -> None:
+        """Test case for retrieve_virtual_machine_details
 
-        Get instance metrics
+        Retrieve virtual machine details
         """
         pass
 
-    def test_start_instance(self) -> None:
-        """Test case for start_instance
+    def test_retrieve_virtual_machine_performance_metrics(self) -> None:
+        """Test case for retrieve_virtual_machine_performance_metrics
 
-        Start Instance
+        Retrieve virtual machine performance metrics
         """
         pass
 
-    def test_stop_instance(self) -> None:
-        """Test case for stop_instance
+    def test_retrieve_virtual_machines_associated_with_a_contract(self) -> None:
+        """Test case for retrieve_virtual_machines_associated_with_a_contract
 
-        Stop Instance
+        Retrieve virtual machines associated with a contract
+        """
+        pass
+
+    def test_start_virtual_machine(self) -> None:
+        """Test case for start_virtual_machine
+
+        Start virtual machine
+        """
+        pass
+
+    def test_stop_virtual_machine(self) -> None:
+        """Test case for stop_virtual_machine
+
+        Stop virtual machine
         """
         pass
 

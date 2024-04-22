@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of InternalInstanceImageFields from a JSON string
 internal_instance_image_fields_instance = InternalInstanceImageFields.from_json(json)
 # print the JSON string representation of the object
-print InternalInstanceImageFields.to_json()
+print(InternalInstanceImageFields.to_json())
 
 # convert the object into a dict
 internal_instance_image_fields_dict = internal_instance_image_fields_instance.to_dict()

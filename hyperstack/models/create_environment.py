@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,15 +27,15 @@ class CreateEnvironment(BaseModel):
     """
     CreateEnvironment
     """ # noqa: E501
-    name: StrictStr
-    region: StrictStr
+    name: Annotated[str, Field(strict=True, max_length=50)] = Field(description="The name of the environment being created.")
+    region: StrictStr = Field(description="The geographic location of the data center where the environment is being created. To learn more about regions, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/regions).")
     __properties: ClassVar[List[str]] = ["name", "region"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

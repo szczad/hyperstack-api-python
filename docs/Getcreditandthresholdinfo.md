@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of Getcreditandthresholdinfo from a JSON string
 getcreditandthresholdinfo_instance = Getcreditandthresholdinfo.from_json(json)
 # print the JSON string representation of the object
-print Getcreditandthresholdinfo.to_json()
+print(Getcreditandthresholdinfo.to_json())
 
 # convert the object into a dict
 getcreditandthresholdinfo_dict = getcreditandthresholdinfo_instance.to_dict()

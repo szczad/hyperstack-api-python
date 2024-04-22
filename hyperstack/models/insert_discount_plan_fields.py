@@ -18,8 +18,9 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from hyperstack.models.customer_fields import CustomerFields
 from hyperstack.models.discount_resource_fields import DiscountResourceFields
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,19 +29,18 @@ class InsertDiscountPlanFields(BaseModel):
     """
     InsertDiscountPlanFields
     """ # noqa: E501
-    org_id: Optional[StrictInt] = None
-    org_name: Optional[StrictStr] = None
+    customers: Optional[List[CustomerFields]] = None
     discount_resources: Optional[List[DiscountResourceFields]] = None
     start_date: Optional[datetime] = None
     end_date: Optional[datetime] = None
     discount_status: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["org_id", "org_name", "discount_resources", "start_date", "end_date", "discount_status"]
+    __properties: ClassVar[List[str]] = ["customers", "discount_resources", "start_date", "end_date", "discount_status"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -75,6 +75,13 @@ class InsertDiscountPlanFields(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in customers (list)
+        _items = []
+        if self.customers:
+            for _item in self.customers:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['customers'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in discount_resources (list)
         _items = []
         if self.discount_resources:
@@ -94,8 +101,7 @@ class InsertDiscountPlanFields(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "org_id": obj.get("org_id"),
-            "org_name": obj.get("org_name"),
+            "customers": [CustomerFields.from_dict(_item) for _item in obj["customers"]] if obj.get("customers") is not None else None,
             "discount_resources": [DiscountResourceFields.from_dict(_item) for _item in obj["discount_resources"]] if obj.get("discount_resources") is not None else None,
             "start_date": obj.get("start_date"),
             "end_date": obj.get("end_date"),

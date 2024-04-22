@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of NodePayloadModel from a JSON string
 node_payload_model_instance = NodePayloadModel.from_json(json)
 # print the JSON string representation of the object
-print NodePayloadModel.to_json()
+print(NodePayloadModel.to_json())
 
 # convert the object into a dict
 node_payload_model_dict = node_payload_model_instance.to_dict()

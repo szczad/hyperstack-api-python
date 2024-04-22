@@ -4,13 +4,15 @@ All URIs are relative to *https://infrahub-api.nexgencloud.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**fetch_all_of_the_instance_events**](VirtualMachineEventsApi.md#fetch_all_of_the_instance_events) | **GET** /core/virtual-machines/{virtual_machine_id}/events | Fetch all of the instance events
+[**list_virtual_machine_events**](VirtualMachineEventsApi.md#list_virtual_machine_events) | **GET** /core/virtual-machines/{virtual_machine_id}/events | List virtual machine events
 
 
-# **fetch_all_of_the_instance_events**
-> InstanceEvents fetch_all_of_the_instance_events(virtual_machine_id)
+# **list_virtual_machine_events**
+> InstanceEvents list_virtual_machine_events(virtual_machine_id)
 
-Fetch all of the instance events
+List virtual machine events
+
+Retrieves a list of all events in a virtual machine's history, which records actions performed on the specified virtual machine. Include the virtual machine ID in the path to retrieve the history of events. For more details on virtual machine events history, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/vm-performance-metrics-and-events-history#events-history).
 
 ### Example
 
@@ -53,12 +55,12 @@ with hyperstack.ApiClient(configuration) as api_client:
     virtual_machine_id = 'virtual_machine_id_example' # str | 
 
     try:
-        # Fetch all of the instance events
-        api_response = api_instance.fetch_all_of_the_instance_events(virtual_machine_id)
-        print("The response of VirtualMachineEventsApi->fetch_all_of_the_instance_events:\n")
+        # List virtual machine events
+        api_response = api_instance.list_virtual_machine_events(virtual_machine_id)
+        print("The response of VirtualMachineEventsApi->list_virtual_machine_events:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling VirtualMachineEventsApi->fetch_all_of_the_instance_events: %s\n" % e)
+        print("Exception when calling VirtualMachineEventsApi->list_virtual_machine_events: %s\n" % e)
 ```
 
 
@@ -87,7 +89,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Getting instance events success |  -  |
+**200** | Virtual machines event list successfully retrieved. |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |

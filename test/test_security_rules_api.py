@@ -26,10 +26,10 @@ class TestSecurityRulesApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_retrieve_security_rule_protocols(self) -> None:
-        """Test case for retrieve_security_rule_protocols
+    def test_list_firewall_rule_protocols(self) -> None:
+        """Test case for list_firewall_rule_protocols
 
-        Retrieve Security Rule Protocols
+        List firewall rule protocols
         """
         pass
 

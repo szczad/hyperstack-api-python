@@ -39,7 +39,7 @@ class TestCreateGPU(unittest.TestCase):
                 regions = [
                     ''
                     ],
-                example_metadata = ''
+                example_metadata = '{"key": "value"}'
             )
         else:
             return CreateGPU(

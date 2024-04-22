@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of Adminrechargehistoryfields from a JSON string
 adminrechargehistoryfields_instance = Adminrechargehistoryfields.from_json(json)
 # print the JSON string representation of the object
-print Adminrechargehistoryfields.to_json()
+print(Adminrechargehistoryfields.to_json())
 
 # convert the object into a dict
 adminrechargehistoryfields_dict = adminrechargehistoryfields_instance.to_dict()

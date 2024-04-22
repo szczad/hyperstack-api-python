@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **list_policies**
-> Policies list_policies()
+> GetPoliciesResponseModel list_policies()
 
 List Policies
 
@@ -19,7 +19,7 @@ List Policies
 
 ```python
 import hyperstack
-from hyperstack.models.policies import Policies
+from hyperstack.models.get_policies_response_model import GetPoliciesResponseModel
 from hyperstack.rest import ApiException
 from pprint import pprint
 
@@ -68,7 +68,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Policies**](Policies.md)
+[**GetPoliciesResponseModel**](GetPoliciesResponseModel.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Getting policies success |  -  |
+**200** | Success |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **500** | Internal Server Error |  -  |

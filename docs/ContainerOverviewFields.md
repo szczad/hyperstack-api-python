@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of ContainerOverviewFields from a JSON string
 container_overview_fields_instance = ContainerOverviewFields.from_json(json)
 # print the JSON string representation of the object
-print ContainerOverviewFields.to_json()
+print(ContainerOverviewFields.to_json())
 
 # convert the object into a dict
 container_overview_fields_dict = container_overview_fields_instance.to_dict()

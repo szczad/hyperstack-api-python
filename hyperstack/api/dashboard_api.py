@@ -37,7 +37,7 @@ class DashboardApi:
 
 
     @validate_call
-    def get_instances_containers_and_volumes_overview(
+    def retrieve_dashboard(
         self,
         _request_timeout: Union[
             None,
@@ -52,8 +52,9 @@ class DashboardApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> DashboardInfoResponse:
-        """Get Instances, Containers and Volumes Overview
+        """Retrieve Dashboard
 
+        Returns hardware and pricing overview for your active resources, including virtual machines, containers, and volumes. For additional information on the Dashboard feature, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/dashboard).
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -77,7 +78,7 @@ class DashboardApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_instances_containers_and_volumes_overview_serialize(
+        _param = self._retrieve_dashboard_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -102,7 +103,7 @@ class DashboardApi:
 
 
     @validate_call
-    def get_instances_containers_and_volumes_overview_with_http_info(
+    def retrieve_dashboard_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -117,8 +118,9 @@ class DashboardApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[DashboardInfoResponse]:
-        """Get Instances, Containers and Volumes Overview
+        """Retrieve Dashboard
 
+        Returns hardware and pricing overview for your active resources, including virtual machines, containers, and volumes. For additional information on the Dashboard feature, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/dashboard).
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -142,7 +144,7 @@ class DashboardApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_instances_containers_and_volumes_overview_serialize(
+        _param = self._retrieve_dashboard_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -167,7 +169,7 @@ class DashboardApi:
 
 
     @validate_call
-    def get_instances_containers_and_volumes_overview_without_preload_content(
+    def retrieve_dashboard_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -182,8 +184,9 @@ class DashboardApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get Instances, Containers and Volumes Overview
+        """Retrieve Dashboard
 
+        Returns hardware and pricing overview for your active resources, including virtual machines, containers, and volumes. For additional information on the Dashboard feature, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/dashboard).
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -207,7 +210,7 @@ class DashboardApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_instances_containers_and_volumes_overview_serialize(
+        _param = self._retrieve_dashboard_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -227,7 +230,7 @@ class DashboardApi:
         return response_data.response
 
 
-    def _get_instances_containers_and_volumes_overview_serialize(
+    def _retrieve_dashboard_serialize(
         self,
         _request_auth,
         _content_type,

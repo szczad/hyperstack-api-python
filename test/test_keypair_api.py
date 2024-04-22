@@ -26,31 +26,31 @@ class TestKeypairApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_delete_keypair(self) -> None:
-        """Test case for delete_keypair
+    def test_delete_key_pair(self) -> None:
+        """Test case for delete_key_pair
 
-        Delete Keypair
+        Delete key pair
         """
         pass
 
-    def test_import_keypair(self) -> None:
-        """Test case for import_keypair
+    def test_import_key_pair(self) -> None:
+        """Test case for import_key_pair
 
-        Import Keypair
+        Import key pair
         """
         pass
 
-    def test_retrieve_user_keypairs(self) -> None:
-        """Test case for retrieve_user_keypairs
+    def test_list_key_pairs(self) -> None:
+        """Test case for list_key_pairs
 
-        Retrieve Keypairs
+        List key pairs
         """
         pass
 
-    def test_update_keypair_name(self) -> None:
-        """Test case for update_keypair_name
+    def test_update_key_pair_name(self) -> None:
+        """Test case for update_key_pair_name
 
-        Update Keypair name
+        Update key pair name
         """
         pass
 

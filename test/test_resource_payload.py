@@ -36,12 +36,15 @@ class TestResourcePayload(unittest.TestCase):
         if include_optional:
             return ResourcePayload(
                 resource_id = 56,
-                discount_percent = 1.337
+                discount_percent = 1.337,
+                discount_type = '',
+                discount_amount = 1.337,
+                resource_count = 56
             )
         else:
             return ResourcePayload(
                 resource_id = 56,
-                discount_percent = 1.337,
+                discount_type = '',
         )
         """
 

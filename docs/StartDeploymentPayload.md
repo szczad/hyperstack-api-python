@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of StartDeploymentPayload from a JSON string
 start_deployment_payload_instance = StartDeploymentPayload.from_json(json)
 # print the JSON string representation of the object
-print StartDeploymentPayload.to_json()
+print(StartDeploymentPayload.to_json())
 
 # convert the object into a dict
 start_deployment_payload_dict = start_deployment_payload_instance.to_dict()

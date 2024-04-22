@@ -26,17 +26,17 @@ class TestFloatingIpApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_attach_floating_ip_to_instance(self) -> None:
-        """Test case for attach_floating_ip_to_instance
+    def test_attach_public_ip_to_virtual_machine(self) -> None:
+        """Test case for attach_public_ip_to_virtual_machine
 
-        Attach Floating IP to Instance
+        Attach public IP to virtual machine
         """
         pass
 
-    def test_detach_floating_ip_to_instance(self) -> None:
-        """Test case for detach_floating_ip_to_instance
+    def test_detach_public_ip_from_virtual_machine(self) -> None:
+        """Test case for detach_public_ip_from_virtual_machine
 
-        Detach Floating IP to Instance
+        Detach public IP from virtual machine
         """
         pass
 

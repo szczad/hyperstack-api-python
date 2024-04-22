@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of VolumeTypes from a JSON string
 volume_types_instance = VolumeTypes.from_json(json)
 # print the JSON string representation of the object
-print VolumeTypes.to_json()
+print(VolumeTypes.to_json())
 
 # convert the object into a dict
 volume_types_dict = volume_types_instance.to_dict()

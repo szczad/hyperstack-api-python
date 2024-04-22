@@ -23,7 +23,7 @@ json = "{}"
 # create an instance of ComplianceModelFields from a JSON string
 compliance_model_fields_instance = ComplianceModelFields.from_json(json)
 # print the JSON string representation of the object
-print ComplianceModelFields.to_json()
+print(ComplianceModelFields.to_json())
 
 # convert the object into a dict
 compliance_model_fields_dict = compliance_model_fields_instance.to_dict()

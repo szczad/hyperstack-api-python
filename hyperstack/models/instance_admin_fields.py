@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from hyperstack.models.instance_environment_fields import InstanceEnvironmentFields
 from hyperstack.models.instance_flavor_fields import InstanceFlavorFields
@@ -39,6 +39,7 @@ class InstanceAdminFields(BaseModel):
     environment: Optional[InstanceEnvironmentFields] = None
     image: Optional[InstanceImageFields] = None
     flavor: Optional[InstanceFlavorFields] = None
+    os: Optional[StrictStr] = None
     keypair: Optional[InstanceKeypairFields] = None
     volume_attachments: Optional[List[VolumeAttachmentFields]] = None
     security_rules: Optional[List[SecurityRulesFieldsforInstance]] = None
@@ -47,15 +48,19 @@ class InstanceAdminFields(BaseModel):
     fixed_ip: Optional[StrictStr] = None
     floating_ip: Optional[StrictStr] = None
     floating_ip_status: Optional[StrictStr] = None
+    locked: Optional[StrictBool] = None
+    contract_id: Optional[StrictInt] = None
     created_at: Optional[datetime] = None
+    labels: Optional[List[StrictStr]] = None
     openstack_id: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["id", "name", "status", "environment", "image", "flavor", "keypair", "volume_attachments", "security_rules", "power_state", "vm_state", "fixed_ip", "floating_ip", "floating_ip_status", "created_at", "openstack_id"]
+    host: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["id", "name", "status", "environment", "image", "flavor", "os", "keypair", "volume_attachments", "security_rules", "power_state", "vm_state", "fixed_ip", "floating_ip", "floating_ip_status", "locked", "contract_id", "created_at", "labels", "openstack_id", "host"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -134,6 +139,7 @@ class InstanceAdminFields(BaseModel):
             "environment": InstanceEnvironmentFields.from_dict(obj["environment"]) if obj.get("environment") is not None else None,
             "image": InstanceImageFields.from_dict(obj["image"]) if obj.get("image") is not None else None,
             "flavor": InstanceFlavorFields.from_dict(obj["flavor"]) if obj.get("flavor") is not None else None,
+            "os": obj.get("os"),
             "keypair": InstanceKeypairFields.from_dict(obj["keypair"]) if obj.get("keypair") is not None else None,
             "volume_attachments": [VolumeAttachmentFields.from_dict(_item) for _item in obj["volume_attachments"]] if obj.get("volume_attachments") is not None else None,
             "security_rules": [SecurityRulesFieldsforInstance.from_dict(_item) for _item in obj["security_rules"]] if obj.get("security_rules") is not None else None,
@@ -142,8 +148,12 @@ class InstanceAdminFields(BaseModel):
             "fixed_ip": obj.get("fixed_ip"),
             "floating_ip": obj.get("floating_ip"),
             "floating_ip_status": obj.get("floating_ip_status"),
+            "locked": obj.get("locked"),
+            "contract_id": obj.get("contract_id"),
             "created_at": obj.get("created_at"),
-            "openstack_id": obj.get("openstack_id")
+            "labels": obj.get("labels"),
+            "openstack_id": obj.get("openstack_id"),
+            "host": obj.get("host")
         })
         return _obj
 

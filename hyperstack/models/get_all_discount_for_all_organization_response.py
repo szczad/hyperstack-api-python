@@ -17,9 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from hyperstack.models.insert_discount_plan_fields import InsertDiscountPlanFields
+from hyperstack.models.get_all_discounts_fields import GetAllDiscountsFields
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,14 +29,14 @@ class GetAllDiscountForAllOrganizationResponse(BaseModel):
     """ # noqa: E501
     status: Optional[StrictBool] = None
     message: Optional[StrictStr] = None
-    discount_plans: Optional[List[InsertDiscountPlanFields]] = None
+    discount_plans: Optional[List[GetAllDiscountsFields]] = None
     __properties: ClassVar[List[str]] = ["status", "message", "discount_plans"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -92,7 +92,7 @@ class GetAllDiscountForAllOrganizationResponse(BaseModel):
         _obj = cls.model_validate({
             "status": obj.get("status"),
             "message": obj.get("message"),
-            "discount_plans": [InsertDiscountPlanFields.from_dict(_item) for _item in obj["discount_plans"]] if obj.get("discount_plans") is not None else None
+            "discount_plans": [GetAllDiscountsFields.from_dict(_item) for _item in obj["discount_plans"]] if obj.get("discount_plans") is not None else None
         })
         return _obj
 

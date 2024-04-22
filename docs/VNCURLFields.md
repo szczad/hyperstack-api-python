@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of VNCURLFields from a JSON string
 vncurl_fields_instance = VNCURLFields.from_json(json)
 # print the JSON string representation of the object
-print VNCURLFields.to_json()
+print(VNCURLFields.to_json())
 
 # convert the object into a dict
 vncurl_fields_dict = vncurl_fields_instance.to_dict()

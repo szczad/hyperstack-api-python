@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of SingleVisibilityUserResponse from a JSON string
 single_visibility_user_response_instance = SingleVisibilityUserResponse.from_json(json)
 # print the JSON string representation of the object
-print SingleVisibilityUserResponse.to_json()
+print(SingleVisibilityUserResponse.to_json())
 
 # convert the object into a dict
 single_visibility_user_response_dict = single_visibility_user_response_instance.to_dict()

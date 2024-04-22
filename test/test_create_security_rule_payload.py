@@ -36,14 +36,14 @@ class TestCreateSecurityRulePayload(unittest.TestCase):
         if include_optional:
             return CreateSecurityRulePayload(
                 direction = '',
-                protocol = '',
+                protocol = 'any',
                 ethertype = '',
                 remote_ip_prefix = ''
             )
         else:
             return CreateSecurityRulePayload(
                 direction = '',
-                protocol = '',
+                protocol = 'any',
                 ethertype = '',
                 remote_ip_prefix = '',
         )

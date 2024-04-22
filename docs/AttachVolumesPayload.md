@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of AttachVolumesPayload from a JSON string
 attach_volumes_payload_instance = AttachVolumesPayload.from_json(json)
 # print the JSON string representation of the object
-print AttachVolumesPayload.to_json()
+print(AttachVolumesPayload.to_json())
 
 # convert the object into a dict
 attach_volumes_payload_dict = attach_volumes_payload_instance.to_dict()

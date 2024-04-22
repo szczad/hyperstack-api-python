@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of FutureNodesStockModel from a JSON string
 future_nodes_stock_model_instance = FutureNodesStockModel.from_json(json)
 # print the JSON string representation of the object
-print FutureNodesStockModel.to_json()
+print(FutureNodesStockModel.to_json())
 
 # convert the object into a dict
 future_nodes_stock_model_dict = future_nodes_stock_model_instance.to_dict()

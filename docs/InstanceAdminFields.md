@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **environment** | [**InstanceEnvironmentFields**](InstanceEnvironmentFields.md) |  | [optional] 
 **image** | [**InstanceImageFields**](InstanceImageFields.md) |  | [optional] 
 **flavor** | [**InstanceFlavorFields**](InstanceFlavorFields.md) |  | [optional] 
+**os** | **str** |  | [optional] 
 **keypair** | [**InstanceKeypairFields**](InstanceKeypairFields.md) |  | [optional] 
 **volume_attachments** | [**List[VolumeAttachmentFields]**](VolumeAttachmentFields.md) |  | [optional] 
 **security_rules** | [**List[SecurityRulesFieldsforInstance]**](SecurityRulesFieldsforInstance.md) |  | [optional] 
@@ -19,8 +20,12 @@ Name | Type | Description | Notes
 **fixed_ip** | **str** |  | [optional] 
 **floating_ip** | **str** |  | [optional] 
 **floating_ip_status** | **str** |  | [optional] 
+**locked** | **bool** |  | [optional] 
+**contract_id** | **int** |  | [optional] 
 **created_at** | **datetime** |  | [optional] 
+**labels** | **List[str]** |  | [optional] 
 **openstack_id** | **str** |  | [optional] 
+**host** | **str** |  | [optional] 
 
 ## Example
 
@@ -32,7 +37,7 @@ json = "{}"
 # create an instance of InstanceAdminFields from a JSON string
 instance_admin_fields_instance = InstanceAdminFields.from_json(json)
 # print the JSON string representation of the object
-print InstanceAdminFields.to_json()
+print(InstanceAdminFields.to_json())
 
 # convert the object into a dict
 instance_admin_fields_dict = instance_admin_fields_instance.to_dict()

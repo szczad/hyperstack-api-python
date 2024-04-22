@@ -37,11 +37,12 @@ class TestInstance(unittest.TestCase):
             return Instance(
                 status = True,
                 message = '',
-                instance = hyperstack.models.instance_admin_fields.InstanceAdminFields(
+                instance = hyperstack.models.instance_fields.InstanceFields(
                     id = 56, 
                     name = '', 
                     status = '', 
                     environment = hyperstack.models.instance_environment_fields.InstanceEnvironmentFields(
+                        id = 56, 
                         name = '', 
                         org_id = 56, 
                         region = '', ), 
@@ -53,8 +54,10 @@ class TestInstance(unittest.TestCase):
                         cpu = 56, 
                         ram = 1.337, 
                         disk = 56, 
+                        ephemeral = 56, 
                         gpu = '', 
                         gpu_count = 56, ), 
+                    os = '', 
                     keypair = hyperstack.models.instance_keypair_fields.InstanceKeypairFields(
                         name = '', ), 
                     volume_attachments = [
@@ -86,8 +89,12 @@ class TestInstance(unittest.TestCase):
                     fixed_ip = '', 
                     floating_ip = '', 
                     floating_ip_status = '', 
+                    locked = True, 
+                    contract_id = 56, 
                     created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                    openstack_id = '', )
+                    labels = [
+                        ''
+                        ], )
             )
         else:
             return Instance(
