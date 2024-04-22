@@ -1,0 +1,6 @@
+generatorName: python
+inputSpec: /local/openapi/api.json
+outputDir: /local/
+additionalProperties:
+  packageName: hyperstack
+  packageVersion: 1.0.0

@@ -10,4 +10,5 @@
 walk(if type == "object" then with_entries( if .key == "$ref" then .value |= gsub(" |%20"; "") else . end) else . end) |
 
 # Remove duplicate tags
-.tags |= (map(.key = .name | .value = .description) | from_entries | to_entries | map(.name = .key | .description = .value | del(.key, .value)))
+.tags |= (map(.key = .name | .value = .description) | from_entries | to_entries | map(.name = .key | .description = .value | del(.key, .value))) |
+.
