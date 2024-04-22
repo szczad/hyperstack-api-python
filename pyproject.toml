@@ -5,7 +5,7 @@ description = "Infrahub-API"
 authors = ["OpenAPI Generator Community <team@openapitools.org>"]
 license = "NoLicense"
 readme = "README.md"
-repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
+repository = "https://github.com/szczad/hyperstack-api-python"
 keywords = ["OpenAPI", "OpenAPI-Generator", "Infrahub-API"]
 include = ["hyperstack/py.typed"]
 
