@@ -23,7 +23,7 @@ json = "{}"
 # create an instance of DeploymentFieldsforstartdeployments from a JSON string
 deployment_fieldsforstartdeployments_instance = DeploymentFieldsforstartdeployments.from_json(json)
 # print the JSON string representation of the object
-print DeploymentFieldsforstartdeployments.to_json()
+print(DeploymentFieldsforstartdeployments.to_json())
 
 # convert the object into a dict
 deployment_fieldsforstartdeployments_dict = deployment_fieldsforstartdeployments_instance.to_dict()

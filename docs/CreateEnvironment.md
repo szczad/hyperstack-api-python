@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
-**region** | **str** |  | 
+**name** | **str** | The name of the environment being created. | 
+**region** | **str** | The geographic location of the data center where the environment is being created. To learn more about regions, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/regions). | 
 
 ## Example
 
@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of CreateEnvironment from a JSON string
 create_environment_instance = CreateEnvironment.from_json(json)
 # print the JSON string representation of the object
-print CreateEnvironment.to_json()
+print(CreateEnvironment.to_json())
 
 # convert the object into a dict
 create_environment_dict = create_environment_instance.to_dict()

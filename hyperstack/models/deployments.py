@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from hyperstack.models.deployment_fields import DeploymentFields
 from typing import Optional, Set
@@ -32,11 +32,11 @@ class Deployments(BaseModel):
     deployments: Optional[List[DeploymentFields]] = None
     __properties: ClassVar[List[str]] = ["status", "message", "deployments"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

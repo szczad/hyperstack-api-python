@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of Admincreditpostpayload from a JSON string
 admincreditpostpayload_instance = Admincreditpostpayload.from_json(json)
 # print the JSON string representation of the object
-print Admincreditpostpayload.to_json()
+print(Admincreditpostpayload.to_json())
 
 # convert the object into a dict
 admincreditpostpayload_dict = admincreditpostpayload_instance.to_dict()

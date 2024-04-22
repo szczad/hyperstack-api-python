@@ -37,7 +37,7 @@ class SecurityRulesApi:
 
 
     @validate_call
-    def retrieve_security_rule_protocols(
+    def list_firewall_rule_protocols(
         self,
         _request_timeout: Union[
             None,
@@ -52,8 +52,9 @@ class SecurityRulesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> SecurityRulesProtocolFields:
-        """Retrieve Security Rule Protocols
+        """List firewall rule protocols
 
+        Returns a list of all available protocols that can be used in the creation of firewall rules for your virtual machines.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -77,7 +78,7 @@ class SecurityRulesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._retrieve_security_rule_protocols_serialize(
+        _param = self._list_firewall_rule_protocols_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -102,7 +103,7 @@ class SecurityRulesApi:
 
 
     @validate_call
-    def retrieve_security_rule_protocols_with_http_info(
+    def list_firewall_rule_protocols_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -117,8 +118,9 @@ class SecurityRulesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[SecurityRulesProtocolFields]:
-        """Retrieve Security Rule Protocols
+        """List firewall rule protocols
 
+        Returns a list of all available protocols that can be used in the creation of firewall rules for your virtual machines.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -142,7 +144,7 @@ class SecurityRulesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._retrieve_security_rule_protocols_serialize(
+        _param = self._list_firewall_rule_protocols_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -167,7 +169,7 @@ class SecurityRulesApi:
 
 
     @validate_call
-    def retrieve_security_rule_protocols_without_preload_content(
+    def list_firewall_rule_protocols_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -182,8 +184,9 @@ class SecurityRulesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Retrieve Security Rule Protocols
+        """List firewall rule protocols
 
+        Returns a list of all available protocols that can be used in the creation of firewall rules for your virtual machines.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -207,7 +210,7 @@ class SecurityRulesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._retrieve_security_rule_protocols_serialize(
+        _param = self._list_firewall_rule_protocols_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -227,7 +230,7 @@ class SecurityRulesApi:
         return response_data.response
 
 
-    def _retrieve_security_rule_protocols_serialize(
+    def _list_firewall_rule_protocols_serialize(
         self,
         _request_auth,
         _content_type,

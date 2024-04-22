@@ -37,7 +37,7 @@ class GpuApi:
 
 
     @validate_call
-    def get_gpu_list(
+    def list_gpus(
         self,
         _request_timeout: Union[
             None,
@@ -52,8 +52,9 @@ class GpuApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> GPUList:
-        """Get GPU List
+        """List GPUs
 
+        Returns a list of all available GPUs that can be utilized in the creation of custom virtual machine configurations.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -77,7 +78,7 @@ class GpuApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_gpu_list_serialize(
+        _param = self._list_gpus_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -102,7 +103,7 @@ class GpuApi:
 
 
     @validate_call
-    def get_gpu_list_with_http_info(
+    def list_gpus_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -117,8 +118,9 @@ class GpuApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[GPUList]:
-        """Get GPU List
+        """List GPUs
 
+        Returns a list of all available GPUs that can be utilized in the creation of custom virtual machine configurations.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -142,7 +144,7 @@ class GpuApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_gpu_list_serialize(
+        _param = self._list_gpus_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -167,7 +169,7 @@ class GpuApi:
 
 
     @validate_call
-    def get_gpu_list_without_preload_content(
+    def list_gpus_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -182,8 +184,9 @@ class GpuApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get GPU List
+        """List GPUs
 
+        Returns a list of all available GPUs that can be utilized in the creation of custom virtual machine configurations.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -207,7 +210,7 @@ class GpuApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_gpu_list_serialize(
+        _param = self._list_gpus_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -227,7 +230,7 @@ class GpuApi:
         return response_data.response
 
 
-    def _get_gpu_list_serialize(
+    def _list_gpus_serialize(
         self,
         _request_auth,
         _content_type,

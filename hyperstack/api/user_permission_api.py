@@ -17,7 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictInt
-from hyperstack.models.permissionsfor_user_permission import PermissionsforUserPermission
+from hyperstack.models.get_user_permissions_response_model import GetUserPermissionsResponseModel
 
 from hyperstack.api_client import ApiClient, RequestSerialized
 from hyperstack.api_response import ApiResponse
@@ -52,7 +52,7 @@ class UserPermissionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PermissionsforUserPermission:
+    ) -> GetUserPermissionsResponseModel:
         """List Current User Permissions
 
 
@@ -86,7 +86,7 @@ class UserPermissionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PermissionsforUserPermission",
+            '200': "GetUserPermissionsResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '500': None,
@@ -117,7 +117,7 @@ class UserPermissionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PermissionsforUserPermission]:
+    ) -> ApiResponse[GetUserPermissionsResponseModel]:
         """List Current User Permissions
 
 
@@ -151,7 +151,7 @@ class UserPermissionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PermissionsforUserPermission",
+            '200': "GetUserPermissionsResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '500': None,
@@ -216,7 +216,7 @@ class UserPermissionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PermissionsforUserPermission",
+            '200': "GetUserPermissionsResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '500': None,
@@ -303,7 +303,7 @@ class UserPermissionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PermissionsforUserPermission:
+    ) -> GetUserPermissionsResponseModel:
         """List User Permissions
 
 
@@ -340,7 +340,7 @@ class UserPermissionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PermissionsforUserPermission",
+            '200': "GetUserPermissionsResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '405': "ErrorResponseModel",
@@ -373,7 +373,7 @@ class UserPermissionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PermissionsforUserPermission]:
+    ) -> ApiResponse[GetUserPermissionsResponseModel]:
         """List User Permissions
 
 
@@ -410,7 +410,7 @@ class UserPermissionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PermissionsforUserPermission",
+            '200': "GetUserPermissionsResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '405': "ErrorResponseModel",
@@ -480,7 +480,7 @@ class UserPermissionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PermissionsforUserPermission",
+            '200': "GetUserPermissionsResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '405': "ErrorResponseModel",

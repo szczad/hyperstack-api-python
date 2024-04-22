@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of DashboardInfoResponse from a JSON string
 dashboard_info_response_instance = DashboardInfoResponse.from_json(json)
 # print the JSON string representation of the object
-print DashboardInfoResponse.to_json()
+print(DashboardInfoResponse.to_json())
 
 # convert the object into a dict
 dashboard_info_response_dict = dashboard_info_response_instance.to_dict()

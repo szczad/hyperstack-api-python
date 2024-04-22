@@ -51,15 +51,26 @@ class TestCreateInstancesPayload(unittest.TestCase):
                 user_data = '',
                 callback_url = '',
                 assign_floating_ip = True,
+                security_rules = [
+                    hyperstack.models.create_security_rule_payload.CreateSecurityRulePayload(
+                        direction = '', 
+                        protocol = 'any', 
+                        ethertype = '', 
+                        remote_ip_prefix = '', )
+                    ],
                 profile = hyperstack.models.profile_object_fields.ProfileObjectFields(
                     name = '', 
                     description = '', ),
-                count = 56
+                count = 56,
+                labels = [
+                    ''
+                    ]
             )
         else:
             return CreateInstancesPayload(
                 name = '',
                 environment_name = '',
+                flavor_name = '',
                 key_name = '',
                 count = 56,
         )

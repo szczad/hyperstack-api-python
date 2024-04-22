@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **total_up_time** | **float** |  | [optional] 
 **total_bill** | **float** |  | [optional] 
 **active** | **bool** |  | [optional] 
+**exclude_billing** | **bool** |  | [optional] 
 
 ## Example
 
@@ -26,7 +27,7 @@ json = "{}"
 # create an instance of Billingmetricesfields from a JSON string
 billingmetricesfields_instance = Billingmetricesfields.from_json(json)
 # print the JSON string representation of the object
-print Billingmetricesfields.to_json()
+print(Billingmetricesfields.to_json())
 
 # convert the object into a dict
 billingmetricesfields_dict = billingmetricesfields_instance.to_dict()

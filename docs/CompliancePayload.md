@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of CompliancePayload from a JSON string
 compliance_payload_instance = CompliancePayload.from_json(json)
 # print the JSON string representation of the object
-print CompliancePayload.to_json()
+print(CompliancePayload.to_json())
 
 # convert the object into a dict
 compliance_payload_dict = compliance_payload_instance.to_dict()

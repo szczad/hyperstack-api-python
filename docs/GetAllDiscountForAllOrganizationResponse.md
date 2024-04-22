@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **bool** |  | [optional] 
 **message** | **str** |  | [optional] 
-**discount_plans** | [**List[InsertDiscountPlanFields]**](InsertDiscountPlanFields.md) |  | [optional] 
+**discount_plans** | [**List[GetAllDiscountsFields]**](GetAllDiscountsFields.md) |  | [optional] 
 
 ## Example
 
@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of GetAllDiscountForAllOrganizationResponse from a JSON string
 get_all_discount_for_all_organization_response_instance = GetAllDiscountForAllOrganizationResponse.from_json(json)
 # print the JSON string representation of the object
-print GetAllDiscountForAllOrganizationResponse.to_json()
+print(GetAllDiscountForAllOrganizationResponse.to_json())
 
 # convert the object into a dict
 get_all_discount_for_all_organization_response_dict = get_all_discount_for_all_organization_response_instance.to_dict()

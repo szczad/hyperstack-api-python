@@ -38,7 +38,10 @@ class TestUpdateDiscountsPayload(unittest.TestCase):
                 discount_resources = [
                     hyperstack.models.resource_payload.ResourcePayload(
                         resource_id = 56, 
-                        discount_percent = 1.337, )
+                        discount_percent = 1.337, 
+                        discount_type = '', 
+                        discount_amount = 1.337, 
+                        resource_count = 56, )
                     ],
                 start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
@@ -49,7 +52,10 @@ class TestUpdateDiscountsPayload(unittest.TestCase):
                 discount_resources = [
                     hyperstack.models.resource_payload.ResourcePayload(
                         resource_id = 56, 
-                        discount_percent = 1.337, )
+                        discount_percent = 1.337, 
+                        discount_type = '', 
+                        discount_amount = 1.337, 
+                        resource_count = 56, )
                     ],
                 discount_status = '',
         )

@@ -29,28 +29,28 @@ class TestProfileApi(unittest.TestCase):
     def test_create_profile(self) -> None:
         """Test case for create_profile
 
-        Create a profile
+        Create profile
         """
         pass
 
     def test_delete_profile(self) -> None:
         """Test case for delete_profile
 
-        Delete Profile
+        Delete profile
         """
         pass
 
-    def test_get_a_profile_detail(self) -> None:
-        """Test case for get_a_profile_detail
+    def test_list_profiles(self) -> None:
+        """Test case for list_profiles
 
-        Get a Profile Detail
+        List profiles
         """
         pass
 
-    def test_get_profile_list(self) -> None:
-        """Test case for get_profile_list
+    def test_retrieve_profile_details(self) -> None:
+        """Test case for retrieve_profile_details
 
-        Get Profile List
+        Retrieve profile details
         """
         pass
 

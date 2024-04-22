@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,16 +27,16 @@ class ImportKeypairPayload(BaseModel):
     """
     ImportKeypairPayload
     """ # noqa: E501
-    name: StrictStr
-    environment_name: StrictStr
-    public_key: StrictStr
+    name: Annotated[str, Field(strict=True, max_length=50)] = Field(description="The name of the key pair that is being created.")
+    environment_name: StrictStr = Field(description="The name of the environment where the key pair is being created.")
+    public_key: StrictStr = Field(description="The public key that is being used to import an SSH key pair.")
     __properties: ClassVar[List[str]] = ["name", "environment_name", "public_key"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

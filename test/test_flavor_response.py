@@ -44,6 +44,7 @@ class TestFlavorResponse(unittest.TestCase):
                     cpu = 56, 
                     ram = 1.337, 
                     disk = 56, 
+                    ephemeral = 56, 
                     gpu = '', 
                     gpu_count = 56, 
                     stock_available = True, 

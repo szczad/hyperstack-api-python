@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of DetachVolumes from a JSON string
 detach_volumes_instance = DetachVolumes.from_json(json)
 # print the JSON string representation of the object
-print DetachVolumes.to_json()
+print(DetachVolumes.to_json())
 
 # convert the object into a dict
 detach_volumes_dict = detach_volumes_instance.to_dict()

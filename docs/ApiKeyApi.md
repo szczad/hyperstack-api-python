@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **generate_api_key**
-> APIKeygeneration generate_api_key()
+> GenerateApiKeyResponseModel generate_api_key()
 
 Generate API Key
 
@@ -19,7 +19,7 @@ Generate API Key
 
 ```python
 import hyperstack
-from hyperstack.models.api_keygeneration import APIKeygeneration
+from hyperstack.models.generate_api_key_response_model import GenerateApiKeyResponseModel
 from hyperstack.rest import ApiException
 from pprint import pprint
 
@@ -62,7 +62,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**APIKeygeneration**](APIKeygeneration.md)
+[**GenerateApiKeyResponseModel**](GenerateApiKeyResponseModel.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | API Key generated successfully |  -  |
+**200** | Success |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **500** | Internal Server Error |  -  |
@@ -85,7 +85,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_api_key**
-> APIKey get_api_key()
+> GetApiKeyResponseModel get_api_key()
 
 Get API Key
 
@@ -96,7 +96,7 @@ Get API Key
 
 ```python
 import hyperstack
-from hyperstack.models.api_key import APIKey
+from hyperstack.models.get_api_key_response_model import GetApiKeyResponseModel
 from hyperstack.rest import ApiException
 from pprint import pprint
 
@@ -145,7 +145,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**APIKey**](APIKey.md)
+[**GetApiKeyResponseModel**](GetApiKeyResponseModel.md)
 
 ### Authorization
 
@@ -160,7 +160,7 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Getting API Key success |  -  |
+**200** | Success |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **500** | Internal Server Error |  -  |

@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of SecurityGroupRule from a JSON string
 security_group_rule_instance = SecurityGroupRule.from_json(json)
 # print the JSON string representation of the object
-print SecurityGroupRule.to_json()
+print(SecurityGroupRule.to_json())
 
 # convert the object into a dict
 security_group_rule_dict = security_group_rule_instance.to_dict()

@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of InternalInstancesResponse from a JSON string
 internal_instances_response_instance = InternalInstancesResponse.from_json(json)
 # print the JSON string representation of the object
-print InternalInstancesResponse.to_json()
+print(InternalInstancesResponse.to_json())
 
 # convert the object into a dict
 internal_instances_response_dict = internal_instances_response_instance.to_dict()

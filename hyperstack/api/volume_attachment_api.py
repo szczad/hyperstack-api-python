@@ -41,7 +41,7 @@ class VolumeAttachmentApi:
 
 
     @validate_call
-    def attach_volumes(
+    def attach_volumes_to_virtual_machine(
         self,
         virtual_machine_id: StrictInt,
         payload: AttachVolumesPayload,
@@ -58,8 +58,9 @@ class VolumeAttachmentApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AttachVolumes:
-        """Attach Volumes
+        """Attach volumes to virtual machine
 
+        Attaches one or more volumes to an existing virtual machine, expanding its storage capacity by 2PB per attached volume. Include the virtual machine ID in the path and the volume IDs in the request body to attach the specified volumes to the designated virtual machine. For additional details on volume attachment, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/volumes-available-features#attach-a-volume-to-a-virtual-machine-1).
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -87,7 +88,7 @@ class VolumeAttachmentApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._attach_volumes_serialize(
+        _param = self._attach_volumes_to_virtual_machine_serialize(
             virtual_machine_id=virtual_machine_id,
             payload=payload,
             _request_auth=_request_auth,
@@ -116,7 +117,7 @@ class VolumeAttachmentApi:
 
 
     @validate_call
-    def attach_volumes_with_http_info(
+    def attach_volumes_to_virtual_machine_with_http_info(
         self,
         virtual_machine_id: StrictInt,
         payload: AttachVolumesPayload,
@@ -133,8 +134,9 @@ class VolumeAttachmentApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AttachVolumes]:
-        """Attach Volumes
+        """Attach volumes to virtual machine
 
+        Attaches one or more volumes to an existing virtual machine, expanding its storage capacity by 2PB per attached volume. Include the virtual machine ID in the path and the volume IDs in the request body to attach the specified volumes to the designated virtual machine. For additional details on volume attachment, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/volumes-available-features#attach-a-volume-to-a-virtual-machine-1).
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -162,7 +164,7 @@ class VolumeAttachmentApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._attach_volumes_serialize(
+        _param = self._attach_volumes_to_virtual_machine_serialize(
             virtual_machine_id=virtual_machine_id,
             payload=payload,
             _request_auth=_request_auth,
@@ -191,7 +193,7 @@ class VolumeAttachmentApi:
 
 
     @validate_call
-    def attach_volumes_without_preload_content(
+    def attach_volumes_to_virtual_machine_without_preload_content(
         self,
         virtual_machine_id: StrictInt,
         payload: AttachVolumesPayload,
@@ -208,8 +210,9 @@ class VolumeAttachmentApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Attach Volumes
+        """Attach volumes to virtual machine
 
+        Attaches one or more volumes to an existing virtual machine, expanding its storage capacity by 2PB per attached volume. Include the virtual machine ID in the path and the volume IDs in the request body to attach the specified volumes to the designated virtual machine. For additional details on volume attachment, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/volumes-available-features#attach-a-volume-to-a-virtual-machine-1).
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -237,7 +240,7 @@ class VolumeAttachmentApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._attach_volumes_serialize(
+        _param = self._attach_volumes_to_virtual_machine_serialize(
             virtual_machine_id=virtual_machine_id,
             payload=payload,
             _request_auth=_request_auth,
@@ -261,7 +264,7 @@ class VolumeAttachmentApi:
         return response_data.response
 
 
-    def _attach_volumes_serialize(
+    def _attach_volumes_to_virtual_machine_serialize(
         self,
         virtual_machine_id,
         payload,
@@ -340,7 +343,7 @@ class VolumeAttachmentApi:
 
 
     @validate_call
-    def detach_volumes(
+    def detach_volumes_from_virtual_machine(
         self,
         virtual_machine_id: StrictInt,
         payload: DetachVolumesPayload,
@@ -357,8 +360,9 @@ class VolumeAttachmentApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> DetachVolumes:
-        """Detach Volumes
+        """Detach volumes from virtual machine
 
+        Detaches one or more volumes currently attached to an existing virtual machine. Include the virtual machine ID in the path and the volume IDs in the request body to detach the specified volumes from the designated virtual machine.
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -386,7 +390,7 @@ class VolumeAttachmentApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._detach_volumes_serialize(
+        _param = self._detach_volumes_from_virtual_machine_serialize(
             virtual_machine_id=virtual_machine_id,
             payload=payload,
             _request_auth=_request_auth,
@@ -415,7 +419,7 @@ class VolumeAttachmentApi:
 
 
     @validate_call
-    def detach_volumes_with_http_info(
+    def detach_volumes_from_virtual_machine_with_http_info(
         self,
         virtual_machine_id: StrictInt,
         payload: DetachVolumesPayload,
@@ -432,8 +436,9 @@ class VolumeAttachmentApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[DetachVolumes]:
-        """Detach Volumes
+        """Detach volumes from virtual machine
 
+        Detaches one or more volumes currently attached to an existing virtual machine. Include the virtual machine ID in the path and the volume IDs in the request body to detach the specified volumes from the designated virtual machine.
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -461,7 +466,7 @@ class VolumeAttachmentApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._detach_volumes_serialize(
+        _param = self._detach_volumes_from_virtual_machine_serialize(
             virtual_machine_id=virtual_machine_id,
             payload=payload,
             _request_auth=_request_auth,
@@ -490,7 +495,7 @@ class VolumeAttachmentApi:
 
 
     @validate_call
-    def detach_volumes_without_preload_content(
+    def detach_volumes_from_virtual_machine_without_preload_content(
         self,
         virtual_machine_id: StrictInt,
         payload: DetachVolumesPayload,
@@ -507,8 +512,9 @@ class VolumeAttachmentApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Detach Volumes
+        """Detach volumes from virtual machine
 
+        Detaches one or more volumes currently attached to an existing virtual machine. Include the virtual machine ID in the path and the volume IDs in the request body to detach the specified volumes from the designated virtual machine.
 
         :param virtual_machine_id: (required)
         :type virtual_machine_id: int
@@ -536,7 +542,7 @@ class VolumeAttachmentApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._detach_volumes_serialize(
+        _param = self._detach_volumes_from_virtual_machine_serialize(
             virtual_machine_id=virtual_machine_id,
             payload=payload,
             _request_auth=_request_auth,
@@ -560,7 +566,7 @@ class VolumeAttachmentApi:
         return response_data.response
 
 
-    def _detach_volumes_serialize(
+    def _detach_volumes_from_virtual_machine_serialize(
         self,
         virtual_machine_id,
         payload,

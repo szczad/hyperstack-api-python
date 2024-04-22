@@ -28,7 +28,7 @@ json = "{}"
 # create an instance of InfrahubResourceObjectResponse from a JSON string
 infrahub_resource_object_response_instance = InfrahubResourceObjectResponse.from_json(json)
 # print the JSON string representation of the object
-print InfrahubResourceObjectResponse.to_json()
+print(InfrahubResourceObjectResponse.to_json())
 
 # convert the object into a dict
 infrahub_resource_object_response_dict = infrahub_resource_object_response_instance.to_dict()

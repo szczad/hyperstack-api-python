@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of PaymentInitiatePayload from a JSON string
 payment_initiate_payload_instance = PaymentInitiatePayload.from_json(json)
 # print the JSON string representation of the object
-print PaymentInitiatePayload.to_json()
+print(PaymentInitiatePayload.to_json())
 
 # convert the object into a dict
 payment_initiate_payload_dict = payment_initiate_payload_instance.to_dict()

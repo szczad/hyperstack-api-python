@@ -48,7 +48,8 @@ class TestBillingmetricesresponse(unittest.TestCase):
                         terminate_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         total_up_time = 1.337, 
                         total_bill = 1.337, 
-                        active = True, )
+                        active = True, 
+                        exclude_billing = True, )
                     ]
             )
         else:

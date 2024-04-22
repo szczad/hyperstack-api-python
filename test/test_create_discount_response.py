@@ -38,8 +38,11 @@ class TestCreateDiscountResponse(unittest.TestCase):
                 status = True,
                 message = '',
                 discount_plan = hyperstack.models.insert_discount_plan_fields.InsertDiscountPlanFields(
-                    org_id = 56, 
-                    org_name = '', 
+                    customers = [
+                        hyperstack.models.customer_fields.CustomerFields(
+                            id = 56, 
+                            plan_type = '', )
+                        ], 
                     discount_resources = [
                         hyperstack.models.discount_resource_fields.DiscountResourceFields(
                             resource_id = 56, 

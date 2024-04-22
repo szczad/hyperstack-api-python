@@ -26,10 +26,10 @@ class TestImageApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_retrieve_images(self) -> None:
-        """Test case for retrieve_images
+    def test_list_images(self) -> None:
+        """Test case for list_images
 
-        Retrieve Images
+        List images
         """
         pass
 

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from hyperstack.models.gpu_region_fields import GPURegionFields
 from typing import Optional, Set
@@ -36,11 +36,11 @@ class GPUFields(BaseModel):
     updated_at: Optional[datetime] = None
     __properties: ClassVar[List[str]] = ["id", "name", "regions", "example_metadata", "created_at", "updated_at"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of InternalVolumesResponse from a JSON string
 internal_volumes_response_instance = InternalVolumesResponse.from_json(json)
 # print the JSON string representation of the object
-print InternalVolumesResponse.to_json()
+print(InternalVolumesResponse.to_json())
 
 # convert the object into a dict
 internal_volumes_response_dict = internal_volumes_response_instance.to_dict()

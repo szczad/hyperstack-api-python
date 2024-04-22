@@ -4,13 +4,15 @@ All URIs are relative to *https://infrahub-api.nexgencloud.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getting_regions**](RegionApi.md#getting_regions) | **GET** /core/regions | Getting regions
+[**list_regions**](RegionApi.md#list_regions) | **GET** /core/regions | List regions
 
 
-# **getting_regions**
-> Regions getting_regions()
+# **list_regions**
+> Regions list_regions()
 
-Getting regions
+List regions
+
+Lists the currently available regions, each representing a distinct geographic location housing a data center. For additional information on regions, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/regions).
 
 ### Example
 
@@ -52,12 +54,12 @@ with hyperstack.ApiClient(configuration) as api_client:
     api_instance = hyperstack.RegionApi(api_client)
 
     try:
-        # Getting regions
-        api_response = api_instance.getting_regions()
-        print("The response of RegionApi->getting_regions:\n")
+        # List regions
+        api_response = api_instance.list_regions()
+        print("The response of RegionApi->list_regions:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling RegionApi->getting_regions: %s\n" % e)
+        print("Exception when calling RegionApi->list_regions: %s\n" % e)
 ```
 
 
@@ -83,7 +85,7 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Getting regions successful. |  -  |
+**200** | Successful retrieval of regions list. |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **500** | Internal Server Error |  -  |

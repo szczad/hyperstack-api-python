@@ -16,7 +16,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from hyperstack.models.user_info_response import UserInfoResponse
+from hyperstack.models.auth_user_info_response_model import AuthUserInfoResponseModel
 
 from hyperstack.api_client import ApiClient, RequestSerialized
 from hyperstack.api_response import ApiResponse
@@ -51,7 +51,7 @@ class AuthApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UserInfoResponse:
+    ) -> AuthUserInfoResponseModel:
         """Get me information
 
 
@@ -85,7 +85,7 @@ class AuthApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserInfoResponse",
+            '200': "AuthUserInfoResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '500': None,
@@ -116,7 +116,7 @@ class AuthApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UserInfoResponse]:
+    ) -> ApiResponse[AuthUserInfoResponseModel]:
         """Get me information
 
 
@@ -150,7 +150,7 @@ class AuthApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserInfoResponse",
+            '200': "AuthUserInfoResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '500': None,
@@ -215,7 +215,7 @@ class AuthApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserInfoResponse",
+            '200': "AuthUserInfoResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '500': None,

@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of RegionResponse from a JSON string
 region_response_instance = RegionResponse.from_json(json)
 # print the JSON string representation of the object
-print RegionResponse.to_json()
+print(RegionResponse.to_json())
 
 # convert the object into a dict
 region_response_dict = region_response_instance.to_dict()

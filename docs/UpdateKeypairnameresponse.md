@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of UpdateKeypairnameresponse from a JSON string
 update_keypairnameresponse_instance = UpdateKeypairnameresponse.from_json(json)
 # print the JSON string representation of the object
-print UpdateKeypairnameresponse.to_json()
+print(UpdateKeypairnameresponse.to_json())
 
 # convert the object into a dict
 update_keypairnameresponse_dict = update_keypairnameresponse_instance.to_dict()

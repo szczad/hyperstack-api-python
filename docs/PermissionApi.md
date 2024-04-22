@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **list_permissions**
-> Permissions list_permissions()
+> GetPermissionsResponseModel list_permissions()
 
 List Permissions
 
@@ -19,7 +19,7 @@ List Permissions
 
 ```python
 import hyperstack
-from hyperstack.models.permissions import Permissions
+from hyperstack.models.get_permissions_response_model import GetPermissionsResponseModel
 from hyperstack.rest import ApiException
 from pprint import pprint
 
@@ -68,7 +68,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Permissions**](Permissions.md)
+[**GetPermissionsResponseModel**](GetPermissionsResponseModel.md)
 
 ### Authorization
 

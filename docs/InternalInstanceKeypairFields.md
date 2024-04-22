@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of InternalInstanceKeypairFields from a JSON string
 internal_instance_keypair_fields_instance = InternalInstanceKeypairFields.from_json(json)
 # print the JSON string representation of the object
-print InternalInstanceKeypairFields.to_json()
+print(InternalInstanceKeypairFields.to_json())
 
 # convert the object into a dict
 internal_instance_keypair_fields_dict = internal_instance_keypair_fields_instance.to_dict()

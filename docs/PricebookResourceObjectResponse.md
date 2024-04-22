@@ -27,7 +27,7 @@ json = "{}"
 # create an instance of PricebookResourceObjectResponse from a JSON string
 pricebook_resource_object_response_instance = PricebookResourceObjectResponse.from_json(json)
 # print the JSON string representation of the object
-print PricebookResourceObjectResponse.to_json()
+print(PricebookResourceObjectResponse.to_json())
 
 # convert the object into a dict
 pricebook_resource_object_response_dict = pricebook_resource_object_response_instance.to_dict()

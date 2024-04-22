@@ -4,16 +4,16 @@ All URIs are relative to *https://infrahub-api.nexgencloud.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_compliance**](ComplianceApi.md#create_compliance) | **POST** /core/compliance | Create Compliance
+[**create_compliance**](ComplianceApi.md#create_compliance) | **POST** /core/compliance | Create compliance
 [**delete_a_compliance**](ComplianceApi.md#delete_a_compliance) | **DELETE** /core/compliance/{gpu_model} | Delete a compliance
-[**get_compliance_list**](ComplianceApi.md#get_compliance_list) | **GET** /core/compliance | Get Compliance List
+[**retrieve_compliance**](ComplianceApi.md#retrieve_compliance) | **GET** /core/compliance | Retrieve GPU compliance
 [**update_a_compliance**](ComplianceApi.md#update_a_compliance) | **PUT** /core/compliance | Update a compliance
 
 
 # **create_compliance**
 > CreateUpdateComplianceResponse create_compliance(payload)
 
-Create Compliance
+Create compliance
 
 ### Example
 
@@ -57,7 +57,7 @@ with hyperstack.ApiClient(configuration) as api_client:
     payload = hyperstack.CompliancePayload() # CompliancePayload | 
 
     try:
-        # Create Compliance
+        # Create compliance
         api_response = api_instance.create_compliance(payload)
         print("The response of ComplianceApi->create_compliance:\n")
         pprint(api_response)
@@ -189,10 +189,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_compliance_list**
-> ComplianceResponse get_compliance_list(gpu=gpu)
+# **retrieve_compliance**
+> ComplianceResponse retrieve_compliance(gpu=gpu)
 
-Get Compliance List
+Retrieve GPU compliance
+
+Returns a list of compliance objects each corresponding to available GPU models. These compliance objects contain minimum and maximum values for RAM in GB, number of vCPUs, and system disk capacity in GB. Use the optional `gpu` model parameter in the query string to filter responses by GPU model. For additional details on GPU compliance, [**click here**](https://infrahub-doc.nexgencloud.com/docs/hardware/flavors#adhering-to-gpu-compliance).
 
 ### Example
 
@@ -235,12 +237,12 @@ with hyperstack.ApiClient(configuration) as api_client:
     gpu = None # object | This is for gpu model (optional)
 
     try:
-        # Get Compliance List
-        api_response = api_instance.get_compliance_list(gpu=gpu)
-        print("The response of ComplianceApi->get_compliance_list:\n")
+        # Retrieve GPU compliance
+        api_response = api_instance.retrieve_compliance(gpu=gpu)
+        print("The response of ComplianceApi->retrieve_compliance:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ComplianceApi->get_compliance_list: %s\n" % e)
+        print("Exception when calling ComplianceApi->retrieve_compliance: %s\n" % e)
 ```
 
 
@@ -269,7 +271,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | Compliance list retrieved successfully. |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |

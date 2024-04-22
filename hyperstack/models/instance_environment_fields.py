@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,16 +26,17 @@ class InstanceEnvironmentFields(BaseModel):
     """
     InstanceEnvironmentFields
     """ # noqa: E501
+    id: Optional[StrictInt] = None
     name: Optional[StrictStr] = None
     org_id: Optional[StrictInt] = None
     region: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["name", "org_id", "region"]
+    __properties: ClassVar[List[str]] = ["id", "name", "org_id", "region"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -82,6 +83,7 @@ class InstanceEnvironmentFields(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "id": obj.get("id"),
             "name": obj.get("name"),
             "org_id": obj.get("org_id"),
             "region": obj.get("region")

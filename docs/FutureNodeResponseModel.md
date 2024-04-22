@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of FutureNodeResponseModel from a JSON string
 future_node_response_model_instance = FutureNodeResponseModel.from_json(json)
 # print the JSON string representation of the object
-print FutureNodeResponseModel.to_json()
+print(FutureNodeResponseModel.to_json())
 
 # convert the object into a dict
 future_node_response_model_dict = future_node_response_model_instance.to_dict()

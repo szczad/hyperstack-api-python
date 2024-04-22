@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,17 +26,24 @@ class CreateSecurityRulePayload(BaseModel):
     """
     CreateSecurityRulePayload
     """ # noqa: E501
-    direction: StrictStr
-    protocol: StrictStr
-    ethertype: StrictStr
-    remote_ip_prefix: StrictStr
+    direction: StrictStr = Field(description="The direction of traffic that the firewall rule applies to.")
+    protocol: StrictStr = Field(description="The network protocol associated with the rule. Call the [`GET /core/sg-rules-protocols`](https://infrahub-api-doc.nexgencloud.com/#get-/core/sg-rules-protocols) endpoint to retrieve a list of permitted network protocols.")
+    ethertype: StrictStr = Field(description="The Ethernet type associated with the rule.")
+    remote_ip_prefix: StrictStr = Field(description="The IP address range that is allowed to access the specified port. Use \"0.0.0.0/0\" to allow any IP address.")
     __properties: ClassVar[List[str]] = ["direction", "protocol", "ethertype", "remote_ip_prefix"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    @field_validator('protocol')
+    def protocol_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['any', 'ah', 'dccp', 'egp', 'esp', 'gre', 'hopopt', 'icmp', 'igmp', 'ip', 'ipip', 'ipv6-encap', 'ipv6-frag', 'ipv6-icmp', 'icmpv6', 'ipv6-nonxt', 'ipv6-opts', 'ipv6-route', 'ospf', 'pgm', 'rsvp', 'sctp', 'tcp', 'udp', 'udplite', 'vrrp']):
+            raise ValueError("must be one of enum values ('any', 'ah', 'dccp', 'egp', 'esp', 'gre', 'hopopt', 'icmp', 'igmp', 'ip', 'ipip', 'ipv6-encap', 'ipv6-frag', 'ipv6-icmp', 'icmpv6', 'ipv6-nonxt', 'ipv6-opts', 'ipv6-route', 'ospf', 'pgm', 'rsvp', 'sctp', 'tcp', 'udp', 'udplite', 'vrrp')")
+        return value
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

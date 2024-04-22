@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of ApiKeyVerifyFields from a JSON string
 api_key_verify_fields_instance = ApiKeyVerifyFields.from_json(json)
 # print the JSON string representation of the object
-print ApiKeyVerifyFields.to_json()
+print(ApiKeyVerifyFields.to_json())
 
 # convert the object into a dict
 api_key_verify_fields_dict = api_key_verify_fields_instance.to_dict()

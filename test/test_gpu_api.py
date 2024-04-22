@@ -26,10 +26,10 @@ class TestGpuApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_get_gpu_list(self) -> None:
-        """Test case for get_gpu_list
+    def test_list_gpus(self) -> None:
+        """Test case for list_gpus
 
-        Get GPU List
+        List GPUs
         """
         pass
 

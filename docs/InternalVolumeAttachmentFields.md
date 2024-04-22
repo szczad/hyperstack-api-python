@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of InternalVolumeAttachmentFields from a JSON string
 internal_volume_attachment_fields_instance = InternalVolumeAttachmentFields.from_json(json)
 # print the JSON string representation of the object
-print InternalVolumeAttachmentFields.to_json()
+print(InternalVolumeAttachmentFields.to_json())
 
 # convert the object into a dict
 internal_volume_attachment_fields_dict = internal_volume_attachment_fields_instance.to_dict()

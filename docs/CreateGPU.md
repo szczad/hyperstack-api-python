@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | 
 **regions** | **List[str]** |  | [optional] 
-**example_metadata** | **str** |  | [optional] 
+**example_metadata** | **str** | A valid JSON string. | [optional] 
 
 ## Example
 
@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CreateGPU from a JSON string
 create_gpu_instance = CreateGPU.from_json(json)
 # print the JSON string representation of the object
-print CreateGPU.to_json()
+print(CreateGPU.to_json())
 
 # convert the object into a dict
 create_gpu_dict = create_gpu_instance.to_dict()

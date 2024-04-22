@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **assign_rbac_roles**
-> RBACRole assign_rbac_roles(user_id, payload)
+> RbacRoleDetailResponseModel assign_rbac_roles(user_id, payload)
 
 Assign RBAC Roles
 
@@ -20,8 +20,8 @@ Assign RBAC Roles
 
 ```python
 import hyperstack
-from hyperstack.models.assign_rbac_role_payload import AssignRBACRolePayload
-from hyperstack.models.rbac_role import RBACRole
+from hyperstack.models.assign_rbac_role_payload import AssignRbacRolePayload
+from hyperstack.models.rbac_role_detail_response_model import RbacRoleDetailResponseModel
 from hyperstack.rest import ApiException
 from pprint import pprint
 
@@ -53,7 +53,7 @@ with hyperstack.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = hyperstack.AssigningMemberRoleApi(api_client)
     user_id = 56 # int | 
-    payload = hyperstack.AssignRBACRolePayload() # AssignRBACRolePayload | 
+    payload = hyperstack.AssignRbacRolePayload() # AssignRbacRolePayload | 
 
     try:
         # Assign RBAC Roles
@@ -72,11 +72,11 @@ with hyperstack.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**|  | 
- **payload** | [**AssignRBACRolePayload**](AssignRBACRolePayload.md)|  | 
+ **payload** | [**AssignRbacRolePayload**](AssignRbacRolePayload.md)|  | 
 
 ### Return type
 
-[**RBACRole**](RBACRole.md)
+[**RbacRoleDetailResponseModel**](RbacRoleDetailResponseModel.md)
 
 ### Authorization
 
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Assigning RBAC Role success |  -  |
+**200** | Success |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **remove_role_from_a_user**
-> ResponseModel remove_role_from_a_user(user_id)
+> CommonResponseModel remove_role_from_a_user(user_id)
 
 Remove role from a user
 
@@ -111,7 +111,7 @@ Remove role from a user
 
 ```python
 import hyperstack
-from hyperstack.models.response_model import ResponseModel
+from hyperstack.models.common_response_model import CommonResponseModel
 from hyperstack.rest import ApiException
 from pprint import pprint
 
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseModel**](ResponseModel.md)
+[**CommonResponseModel**](CommonResponseModel.md)
 
 ### Authorization
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | RBAC member role deleted successfully |  -  |
+**200** | Success |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |

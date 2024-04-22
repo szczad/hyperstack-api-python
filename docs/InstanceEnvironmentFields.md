@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] 
 **name** | **str** |  | [optional] 
 **org_id** | **int** |  | [optional] 
 **region** | **str** |  | [optional] 
@@ -19,7 +20,7 @@ json = "{}"
 # create an instance of InstanceEnvironmentFields from a JSON string
 instance_environment_fields_instance = InstanceEnvironmentFields.from_json(json)
 # print the JSON string representation of the object
-print InstanceEnvironmentFields.to_json()
+print(InstanceEnvironmentFields.to_json())
 
 # convert the object into a dict
 instance_environment_fields_dict = instance_environment_fields_instance.to_dict()

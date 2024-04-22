@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of Adminaddorganizationpayload from a JSON string
 adminaddorganizationpayload_instance = Adminaddorganizationpayload.from_json(json)
 # print the JSON string representation of the object
-print Adminaddorganizationpayload.to_json()
+print(Adminaddorganizationpayload.to_json())
 
 # convert the object into a dict
 adminaddorganizationpayload_dict = adminaddorganizationpayload_instance.to_dict()

@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of RegionPayload from a JSON string
 region_payload_instance = RegionPayload.from_json(json)
 # print the JSON string representation of the object
-print RegionPayload.to_json()
+print(RegionPayload.to_json())
 
 # convert the object into a dict
 region_payload_dict = region_payload_instance.to_dict()

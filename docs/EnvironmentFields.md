@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EnvironmentFields from a JSON string
 environment_fields_instance = EnvironmentFields.from_json(json)
 # print the JSON string representation of the object
-print EnvironmentFields.to_json()
+print(EnvironmentFields.to_json())
 
 # convert the object into a dict
 environment_fields_dict = environment_fields_instance.to_dict()

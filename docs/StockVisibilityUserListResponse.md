@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of StockVisibilityUserListResponse from a JSON string
 stock_visibility_user_list_response_instance = StockVisibilityUserListResponse.from_json(json)
 # print the JSON string representation of the object
-print StockVisibilityUserListResponse.to_json()
+print(StockVisibilityUserListResponse.to_json())
 
 # convert the object into a dict
 stock_visibility_user_list_response_dict = stock_visibility_user_list_response_instance.to_dict()

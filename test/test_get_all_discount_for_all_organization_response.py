@@ -38,17 +38,17 @@ class TestGetAllDiscountForAllOrganizationResponse(unittest.TestCase):
                 status = True,
                 message = '',
                 discount_plans = [
-                    hyperstack.models.insert_discount_plan_fields.InsertDiscountPlanFields(
+                    hyperstack.models.get_all_discounts_fields.GetAllDiscountsFields(
                         org_id = 56, 
                         org_name = '', 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        discount_status = '', 
                         discount_resources = [
                             hyperstack.models.discount_resource_fields.DiscountResourceFields(
                                 resource_id = 56, 
                                 discount_percent = 1.337, )
-                            ], 
-                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        discount_status = '', )
+                            ], )
                     ]
             )
         else:

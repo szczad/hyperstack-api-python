@@ -25,7 +25,7 @@ json = "{}"
 # create an instance of SecurityGroupRuleFields from a JSON string
 security_group_rule_fields_instance = SecurityGroupRuleFields.from_json(json)
 # print the JSON string representation of the object
-print SecurityGroupRuleFields.to_json()
+print(SecurityGroupRuleFields.to_json())
 
 # convert the object into a dict
 security_group_rule_fields_dict = security_group_rule_fields_instance.to_dict()

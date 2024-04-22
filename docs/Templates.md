@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of Templates from a JSON string
 templates_instance = Templates.from_json(json)
 # print the JSON string representation of the object
-print Templates.to_json()
+print(Templates.to_json())
 
 # convert the object into a dict
 templates_dict = templates_instance.to_dict()

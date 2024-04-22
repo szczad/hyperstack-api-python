@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **list_current_user_permissions**
-> PermissionsforUserPermission list_current_user_permissions()
+> GetUserPermissionsResponseModel list_current_user_permissions()
 
 List Current User Permissions
 
@@ -20,7 +20,7 @@ List Current User Permissions
 
 ```python
 import hyperstack
-from hyperstack.models.permissionsfor_user_permission import PermissionsforUserPermission
+from hyperstack.models.get_user_permissions_response_model import GetUserPermissionsResponseModel
 from hyperstack.rest import ApiException
 from pprint import pprint
 
@@ -69,7 +69,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**PermissionsforUserPermission**](PermissionsforUserPermission.md)
+[**GetUserPermissionsResponseModel**](GetUserPermissionsResponseModel.md)
 
 ### Authorization
 
@@ -84,7 +84,7 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Getting my permissions successfully |  -  |
+**200** | Success |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **500** | Internal Server Error |  -  |
@@ -92,7 +92,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_user_permissions**
-> PermissionsforUserPermission list_user_permissions(id)
+> GetUserPermissionsResponseModel list_user_permissions(id)
 
 List User Permissions
 
@@ -103,7 +103,7 @@ List User Permissions
 
 ```python
 import hyperstack
-from hyperstack.models.permissionsfor_user_permission import PermissionsforUserPermission
+from hyperstack.models.get_user_permissions_response_model import GetUserPermissionsResponseModel
 from hyperstack.rest import ApiException
 from pprint import pprint
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PermissionsforUserPermission**](PermissionsforUserPermission.md)
+[**GetUserPermissionsResponseModel**](GetUserPermissionsResponseModel.md)
 
 ### Authorization
 
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Getting user permissions successfully |  -  |
+**200** | Success |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **405** | Method Not Allowed |  -  |

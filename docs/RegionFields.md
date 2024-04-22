@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of RegionFields from a JSON string
 region_fields_instance = RegionFields.from_json(json)
 # print the JSON string representation of the object
-print RegionFields.to_json()
+print(RegionFields.to_json())
 
 # convert the object into a dict
 region_fields_dict = region_fields_instance.to_dict()

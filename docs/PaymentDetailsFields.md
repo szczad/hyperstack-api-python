@@ -25,7 +25,7 @@ json = "{}"
 # create an instance of PaymentDetailsFields from a JSON string
 payment_details_fields_instance = PaymentDetailsFields.from_json(json)
 # print the JSON string representation of the object
-print PaymentDetailsFields.to_json()
+print(PaymentDetailsFields.to_json())
 
 # convert the object into a dict
 payment_details_fields_dict = payment_details_fields_instance.to_dict()

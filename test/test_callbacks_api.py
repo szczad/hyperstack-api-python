@@ -26,45 +26,45 @@ class TestCallbacksApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_attach_a_callback_to_a_volume(self) -> None:
-        """Test case for attach_a_callback_to_a_volume
+    def test_attach_callback_to_virtual_machine(self) -> None:
+        """Test case for attach_callback_to_virtual_machine
 
-        Attach a callback to a volume
+        Attach callback to virtual machine
         """
         pass
 
-    def test_attach_a_callback_to_an_instance(self) -> None:
-        """Test case for attach_a_callback_to_an_instance
+    def test_attach_callback_to_volume(self) -> None:
+        """Test case for attach_callback_to_volume
 
-        Attach a callback to an instance
+        Attach callback to volume
         """
         pass
 
-    def test_delete_a_callback_url_for_an_instance(self) -> None:
-        """Test case for delete_a_callback_url_for_an_instance
+    def test_delete_virtual_machine_callback(self) -> None:
+        """Test case for delete_virtual_machine_callback
 
-        Delete a callback URL for an instance
+        Delete virtual machine callback
         """
         pass
 
-    def test_delete_callback_url_for_a_volume(self) -> None:
-        """Test case for delete_callback_url_for_a_volume
+    def test_delete_volume_callback(self) -> None:
+        """Test case for delete_volume_callback
 
-        Delete callback URL for a volume
+        Delete volume callback
         """
         pass
 
-    def test_update_a_callback_url(self) -> None:
-        """Test case for update_a_callback_url
+    def test_update_virtual_machine_callback(self) -> None:
+        """Test case for update_virtual_machine_callback
 
-        Update a callback URL
+        Update virtual machine callback
         """
         pass
 
-    def test_update_callback_url_for_volume(self) -> None:
-        """Test case for update_callback_url_for_volume
+    def test_update_volume_callback(self) -> None:
+        """Test case for update_volume_callback
 
-        Update callback URL for volume
+        Update volume callback
         """
         pass
 

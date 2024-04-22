@@ -29,28 +29,28 @@ class TestVolumeApi(unittest.TestCase):
     def test_create_volume(self) -> None:
         """Test case for create_volume
 
-        Create Volume
+        Create volume
         """
         pass
 
     def test_delete_volume(self) -> None:
         """Test case for delete_volume
 
-        Delete Volume
+        Delete volume
         """
         pass
 
-    def test_get_volume_types(self) -> None:
-        """Test case for get_volume_types
+    def test_list_volume_types(self) -> None:
+        """Test case for list_volume_types
 
-        GET Volume Types
+        List volume types
         """
         pass
 
     def test_list_volumes(self) -> None:
         """Test case for list_volumes
 
-        List Volumes
+        List volumes
         """
         pass
 

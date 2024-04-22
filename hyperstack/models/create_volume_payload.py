@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,20 +27,20 @@ class CreateVolumePayload(BaseModel):
     """
     CreateVolumePayload
     """ # noqa: E501
-    name: Optional[StrictStr] = None
-    environment_name: Optional[StrictStr] = None
-    description: Optional[StrictStr] = None
-    volume_type: Optional[StrictStr] = None
-    size: Optional[StrictInt] = None
-    image_id: Optional[StrictInt] = None
-    callback_url: Optional[StrictStr] = None
+    name: Annotated[str, Field(strict=True, max_length=50)] = Field(description="The name of the volume being created.")
+    environment_name: StrictStr = Field(description="The name of the [environment](https://infrahub-doc.nexgencloud.com/docs/features/environments-available-features) within which the volume is being created.")
+    description: StrictStr = Field(description="A brief description or comment about the volume.")
+    volume_type: StrictStr = Field(description="Specifies the type of volume being created, which determines the storage technology it will use. Call the \"[List volume types](https://infrahub-api-doc.nexgencloud.com/#get-/core/volumes)\" endpoint to retrieve a list of available volume model types.")
+    size: StrictInt = Field(description="The size of the volume in GB. 1048576GB storage capacity per volume.")
+    image_id: Optional[StrictInt] = Field(default=None, description="The ID of the operating system image that will be associated with the volume. By providing an `image_id` in the create volume request, you will create a bootable volume.")
+    callback_url: Optional[Annotated[str, Field(strict=True, max_length=250)]] = Field(default=None, description="A URL that can be attached to the volume you are creating. This `callback_url` will post any action events that occur to your volume to the provided URL.")
     __properties: ClassVar[List[str]] = ["name", "environment_name", "description", "volume_type", "size", "image_id", "callback_url"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

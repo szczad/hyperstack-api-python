@@ -37,7 +37,7 @@ class TestImages(unittest.TestCase):
             return Images(
                 status = True,
                 message = '',
-                data = [
+                images = [
                     hyperstack.models.image_get_response.ImageGetResponse(
                         region_name = '', 
                         type = '', 
@@ -50,7 +50,14 @@ class TestImages(unittest.TestCase):
                                 type = '', 
                                 version = '', 
                                 size = 56, 
-                                display_size = '', )
+                                display_size = '', 
+                                description = '', 
+                                labels = [
+                                    hyperstack.models.lable_resonse.LableResonse(
+                                        id = 56, 
+                                        label = '', )
+                                    ], 
+                                is_public = True, )
                             ], )
                     ]
             )

@@ -24,7 +24,7 @@ json = "{}"
 # create an instance of InstanceEventsFields from a JSON string
 instance_events_fields_instance = InstanceEventsFields.from_json(json)
 # print the JSON string representation of the object
-print InstanceEventsFields.to_json()
+print(InstanceEventsFields.to_json())
 
 # convert the object into a dict
 instance_events_fields_dict = instance_events_fields_instance.to_dict()

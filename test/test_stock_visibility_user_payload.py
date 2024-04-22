@@ -41,6 +41,9 @@ class TestStockVisibilityUserPayload(unittest.TestCase):
             )
         else:
             return StockVisibilityUserPayload(
+                user_ids = [
+                    56
+                    ],
         )
         """
 

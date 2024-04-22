@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of Adminrechargehistoryresponse from a JSON string
 adminrechargehistoryresponse_instance = Adminrechargehistoryresponse.from_json(json)
 # print the JSON string representation of the object
-print Adminrechargehistoryresponse.to_json()
+print(Adminrechargehistoryresponse.to_json())
 
 # convert the object into a dict
 adminrechargehistoryresponse_dict = adminrechargehistoryresponse_instance.to_dict()

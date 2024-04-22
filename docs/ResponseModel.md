@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of ResponseModel from a JSON string
 response_model_instance = ResponseModel.from_json(json)
 # print the JSON string representation of the object
-print ResponseModel.to_json()
+print(ResponseModel.to_json())
 
 # convert the object into a dict
 response_model_dict = response_model_instance.to_dict()

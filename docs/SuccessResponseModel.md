@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of SuccessResponseModel from a JSON string
 success_response_model_instance = SuccessResponseModel.from_json(json)
 # print the JSON string representation of the object
-print SuccessResponseModel.to_json()
+print(SuccessResponseModel.to_json())
 
 # convert the object into a dict
 success_response_model_dict = success_response_model_instance.to_dict()

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] [readonly] 
 **openstack_name** | **str** |  | [optional] 
 **nexgen_name** | **str** |  | [optional] 
-**expected_provision_date** | **datetime** |  | 
+**expected_provision_date** | **datetime** | Date and time in the format YYYY-MM-DD HH:mm:ss | 
 **stocks** | [**List[FutureNodeStockModel]**](FutureNodeStockModel.md) |  | [optional] 
 
 ## Example
@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of FutureNodeModel from a JSON string
 future_node_model_instance = FutureNodeModel.from_json(json)
 # print the JSON string representation of the object
-print FutureNodeModel.to_json()
+print(FutureNodeModel.to_json())
 
 # convert the object into a dict
 future_node_model_dict = future_node_model_instance.to_dict()

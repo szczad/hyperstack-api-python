@@ -35,7 +35,7 @@ json = "{}"
 # create an instance of InternalInstanceFields from a JSON string
 internal_instance_fields_instance = InternalInstanceFields.from_json(json)
 # print the JSON string representation of the object
-print InternalInstanceFields.to_json()
+print(InternalInstanceFields.to_json())
 
 # convert the object into a dict
 internal_instance_fields_dict = internal_instance_fields_instance.to_dict()

@@ -4,14 +4,16 @@ All URIs are relative to *https://infrahub-api.nexgencloud.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**attach_volumes**](VolumeAttachmentApi.md#attach_volumes) | **POST** /core/virtual-machines/{virtual_machine_id}/attach-volumes | Attach Volumes
-[**detach_volumes**](VolumeAttachmentApi.md#detach_volumes) | **POST** /core/virtual-machines/{virtual_machine_id}/detach-volumes | Detach Volumes
+[**attach_volumes_to_virtual_machine**](VolumeAttachmentApi.md#attach_volumes_to_virtual_machine) | **POST** /core/virtual-machines/{virtual_machine_id}/attach-volumes | Attach volumes to virtual machine
+[**detach_volumes_from_virtual_machine**](VolumeAttachmentApi.md#detach_volumes_from_virtual_machine) | **POST** /core/virtual-machines/{virtual_machine_id}/detach-volumes | Detach volumes from virtual machine
 
 
-# **attach_volumes**
-> AttachVolumes attach_volumes(virtual_machine_id, payload)
+# **attach_volumes_to_virtual_machine**
+> AttachVolumes attach_volumes_to_virtual_machine(virtual_machine_id, payload)
 
-Attach Volumes
+Attach volumes to virtual machine
+
+Attaches one or more volumes to an existing virtual machine, expanding its storage capacity by 2PB per attached volume. Include the virtual machine ID in the path and the volume IDs in the request body to attach the specified volumes to the designated virtual machine. For additional details on volume attachment, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/volumes-available-features#attach-a-volume-to-a-virtual-machine-1).
 
 ### Example
 
@@ -56,12 +58,12 @@ with hyperstack.ApiClient(configuration) as api_client:
     payload = hyperstack.AttachVolumesPayload() # AttachVolumesPayload | 
 
     try:
-        # Attach Volumes
-        api_response = api_instance.attach_volumes(virtual_machine_id, payload)
-        print("The response of VolumeAttachmentApi->attach_volumes:\n")
+        # Attach volumes to virtual machine
+        api_response = api_instance.attach_volumes_to_virtual_machine(virtual_machine_id, payload)
+        print("The response of VolumeAttachmentApi->attach_volumes_to_virtual_machine:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling VolumeAttachmentApi->attach_volumes: %s\n" % e)
+        print("Exception when calling VolumeAttachmentApi->attach_volumes_to_virtual_machine: %s\n" % e)
 ```
 
 
@@ -91,7 +93,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Volumes attaching now. |  -  |
+**200** | Volumes have been successfully attached to the virtual machine. |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -100,10 +102,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **detach_volumes**
-> DetachVolumes detach_volumes(virtual_machine_id, payload)
+# **detach_volumes_from_virtual_machine**
+> DetachVolumes detach_volumes_from_virtual_machine(virtual_machine_id, payload)
 
-Detach Volumes
+Detach volumes from virtual machine
+
+Detaches one or more volumes currently attached to an existing virtual machine. Include the virtual machine ID in the path and the volume IDs in the request body to detach the specified volumes from the designated virtual machine.
 
 ### Example
 
@@ -148,12 +152,12 @@ with hyperstack.ApiClient(configuration) as api_client:
     payload = hyperstack.DetachVolumesPayload() # DetachVolumesPayload | 
 
     try:
-        # Detach Volumes
-        api_response = api_instance.detach_volumes(virtual_machine_id, payload)
-        print("The response of VolumeAttachmentApi->detach_volumes:\n")
+        # Detach volumes from virtual machine
+        api_response = api_instance.detach_volumes_from_virtual_machine(virtual_machine_id, payload)
+        print("The response of VolumeAttachmentApi->detach_volumes_from_virtual_machine:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling VolumeAttachmentApi->detach_volumes: %s\n" % e)
+        print("Exception when calling VolumeAttachmentApi->detach_volumes_from_virtual_machine: %s\n" % e)
 ```
 
 
@@ -183,7 +187,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Volumes detaching now. |  -  |
+**200** | Volumes have been successfully detached from the virtual machine. |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |

@@ -24,7 +24,7 @@ json = "{}"
 # create an instance of FlavorPayload from a JSON string
 flavor_payload_instance = FlavorPayload.from_json(json)
 # print the JSON string representation of the object
-print FlavorPayload.to_json()
+print(FlavorPayload.to_json())
 
 # convert the object into a dict
 flavor_payload_dict = flavor_payload_instance.to_dict()

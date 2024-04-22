@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of InstanceEvents from a JSON string
 instance_events_instance = InstanceEvents.from_json(json)
 # print the JSON string representation of the object
-print InstanceEvents.to_json()
+print(InstanceEvents.to_json())
 
 # convert the object into a dict
 instance_events_dict = instance_events_instance.to_dict()

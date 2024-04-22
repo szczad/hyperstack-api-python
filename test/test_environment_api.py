@@ -29,35 +29,35 @@ class TestEnvironmentApi(unittest.TestCase):
     def test_create_environment(self) -> None:
         """Test case for create_environment
 
-        Create Environment
+        Create environment
         """
         pass
 
-    def test_delete_an_environment(self) -> None:
-        """Test case for delete_an_environment
+    def test_delete_environment(self) -> None:
+        """Test case for delete_environment
 
-        Delete an environment
-        """
-        pass
-
-    def test_get_an_environment_details(self) -> None:
-        """Test case for get_an_environment_details
-
-        Get an environment detail
+        Delete environment
         """
         pass
 
     def test_list_environments(self) -> None:
         """Test case for list_environments
 
-        List Environments
+        List environments
         """
         pass
 
-    def test_update_an_environment(self) -> None:
-        """Test case for update_an_environment
+    def test_retrieve_environment(self) -> None:
+        """Test case for retrieve_environment
 
-        Update Environment
+        Retrieve environment
+        """
+        pass
+
+    def test_update_environment(self) -> None:
+        """Test case for update_environment
+
+        Update environment
         """
         pass
 

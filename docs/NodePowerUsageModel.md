@@ -11,7 +11,10 @@ Name | Type | Description | Notes
 **status** | **str** |  | [optional] 
 **provision_date** | **datetime** |  | [optional] 
 **sunset_date** | **datetime** |  | [optional] 
+**flavors** | **List[str]** |  | [optional] 
+**projects** | **List[str]** |  | [optional] 
 **stocks** | [**List[NodeStocksPayload]**](NodeStocksPayload.md) |  | [optional] 
+**organizations** | **List[int]** |  | [optional] 
 **power_usages** | [**PowerUsageModel**](PowerUsageModel.md) |  | [optional] 
 
 ## Example
@@ -24,7 +27,7 @@ json = "{}"
 # create an instance of NodePowerUsageModel from a JSON string
 node_power_usage_model_instance = NodePowerUsageModel.from_json(json)
 # print the JSON string representation of the object
-print NodePowerUsageModel.to_json()
+print(NodePowerUsageModel.to_json())
 
 # convert the object into a dict
 node_power_usage_model_dict = node_power_usage_model_instance.to_dict()

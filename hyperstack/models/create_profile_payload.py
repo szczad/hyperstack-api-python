@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,16 +27,16 @@ class CreateProfilePayload(BaseModel):
     """
     CreateProfilePayload
     """ # noqa: E501
-    name: StrictStr
-    description: Optional[StrictStr] = None
-    data: Dict[str, StrictStr]
+    name: Annotated[str, Field(strict=True, max_length=50)] = Field(description="The name of the profile being created.")
+    description: Optional[Annotated[str, Field(strict=True, max_length=150)]] = Field(default=None, description="The optional description for the profile being created.")
+    data: Dict[str, StrictStr] = Field(description="The data object which contains the configuration of the virtual machine profile being created.")
     __properties: ClassVar[List[str]] = ["name", "description", "data"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

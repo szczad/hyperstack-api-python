@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of PaymentDetailsResponse from a JSON string
 payment_details_response_instance = PaymentDetailsResponse.from_json(json)
 # print the JSON string representation of the object
-print PaymentDetailsResponse.to_json()
+print(PaymentDetailsResponse.to_json())
 
 # convert the object into a dict
 payment_details_response_dict = payment_details_response_instance.to_dict()

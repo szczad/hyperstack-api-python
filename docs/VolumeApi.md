@@ -4,16 +4,18 @@ All URIs are relative to *https://infrahub-api.nexgencloud.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_volume**](VolumeApi.md#create_volume) | **POST** /core/volumes | Create Volume
-[**delete_volume**](VolumeApi.md#delete_volume) | **DELETE** /core/volumes/{id} | Delete Volume
-[**get_volume_types**](VolumeApi.md#get_volume_types) | **GET** /core/volume-types | GET Volume Types
-[**list_volumes**](VolumeApi.md#list_volumes) | **GET** /core/volumes | List Volumes
+[**create_volume**](VolumeApi.md#create_volume) | **POST** /core/volumes | Create volume
+[**delete_volume**](VolumeApi.md#delete_volume) | **DELETE** /core/volumes/{id} | Delete volume
+[**list_volume_types**](VolumeApi.md#list_volume_types) | **GET** /core/volume-types | List volume types
+[**list_volumes**](VolumeApi.md#list_volumes) | **GET** /core/volumes | List volumes
 
 
 # **create_volume**
 > Volume create_volume(payload)
 
-Create Volume
+Create volume
+
+Creates a volume that can be attached to a virtual machine, expanding its storage capacity. Specify the volume type and custom configuration in the request body. For additional details on volumes, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/volumes-available-features).
 
 ### Example
 
@@ -57,7 +59,7 @@ with hyperstack.ApiClient(configuration) as api_client:
     payload = hyperstack.CreateVolumePayload() # CreateVolumePayload | 
 
     try:
-        # Create Volume
+        # Create volume
         api_response = api_instance.create_volume(payload)
         print("The response of VolumeApi->create_volume:\n")
         pprint(api_response)
@@ -91,7 +93,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Volume created successfully |  -  |
+**200** | Volume successfully created. |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -104,7 +106,9 @@ Name | Type | Description  | Notes
 # **delete_volume**
 > ResponseModel delete_volume(id)
 
-Delete Volume
+Delete volume
+
+Deletes a volume permanently. Provide the volume ID in the path to specify the volume to be deleted.
 
 ### Example
 
@@ -147,7 +151,7 @@ with hyperstack.ApiClient(configuration) as api_client:
     id = 56 # int | 
 
     try:
-        # Delete Volume
+        # Delete volume
         api_response = api_instance.delete_volume(id)
         print("The response of VolumeApi->delete_volume:\n")
         pprint(api_response)
@@ -181,7 +185,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | Volume successfully deleted. |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -189,10 +193,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_volume_types**
-> VolumeTypes get_volume_types()
+# **list_volume_types**
+> VolumeTypes list_volume_types()
 
-GET Volume Types
+List volume types
+
+Retrieves a list of available volume types that can be used in the creation of a new volume.
 
 ### Example
 
@@ -234,12 +240,12 @@ with hyperstack.ApiClient(configuration) as api_client:
     api_instance = hyperstack.VolumeApi(api_client)
 
     try:
-        # GET Volume Types
-        api_response = api_instance.get_volume_types()
-        print("The response of VolumeApi->get_volume_types:\n")
+        # List volume types
+        api_response = api_instance.list_volume_types()
+        print("The response of VolumeApi->list_volume_types:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling VolumeApi->get_volume_types: %s\n" % e)
+        print("Exception when calling VolumeApi->list_volume_types: %s\n" % e)
 ```
 
 
@@ -265,7 +271,7 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Retrieved Volume Types. |  -  |
+**200** | Successful retrieval of volume types list |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **500** | Internal Server Error |  -  |
@@ -275,7 +281,9 @@ This endpoint does not need any parameter.
 # **list_volumes**
 > Volumes list_volumes()
 
-List Volumes
+List volumes
+
+Returns a list of your existing volumes, providing details for each. For more information on volumes, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/volumes-available-features).
 
 ### Example
 
@@ -317,7 +325,7 @@ with hyperstack.ApiClient(configuration) as api_client:
     api_instance = hyperstack.VolumeApi(api_client)
 
     try:
-        # List Volumes
+        # List volumes
         api_response = api_instance.list_volumes()
         print("The response of VolumeApi->list_volumes:\n")
         pprint(api_response)
@@ -348,7 +356,7 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Getting volumes successful |  -  |
+**200** | Successful retrieval of volumes list. |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **500** | Internal Server Error |  -  |

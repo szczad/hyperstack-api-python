@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from hyperstack.models.internal_environment_fields import InternalEnvironmentFields
 from hyperstack.models.internal_instance_flavor_fields import InternalInstanceFlavorFields
@@ -54,11 +54,11 @@ class InternalInstanceFields(BaseModel):
     created_at: Optional[datetime] = None
     __properties: ClassVar[List[str]] = ["id", "name", "openstack_id", "status", "environment", "image", "flavor", "keypair", "volume_attachments", "boot_source", "power_state", "vm_state", "fixed_ip", "floating_ip", "floating_ip_status", "user_data", "security_rules", "callback_url", "created_at"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

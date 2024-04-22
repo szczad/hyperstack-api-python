@@ -23,7 +23,7 @@ json = "{}"
 # create an instance of PricebookModel from a JSON string
 pricebook_model_instance = PricebookModel.from_json(json)
 # print the JSON string representation of the object
-print PricebookModel.to_json()
+print(PricebookModel.to_json())
 
 # convert the object into a dict
 pricebook_model_dict = pricebook_model_instance.to_dict()

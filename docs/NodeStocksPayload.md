@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of NodeStocksPayload from a JSON string
 node_stocks_payload_instance = NodeStocksPayload.from_json(json)
 # print the JSON string representation of the object
-print NodeStocksPayload.to_json()
+print(NodeStocksPayload.to_json())
 
 # convert the object into a dict
 node_stocks_payload_dict = node_stocks_payload_instance.to_dict()

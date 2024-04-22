@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of RolePermissionFields from a JSON string
 role_permission_fields_instance = RolePermissionFields.from_json(json)
 # print the JSON string representation of the object
-print RolePermissionFields.to_json()
+print(RolePermissionFields.to_json())
 
 # convert the object into a dict
 role_permission_fields_dict = role_permission_fields_instance.to_dict()

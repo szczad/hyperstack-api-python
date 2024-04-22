@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of NewStockUpdateResponseModel from a JSON string
 new_stock_update_response_model_instance = NewStockUpdateResponseModel.from_json(json)
 # print the JSON string representation of the object
-print NewStockUpdateResponseModel.to_json()
+print(NewStockUpdateResponseModel.to_json())
 
 # convert the object into a dict
 new_stock_update_response_model_dict = new_stock_update_response_model_instance.to_dict()

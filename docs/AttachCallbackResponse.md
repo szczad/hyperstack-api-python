@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of AttachCallbackResponse from a JSON string
 attach_callback_response_instance = AttachCallbackResponse.from_json(json)
 # print the JSON string representation of the object
-print AttachCallbackResponse.to_json()
+print(AttachCallbackResponse.to_json())
 
 # convert the object into a dict
 attach_callback_response_dict = attach_callback_response_instance.to_dict()

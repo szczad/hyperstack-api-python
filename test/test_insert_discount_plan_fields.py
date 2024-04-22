@@ -35,8 +35,11 @@ class TestInsertDiscountPlanFields(unittest.TestCase):
         model = InsertDiscountPlanFields()
         if include_optional:
             return InsertDiscountPlanFields(
-                org_id = 56,
-                org_name = '',
+                customers = [
+                    hyperstack.models.customer_fields.CustomerFields(
+                        id = 56, 
+                        plan_type = '', )
+                    ],
                 discount_resources = [
                     hyperstack.models.discount_resource_fields.DiscountResourceFields(
                         resource_id = 56, 

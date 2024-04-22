@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **auth_user_information**
-> UserInfoResponse auth_user_information()
+> AuthUserInfoResponseModel auth_user_information()
 
 Get me information
 
@@ -19,7 +19,7 @@ Get me information
 
 ```python
 import hyperstack
-from hyperstack.models.user_info_response import UserInfoResponse
+from hyperstack.models.auth_user_info_response_model import AuthUserInfoResponseModel
 from hyperstack.rest import ApiException
 from pprint import pprint
 
@@ -68,7 +68,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**UserInfoResponse**](UserInfoResponse.md)
+[**AuthUserInfoResponseModel**](AuthUserInfoResponseModel.md)
 
 ### Authorization
 

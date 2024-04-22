@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
+**name** | **str** | The new name of the environment. | 
 
 ## Example
 
@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of UpdateEnvironment from a JSON string
 update_environment_instance = UpdateEnvironment.from_json(json)
 # print the JSON string representation of the object
-print UpdateEnvironment.to_json()
+print(UpdateEnvironment.to_json())
 
 # convert the object into a dict
 update_environment_dict = update_environment_instance.to_dict()

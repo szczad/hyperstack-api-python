@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**direction** | **str** |  | 
-**protocol** | **str** |  | 
-**ethertype** | **str** |  | 
-**remote_ip_prefix** | **str** |  | 
+**direction** | **str** | The direction of traffic that the firewall rule applies to. | 
+**protocol** | **str** | The network protocol associated with the rule. Call the [&#x60;GET /core/sg-rules-protocols&#x60;](https://infrahub-api-doc.nexgencloud.com/#get-/core/sg-rules-protocols) endpoint to retrieve a list of permitted network protocols. | 
+**ethertype** | **str** | The Ethernet type associated with the rule. | 
+**remote_ip_prefix** | **str** | The IP address range that is allowed to access the specified port. Use \&quot;0.0.0.0/0\&quot; to allow any IP address. | 
 
 ## Example
 
@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of CreateSecurityRulePayload from a JSON string
 create_security_rule_payload_instance = CreateSecurityRulePayload.from_json(json)
 # print the JSON string representation of the object
-print CreateSecurityRulePayload.to_json()
+print(CreateSecurityRulePayload.to_json())
 
 # convert the object into a dict
 create_security_rule_payload_dict = create_security_rule_payload_instance.to_dict()

@@ -7,8 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **bool** |  | [optional] 
 **message** | **str** |  | [optional] 
-**instances** | [**List[InstanceAdminFields]**](InstanceAdminFields.md) |  | [optional] 
-**instance_count** | **int** |  | [optional] 
+**instances** | [**List[InstanceFields]**](InstanceFields.md) |  | [optional] 
 
 ## Example
 
@@ -20,7 +19,7 @@ json = "{}"
 # create an instance of Instances from a JSON string
 instances_instance = Instances.from_json(json)
 # print the JSON string representation of the object
-print Instances.to_json()
+print(Instances.to_json())
 
 # convert the object into a dict
 instances_dict = instances_instance.to_dict()

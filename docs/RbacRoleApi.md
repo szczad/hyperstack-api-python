@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_rbac_role**
-> RBACRole create_rbac_role(payload)
+> RbacRoleDetailResponseModel create_rbac_role(payload)
 
 Create RBAC Role
 
@@ -23,8 +23,8 @@ Create RBAC Role
 
 ```python
 import hyperstack
-from hyperstack.models.rbac_role import RBACRole
-from hyperstack.models.rbac_role_payload import RBACRolePayload
+from hyperstack.models.create_update_rbac_role_payload import CreateUpdateRbacRolePayload
+from hyperstack.models.rbac_role_detail_response_model import RbacRoleDetailResponseModel
 from hyperstack.rest import ApiException
 from pprint import pprint
 
@@ -55,7 +55,7 @@ configuration.api_key['accessToken'] = os.environ["API_KEY"]
 with hyperstack.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = hyperstack.RbacRoleApi(api_client)
-    payload = hyperstack.RBACRolePayload() # RBACRolePayload | 
+    payload = hyperstack.CreateUpdateRbacRolePayload() # CreateUpdateRbacRolePayload | 
 
     try:
         # Create RBAC Role
@@ -73,11 +73,11 @@ with hyperstack.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payload** | [**RBACRolePayload**](RBACRolePayload.md)|  | 
+ **payload** | [**CreateUpdateRbacRolePayload**](CreateUpdateRbacRolePayload.md)|  | 
 
 ### Return type
 
-[**RBACRole**](RBACRole.md)
+[**RbacRoleDetailResponseModel**](RbacRoleDetailResponseModel.md)
 
 ### Authorization
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Creating RBAC role success |  -  |
+**201** | Success |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **409** | Conflict |  -  |
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_a_rbac_role**
-> ResponseModel delete_a_rbac_role(id)
+> CommonResponseModel delete_a_rbac_role(id)
 
 Delete a RBAC Role
 
@@ -112,7 +112,7 @@ Delete a RBAC Role
 
 ```python
 import hyperstack
-from hyperstack.models.response_model import ResponseModel
+from hyperstack.models.common_response_model import CommonResponseModel
 from hyperstack.rest import ApiException
 from pprint import pprint
 
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseModel**](ResponseModel.md)
+[**CommonResponseModel**](CommonResponseModel.md)
 
 ### Authorization
 
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | RBAC Role deleted successfully |  -  |
+**200** | Success |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_a_rbac_role_detail**
-> RBACRole get_a_rbac_role_detail(id)
+> RbacRoleDetailResponseModel get_a_rbac_role_detail(id)
 
 Get a RBAC Role Detail
 
@@ -200,7 +200,7 @@ Get a RBAC Role Detail
 
 ```python
 import hyperstack
-from hyperstack.models.rbac_role import RBACRole
+from hyperstack.models.rbac_role_detail_response_model import RbacRoleDetailResponseModel
 from hyperstack.rest import ApiException
 from pprint import pprint
 
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RBACRole**](RBACRole.md)
+[**RbacRoleDetailResponseModel**](RbacRoleDetailResponseModel.md)
 
 ### Authorization
 
@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Getting RBAC role detail success |  -  |
+**200** | Success |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_rbac_roles**
-> RBACRoles list_rbac_roles()
+> GetRbacRolesResponseModel list_rbac_roles()
 
 List RBAC Roles
 
@@ -288,7 +288,7 @@ List RBAC Roles
 
 ```python
 import hyperstack
-from hyperstack.models.rbac_roles import RBACRoles
+from hyperstack.models.get_rbac_roles_response_model import GetRbacRolesResponseModel
 from hyperstack.rest import ApiException
 from pprint import pprint
 
@@ -337,7 +337,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**RBACRoles**](RBACRoles.md)
+[**GetRbacRolesResponseModel**](GetRbacRolesResponseModel.md)
 
 ### Authorization
 
@@ -352,7 +352,7 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Getting RBAC roles success |  -  |
+**200** | Success |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **500** | Internal Server Error |  -  |
@@ -360,7 +360,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_a_rbac_role**
-> RBACRole update_a_rbac_role(id, payload)
+> RbacRoleDetailResponseModel update_a_rbac_role(id, payload)
 
 Update a RBAC Role
 
@@ -371,8 +371,8 @@ Update a RBAC Role
 
 ```python
 import hyperstack
-from hyperstack.models.rbac_role import RBACRole
-from hyperstack.models.rbac_role_payload import RBACRolePayload
+from hyperstack.models.create_update_rbac_role_payload import CreateUpdateRbacRolePayload
+from hyperstack.models.rbac_role_detail_response_model import RbacRoleDetailResponseModel
 from hyperstack.rest import ApiException
 from pprint import pprint
 
@@ -404,7 +404,7 @@ with hyperstack.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = hyperstack.RbacRoleApi(api_client)
     id = 56 # int | 
-    payload = hyperstack.RBACRolePayload() # RBACRolePayload | 
+    payload = hyperstack.CreateUpdateRbacRolePayload() # CreateUpdateRbacRolePayload | 
 
     try:
         # Update a RBAC Role
@@ -423,11 +423,11 @@ with hyperstack.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
- **payload** | [**RBACRolePayload**](RBACRolePayload.md)|  | 
+ **payload** | [**CreateUpdateRbacRolePayload**](CreateUpdateRbacRolePayload.md)|  | 
 
 ### Return type
 
-[**RBACRole**](RBACRole.md)
+[**RbacRoleDetailResponseModel**](RbacRoleDetailResponseModel.md)
 
 ### Authorization
 
@@ -442,7 +442,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | RBAC Role updated successfully |  -  |
+**200** | Success |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |

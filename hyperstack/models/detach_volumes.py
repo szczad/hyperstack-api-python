@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from hyperstack.models.attach_volume_fields import AttachVolumeFields
 from typing import Optional, Set
@@ -32,11 +32,11 @@ class DetachVolumes(BaseModel):
     volume_attachments: Optional[List[AttachVolumeFields]] = None
     __properties: ClassVar[List[str]] = ["status", "message", "volume_attachments"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

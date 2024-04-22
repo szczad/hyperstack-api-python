@@ -17,10 +17,10 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictInt
-from hyperstack.models.invite import Invite
-from hyperstack.models.invite_user import InviteUser
-from hyperstack.models.invites import Invites
-from hyperstack.models.response_model import ResponseModel
+from hyperstack.models.common_response_model import CommonResponseModel
+from hyperstack.models.get_invites_response_model import GetInvitesResponseModel
+from hyperstack.models.invite_user_payload import InviteUserPayload
+from hyperstack.models.invite_user_response_model import InviteUserResponseModel
 
 from hyperstack.api_client import ApiClient, RequestSerialized
 from hyperstack.api_response import ApiResponse
@@ -56,7 +56,7 @@ class InviteApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ResponseModel:
+    ) -> CommonResponseModel:
         """Delete Invite
 
 
@@ -93,7 +93,7 @@ class InviteApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseModel",
+            '200': "CommonResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
@@ -126,7 +126,7 @@ class InviteApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ResponseModel]:
+    ) -> ApiResponse[CommonResponseModel]:
         """Delete Invite
 
 
@@ -163,7 +163,7 @@ class InviteApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseModel",
+            '200': "CommonResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
@@ -233,7 +233,7 @@ class InviteApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseModel",
+            '200': "CommonResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '404': "ErrorResponseModel",
@@ -311,7 +311,7 @@ class InviteApi:
     @validate_call
     def invite_an_user_to_organization(
         self,
-        payload: InviteUser,
+        payload: InviteUserPayload,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -324,12 +324,12 @@ class InviteApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Invite:
+    ) -> InviteUserResponseModel:
         """Invite an user to organization
 
 
         :param payload: (required)
-        :type payload: InviteUser
+        :type payload: InviteUserPayload
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -361,7 +361,7 @@ class InviteApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Invite",
+            '201': "InviteUserResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '409': "ErrorResponseModel",
@@ -381,7 +381,7 @@ class InviteApi:
     @validate_call
     def invite_an_user_to_organization_with_http_info(
         self,
-        payload: InviteUser,
+        payload: InviteUserPayload,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -394,12 +394,12 @@ class InviteApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Invite]:
+    ) -> ApiResponse[InviteUserResponseModel]:
         """Invite an user to organization
 
 
         :param payload: (required)
-        :type payload: InviteUser
+        :type payload: InviteUserPayload
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -431,7 +431,7 @@ class InviteApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Invite",
+            '201': "InviteUserResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '409': "ErrorResponseModel",
@@ -451,7 +451,7 @@ class InviteApi:
     @validate_call
     def invite_an_user_to_organization_without_preload_content(
         self,
-        payload: InviteUser,
+        payload: InviteUserPayload,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -469,7 +469,7 @@ class InviteApi:
 
 
         :param payload: (required)
-        :type payload: InviteUser
+        :type payload: InviteUserPayload
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -501,7 +501,7 @@ class InviteApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Invite",
+            '201': "InviteUserResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '409': "ErrorResponseModel",
@@ -604,7 +604,7 @@ class InviteApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Invites:
+    ) -> GetInvitesResponseModel:
         """List Invites
 
 
@@ -638,7 +638,7 @@ class InviteApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Invites",
+            '200': "GetInvitesResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '500': None,
@@ -669,7 +669,7 @@ class InviteApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Invites]:
+    ) -> ApiResponse[GetInvitesResponseModel]:
         """List Invites
 
 
@@ -703,7 +703,7 @@ class InviteApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Invites",
+            '200': "GetInvitesResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '500': None,
@@ -768,7 +768,7 @@ class InviteApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Invites",
+            '200': "GetInvitesResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '500': None,

@@ -16,8 +16,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from hyperstack.models.api_key import APIKey
-from hyperstack.models.api_keygeneration import APIKeygeneration
+from hyperstack.models.generate_api_key_response_model import GenerateApiKeyResponseModel
+from hyperstack.models.get_api_key_response_model import GetApiKeyResponseModel
 
 from hyperstack.api_client import ApiClient, RequestSerialized
 from hyperstack.api_response import ApiResponse
@@ -52,7 +52,7 @@ class ApiKeyApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> APIKeygeneration:
+    ) -> GenerateApiKeyResponseModel:
         """Generate API Key
 
 
@@ -86,7 +86,7 @@ class ApiKeyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIKeygeneration",
+            '200': "GenerateApiKeyResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '500': None,
@@ -117,7 +117,7 @@ class ApiKeyApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[APIKeygeneration]:
+    ) -> ApiResponse[GenerateApiKeyResponseModel]:
         """Generate API Key
 
 
@@ -151,7 +151,7 @@ class ApiKeyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIKeygeneration",
+            '200': "GenerateApiKeyResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '500': None,
@@ -216,7 +216,7 @@ class ApiKeyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIKeygeneration",
+            '200': "GenerateApiKeyResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '500': None,
@@ -301,7 +301,7 @@ class ApiKeyApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> APIKey:
+    ) -> GetApiKeyResponseModel:
         """Get API Key
 
 
@@ -335,7 +335,7 @@ class ApiKeyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIKey",
+            '200': "GetApiKeyResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '500': None,
@@ -366,7 +366,7 @@ class ApiKeyApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[APIKey]:
+    ) -> ApiResponse[GetApiKeyResponseModel]:
         """Get API Key
 
 
@@ -400,7 +400,7 @@ class ApiKeyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIKey",
+            '200': "GetApiKeyResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '500': None,
@@ -465,7 +465,7 @@ class ApiKeyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIKey",
+            '200': "GetApiKeyResponseModel",
             '400': "ErrorResponseModel",
             '401': "ErrorResponseModel",
             '500': None,

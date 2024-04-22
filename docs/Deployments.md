@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of Deployments from a JSON string
 deployments_instance = Deployments.from_json(json)
 # print the JSON string representation of the object
-print Deployments.to_json()
+print(Deployments.to_json())
 
 # convert the object into a dict
 deployments_dict = deployments_instance.to_dict()

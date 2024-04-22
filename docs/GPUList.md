@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of GPUList from a JSON string
 gpu_list_instance = GPUList.from_json(json)
 # print the JSON string representation of the object
-print GPUList.to_json()
+print(GPUList.to_json())
 
 # convert the object into a dict
 gpu_list_dict = gpu_list_instance.to_dict()

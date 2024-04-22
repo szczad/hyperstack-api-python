@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Union
+from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,14 +27,17 @@ class ResourcePayload(BaseModel):
     ResourcePayload
     """ # noqa: E501
     resource_id: StrictInt
-    discount_percent: Union[StrictFloat, StrictInt]
-    __properties: ClassVar[List[str]] = ["resource_id", "discount_percent"]
+    discount_percent: Optional[Union[StrictFloat, StrictInt]] = None
+    discount_type: StrictStr
+    discount_amount: Optional[Union[StrictFloat, StrictInt]] = None
+    resource_count: Optional[StrictInt] = None
+    __properties: ClassVar[List[str]] = ["resource_id", "discount_percent", "discount_type", "discount_amount", "resource_count"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -82,7 +85,10 @@ class ResourcePayload(BaseModel):
 
         _obj = cls.model_validate({
             "resource_id": obj.get("resource_id"),
-            "discount_percent": obj.get("discount_percent")
+            "discount_percent": obj.get("discount_percent"),
+            "discount_type": obj.get("discount_type"),
+            "discount_amount": obj.get("discount_amount"),
+            "resource_count": obj.get("resource_count")
         })
         return _obj
 

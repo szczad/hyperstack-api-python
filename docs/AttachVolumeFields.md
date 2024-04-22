@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of AttachVolumeFields from a JSON string
 attach_volume_fields_instance = AttachVolumeFields.from_json(json)
 # print the JSON string representation of the object
-print AttachVolumeFields.to_json()
+print(AttachVolumeFields.to_json())
 
 # convert the object into a dict
 attach_volume_fields_dict = attach_volume_fields_instance.to_dict()

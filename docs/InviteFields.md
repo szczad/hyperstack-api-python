@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of InviteFields from a JSON string
 invite_fields_instance = InviteFields.from_json(json)
 # print the JSON string representation of the object
-print InviteFields.to_json()
+print(InviteFields.to_json())
 
 # convert the object into a dict
 invite_fields_dict = invite_fields_instance.to_dict()

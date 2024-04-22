@@ -45,6 +45,11 @@ class TestCreateVolumePayload(unittest.TestCase):
             )
         else:
             return CreateVolumePayload(
+                name = '',
+                environment_name = '',
+                description = '',
+                volume_type = '',
+                size = 56,
         )
         """
 

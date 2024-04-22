@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of PolicyFields from a JSON string
 policy_fields_instance = PolicyFields.from_json(json)
 # print the JSON string representation of the object
-print PolicyFields.to_json()
+print(PolicyFields.to_json())
 
 # convert the object into a dict
 policy_fields_dict = policy_fields_instance.to_dict()

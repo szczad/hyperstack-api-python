@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of ImageGetResponse from a JSON string
 image_get_response_instance = ImageGetResponse.from_json(json)
 # print the JSON string representation of the object
-print ImageGetResponse.to_json()
+print(ImageGetResponse.to_json())
 
 # convert the object into a dict
 image_get_response_dict = image_get_response_instance.to_dict()

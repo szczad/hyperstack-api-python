@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of FutureNodeUpdateModel from a JSON string
 future_node_update_model_instance = FutureNodeUpdateModel.from_json(json)
 # print the JSON string representation of the object
-print FutureNodeUpdateModel.to_json()
+print(FutureNodeUpdateModel.to_json())
 
 # convert the object into a dict
 future_node_update_model_dict = future_node_update_model_instance.to_dict()

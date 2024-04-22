@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CreateUpdateComplianceResponse from a JSON string
 create_update_compliance_response_instance = CreateUpdateComplianceResponse.from_json(json)
 # print the JSON string representation of the object
-print CreateUpdateComplianceResponse.to_json()
+print(CreateUpdateComplianceResponse.to_json())
 
 # convert the object into a dict
 create_update_compliance_response_dict = create_update_compliance_response_instance.to_dict()

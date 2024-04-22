@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CreateDiscountResponse from a JSON string
 create_discount_response_instance = CreateDiscountResponse.from_json(json)
 # print the JSON string representation of the object
-print CreateDiscountResponse.to_json()
+print(CreateDiscountResponse.to_json())
 
 # convert the object into a dict
 create_discount_response_dict = create_discount_response_instance.to_dict()

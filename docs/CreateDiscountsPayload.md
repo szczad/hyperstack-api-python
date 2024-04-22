@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**org_id** | **int** |  | 
+**customers** | [**List[CustomerPayload]**](CustomerPayload.md) |  | 
 **discount_resources** | [**List[ResourcePayload]**](ResourcePayload.md) |  | 
 **start_date** | **datetime** |  | [optional] 
 **end_date** | **datetime** |  | [optional] 
@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of CreateDiscountsPayload from a JSON string
 create_discounts_payload_instance = CreateDiscountsPayload.from_json(json)
 # print the JSON string representation of the object
-print CreateDiscountsPayload.to_json()
+print(CreateDiscountsPayload.to_json())
 
 # convert the object into a dict
 create_discounts_payload_dict = create_discounts_payload_instance.to_dict()

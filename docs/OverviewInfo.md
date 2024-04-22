@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of OverviewInfo from a JSON string
 overview_info_instance = OverviewInfo.from_json(json)
 # print the JSON string representation of the object
-print OverviewInfo.to_json()
+print(OverviewInfo.to_json())
 
 # convert the object into a dict
 overview_info_dict = overview_info_instance.to_dict()

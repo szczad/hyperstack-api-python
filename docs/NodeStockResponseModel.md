@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of NodeStockResponseModel from a JSON string
 node_stock_response_model_instance = NodeStockResponseModel.from_json(json)
 # print the JSON string representation of the object
-print NodeStockResponseModel.to_json()
+print(NodeStockResponseModel.to_json())
 
 # convert the object into a dict
 node_stock_response_model_dict = node_stock_response_model_instance.to_dict()

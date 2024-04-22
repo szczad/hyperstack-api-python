@@ -17,8 +17,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
+from hyperstack.models.create_security_rule_payload import CreateSecurityRulePayload
 from hyperstack.models.flavor_object_fields import FlavorObjectFields
 from hyperstack.models.profile_object_fields import ProfileObjectFields
 from typing import Optional, Set
@@ -28,26 +30,28 @@ class CreateInstancesPayload(BaseModel):
     """
     CreateInstancesPayload
     """ # noqa: E501
-    name: StrictStr
-    environment_name: StrictStr
-    image_name: Optional[StrictStr] = None
-    volume_name: Optional[StrictStr] = None
-    create_bootable_volume: Optional[StrictBool] = None
-    flavor_name: Optional[StrictStr] = None
+    name: Annotated[str, Field(strict=True, max_length=50)] = Field(description="The name of the virtual machine being created.")
+    environment_name: StrictStr = Field(description="The name of the [environment](https://infrahub-doc.nexgencloud.com/docs/features/environments-available-features) in which the virtual machine is to be created.")
+    image_name: Optional[StrictStr] = Field(default=None, description="The [operating system (OS) image](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/images) name designated for installation on the virtual machine.")
+    volume_name: Optional[StrictStr] = Field(default=None, description="The names of the volume(s) to be attached to the virtual machine being created.")
+    create_bootable_volume: Optional[StrictBool] = Field(default=None, description="Indicates whether to create a bootable volume for the virtual machine. When set to `true`, a bootable volume will be created; the default value is `false`.")
+    flavor_name: StrictStr = Field(description="The name of the GPU hardware configuration ([flavor](https://infrahub-doc.nexgencloud.com/docs/hardware/flavors)) for the virtual machines being created.")
     flavor: Optional[FlavorObjectFields] = None
-    key_name: StrictStr
-    user_data: Optional[StrictStr] = None
-    callback_url: Optional[StrictStr] = None
-    assign_floating_ip: Optional[StrictBool] = None
+    key_name: StrictStr = Field(description="The name of the existing SSH key pair to be used for secure access to the virtual machine. For additional information on SSH key pairs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/getting-started/create-keypair).")
+    user_data: Optional[StrictStr] = Field(default=None, description="Optional initialization configuration commands to manage the configuration of a virtual machine at launch using cloud-init scripts. For more information about custom VM configuration using cloud-init, [**click here**](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/initialization-configuration).")
+    callback_url: Optional[Annotated[str, Field(strict=True, max_length=250)]] = Field(default=None, description="An optional URL where actions performed on the virtual machine will be sent. For additional information on event callbacks, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/webhooks-callbacks).")
+    assign_floating_ip: Optional[StrictBool] = Field(default=None, description="When this field is set to `true`, it attaches a [public IP address](https://infrahub-doc.nexgencloud.com/docs/virtual-machines/public-ip) to the virtual machine, enabling internet accessibility.")
+    security_rules: Optional[List[CreateSecurityRulePayload]] = None
     profile: Optional[ProfileObjectFields] = None
-    count: StrictInt
-    __properties: ClassVar[List[str]] = ["name", "environment_name", "image_name", "volume_name", "create_bootable_volume", "flavor_name", "flavor", "key_name", "user_data", "callback_url", "assign_floating_ip", "profile", "count"]
+    count: StrictInt = Field(description="The number of virtual machines to be created.")
+    labels: Optional[List[StrictStr]] = None
+    __properties: ClassVar[List[str]] = ["name", "environment_name", "image_name", "volume_name", "create_bootable_volume", "flavor_name", "flavor", "key_name", "user_data", "callback_url", "assign_floating_ip", "security_rules", "profile", "count", "labels"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -85,6 +89,13 @@ class CreateInstancesPayload(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of flavor
         if self.flavor:
             _dict['flavor'] = self.flavor.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in security_rules (list)
+        _items = []
+        if self.security_rules:
+            for _item in self.security_rules:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['security_rules'] = _items
         # override the default output from pydantic by calling `to_dict()` of profile
         if self.profile:
             _dict['profile'] = self.profile.to_dict()
@@ -111,8 +122,10 @@ class CreateInstancesPayload(BaseModel):
             "user_data": obj.get("user_data"),
             "callback_url": obj.get("callback_url"),
             "assign_floating_ip": obj.get("assign_floating_ip"),
+            "security_rules": [CreateSecurityRulePayload.from_dict(_item) for _item in obj["security_rules"]] if obj.get("security_rules") is not None else None,
             "profile": ProfileObjectFields.from_dict(obj["profile"]) if obj.get("profile") is not None else None,
-            "count": obj.get("count")
+            "count": obj.get("count"),
+            "labels": obj.get("labels")
         })
         return _obj
 

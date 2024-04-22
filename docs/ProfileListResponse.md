@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of ProfileListResponse from a JSON string
 profile_list_response_instance = ProfileListResponse.from_json(json)
 # print the JSON string representation of the object
-print ProfileListResponse.to_json()
+print(ProfileListResponse.to_json())
 
 # convert the object into a dict
 profile_list_response_dict = profile_list_response_instance.to_dict()

@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of ProfileFields from a JSON string
 profile_fields_instance = ProfileFields.from_json(json)
 # print the JSON string representation of the object
-print ProfileFields.to_json()
+print(ProfileFields.to_json())
 
 # convert the object into a dict
 profile_fields_dict = profile_fields_instance.to_dict()

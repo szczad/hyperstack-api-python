@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from hyperstack.models.security_group_rule_fields import SecurityGroupRuleFields
 from typing import Optional, Set
@@ -32,11 +32,11 @@ class SecurityGroupRule(BaseModel):
     security_rule: Optional[SecurityGroupRuleFields] = None
     __properties: ClassVar[List[str]] = ["status", "message", "security_rule"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

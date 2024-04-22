@@ -29,7 +29,7 @@ class TestComplianceApi(unittest.TestCase):
     def test_create_compliance(self) -> None:
         """Test case for create_compliance
 
-        Create Compliance
+        Create compliance
         """
         pass
 
@@ -40,10 +40,10 @@ class TestComplianceApi(unittest.TestCase):
         """
         pass
 
-    def test_get_compliance_list(self) -> None:
-        """Test case for get_compliance_list
+    def test_retrieve_compliance(self) -> None:
+        """Test case for retrieve_compliance
 
-        Get Compliance List
+        Retrieve GPU compliance
         """
         pass
 

@@ -18,16 +18,16 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from hyperstack.models.role_permission_fields import RolePermissionFields
 from hyperstack.models.role_policy_fields import RolePolicyFields
 from typing import Optional, Set
 from typing_extensions import Self
 
-class RBACRoleFields(BaseModel):
+class RbacRoleFields(BaseModel):
     """
-    RBACRoleFields
+    RbacRoleFields
     """ # noqa: E501
     id: Optional[StrictInt] = None
     name: Optional[StrictStr] = None
@@ -37,11 +37,11 @@ class RBACRoleFields(BaseModel):
     created_at: Optional[datetime] = None
     __properties: ClassVar[List[str]] = ["id", "name", "description", "policies", "permissions", "created_at"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -55,7 +55,7 @@ class RBACRoleFields(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of RBACRoleFields from a JSON string"""
+        """Create an instance of RbacRoleFields from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -94,7 +94,7 @@ class RBACRoleFields(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of RBACRoleFields from a dict"""
+        """Create an instance of RbacRoleFields from a dict"""
         if obj is None:
             return None
 

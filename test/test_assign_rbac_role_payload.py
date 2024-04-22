@@ -14,10 +14,10 @@
 
 import unittest
 
-from hyperstack.models.assign_rbac_role_payload import AssignRBACRolePayload
+from hyperstack.models.assign_rbac_role_payload import AssignRbacRolePayload
 
-class TestAssignRBACRolePayload(unittest.TestCase):
-    """AssignRBACRolePayload unit test stubs"""
+class TestAssignRbacRolePayload(unittest.TestCase):
+    """AssignRbacRolePayload unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,26 +25,26 @@ class TestAssignRBACRolePayload(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> AssignRBACRolePayload:
-        """Test AssignRBACRolePayload
+    def make_instance(self, include_optional) -> AssignRbacRolePayload:
+        """Test AssignRbacRolePayload
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `AssignRBACRolePayload`
+        # uncomment below to create an instance of `AssignRbacRolePayload`
         """
-        model = AssignRBACRolePayload()
+        model = AssignRbacRolePayload()
         if include_optional:
-            return AssignRBACRolePayload(
+            return AssignRbacRolePayload(
                 role_id = 56
             )
         else:
-            return AssignRBACRolePayload(
+            return AssignRbacRolePayload(
                 role_id = 56,
         )
         """
 
-    def testAssignRBACRolePayload(self):
-        """Test AssignRBACRolePayload"""
+    def testAssignRbacRolePayload(self):
+        """Test AssignRbacRolePayload"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

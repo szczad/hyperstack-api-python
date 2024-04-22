@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of PermissionFields from a JSON string
 permission_fields_instance = PermissionFields.from_json(json)
 # print the JSON string representation of the object
-print PermissionFields.to_json()
+print(PermissionFields.to_json())
 
 # convert the object into a dict
 permission_fields_dict = permission_fields_instance.to_dict()

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from hyperstack.models.future_node_stock_model import FutureNodeStockModel
 from typing import Optional, Set
@@ -31,15 +31,15 @@ class FutureNodeModel(BaseModel):
     id: Optional[StrictInt] = None
     openstack_name: Optional[StrictStr] = None
     nexgen_name: Optional[StrictStr] = None
-    expected_provision_date: datetime
+    expected_provision_date: datetime = Field(description="Date and time in the format YYYY-MM-DD HH:mm:ss")
     stocks: Optional[List[FutureNodeStockModel]] = None
     __properties: ClassVar[List[str]] = ["id", "openstack_name", "nexgen_name", "expected_provision_date", "stocks"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

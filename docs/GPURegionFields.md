@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of GPURegionFields from a JSON string
 gpu_region_fields_instance = GPURegionFields.from_json(json)
 # print the JSON string representation of the object
-print GPURegionFields.to_json()
+print(GPURegionFields.to_json())
 
 # convert the object into a dict
 gpu_region_fields_dict = gpu_region_fields_instance.to_dict()

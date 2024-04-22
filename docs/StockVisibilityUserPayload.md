@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user_ids** | **List[int]** |  | [optional] 
+**user_ids** | **List[int]** |  | 
 
 ## Example
 
@@ -17,7 +17,7 @@ json = "{}"
 # create an instance of StockVisibilityUserPayload from a JSON string
 stock_visibility_user_payload_instance = StockVisibilityUserPayload.from_json(json)
 # print the JSON string representation of the object
-print StockVisibilityUserPayload.to_json()
+print(StockVisibilityUserPayload.to_json())
 
 # convert the object into a dict
 stock_visibility_user_payload_dict = stock_visibility_user_payload_instance.to_dict()

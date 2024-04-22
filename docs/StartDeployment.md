@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of StartDeployment from a JSON string
 start_deployment_instance = StartDeployment.from_json(json)
 # print the JSON string representation of the object
-print StartDeployment.to_json()
+print(StartDeployment.to_json())
 
 # convert the object into a dict
 start_deployment_dict = start_deployment_instance.to_dict()

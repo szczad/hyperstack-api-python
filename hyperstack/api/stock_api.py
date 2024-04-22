@@ -37,7 +37,7 @@ class StockApi:
 
 
     @validate_call
-    def retrieve_stocks(
+    def retrieve_gpu_stocks(
         self,
         _request_timeout: Union[
             None,
@@ -52,8 +52,9 @@ class StockApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> NewStockRetriveResponse:
-        """retrieve_stocks
+        """retrieve_gpu_stocks
 
+        Returns information on current and upcoming GPU availability, organized by region and GPU model. For additional information on GPU stocks, [**click here**](https://infrahub-doc.nexgencloud.com/docs/hardware/gpu-stock-information).
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -77,7 +78,7 @@ class StockApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._retrieve_stocks_serialize(
+        _param = self._retrieve_gpu_stocks_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -102,7 +103,7 @@ class StockApi:
 
 
     @validate_call
-    def retrieve_stocks_with_http_info(
+    def retrieve_gpu_stocks_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -117,8 +118,9 @@ class StockApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[NewStockRetriveResponse]:
-        """retrieve_stocks
+        """retrieve_gpu_stocks
 
+        Returns information on current and upcoming GPU availability, organized by region and GPU model. For additional information on GPU stocks, [**click here**](https://infrahub-doc.nexgencloud.com/docs/hardware/gpu-stock-information).
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -142,7 +144,7 @@ class StockApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._retrieve_stocks_serialize(
+        _param = self._retrieve_gpu_stocks_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -167,7 +169,7 @@ class StockApi:
 
 
     @validate_call
-    def retrieve_stocks_without_preload_content(
+    def retrieve_gpu_stocks_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -182,8 +184,9 @@ class StockApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """retrieve_stocks
+        """retrieve_gpu_stocks
 
+        Returns information on current and upcoming GPU availability, organized by region and GPU model. For additional information on GPU stocks, [**click here**](https://infrahub-doc.nexgencloud.com/docs/hardware/gpu-stock-information).
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -207,7 +210,7 @@ class StockApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._retrieve_stocks_serialize(
+        _param = self._retrieve_gpu_stocks_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -227,7 +230,7 @@ class StockApi:
         return response_data.response
 
 
-    def _retrieve_stocks_serialize(
+    def _retrieve_gpu_stocks_serialize(
         self,
         _request_auth,
         _content_type,

@@ -40,7 +40,7 @@ class CallbacksApi:
 
 
     @validate_call
-    def attach_a_callback_to_a_volume(
+    def attach_callback_to_virtual_machine(
         self,
         id: StrictInt,
         payload: AttachCallbackPayload,
@@ -57,8 +57,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AttachCallbackResponse:
-        """Attach a callback to a volume
+        """Attach callback to virtual machine
 
+        Creates a callback URL for a specified virtual machine, enabling the posting of action events executed on the virtual machine to the specified URL. Provide the callback URL in the request body and the ID of the virtual machine to which it is being attached in the path. For more details on virtual machine callback URLs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/webhooks-callbacks#attach-a-callback-url-to-an-existing-virtual-machine).
 
         :param id: (required)
         :type id: int
@@ -86,7 +87,7 @@ class CallbacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._attach_a_callback_to_a_volume_serialize(
+        _param = self._attach_callback_to_virtual_machine_serialize(
             id=id,
             payload=payload,
             _request_auth=_request_auth,
@@ -114,7 +115,7 @@ class CallbacksApi:
 
 
     @validate_call
-    def attach_a_callback_to_a_volume_with_http_info(
+    def attach_callback_to_virtual_machine_with_http_info(
         self,
         id: StrictInt,
         payload: AttachCallbackPayload,
@@ -131,8 +132,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AttachCallbackResponse]:
-        """Attach a callback to a volume
+        """Attach callback to virtual machine
 
+        Creates a callback URL for a specified virtual machine, enabling the posting of action events executed on the virtual machine to the specified URL. Provide the callback URL in the request body and the ID of the virtual machine to which it is being attached in the path. For more details on virtual machine callback URLs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/webhooks-callbacks#attach-a-callback-url-to-an-existing-virtual-machine).
 
         :param id: (required)
         :type id: int
@@ -160,7 +162,7 @@ class CallbacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._attach_a_callback_to_a_volume_serialize(
+        _param = self._attach_callback_to_virtual_machine_serialize(
             id=id,
             payload=payload,
             _request_auth=_request_auth,
@@ -188,7 +190,7 @@ class CallbacksApi:
 
 
     @validate_call
-    def attach_a_callback_to_a_volume_without_preload_content(
+    def attach_callback_to_virtual_machine_without_preload_content(
         self,
         id: StrictInt,
         payload: AttachCallbackPayload,
@@ -205,8 +207,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Attach a callback to a volume
+        """Attach callback to virtual machine
 
+        Creates a callback URL for a specified virtual machine, enabling the posting of action events executed on the virtual machine to the specified URL. Provide the callback URL in the request body and the ID of the virtual machine to which it is being attached in the path. For more details on virtual machine callback URLs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/webhooks-callbacks#attach-a-callback-url-to-an-existing-virtual-machine).
 
         :param id: (required)
         :type id: int
@@ -234,7 +237,7 @@ class CallbacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._attach_a_callback_to_a_volume_serialize(
+        _param = self._attach_callback_to_virtual_machine_serialize(
             id=id,
             payload=payload,
             _request_auth=_request_auth,
@@ -257,303 +260,7 @@ class CallbacksApi:
         return response_data.response
 
 
-    def _attach_a_callback_to_a_volume_serialize(
-        self,
-        id,
-        payload,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if payload is not None:
-            _body_params = payload
-
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'apiKey', 
-            'accessToken'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/core/volumes/{id}/attach-callback',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def attach_a_callback_to_an_instance(
-        self,
-        id: StrictInt,
-        payload: AttachCallbackPayload,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AttachCallbackResponse:
-        """Attach a callback to an instance
-
-
-        :param id: (required)
-        :type id: int
-        :param payload: (required)
-        :type payload: AttachCallbackPayload
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._attach_a_callback_to_an_instance_serialize(
-            id=id,
-            payload=payload,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AttachCallbackResponse",
-            '400': "ErrorResponseModel",
-            '401': "ErrorResponseModel",
-            '404': "ErrorResponseModel",
-            '500': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def attach_a_callback_to_an_instance_with_http_info(
-        self,
-        id: StrictInt,
-        payload: AttachCallbackPayload,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AttachCallbackResponse]:
-        """Attach a callback to an instance
-
-
-        :param id: (required)
-        :type id: int
-        :param payload: (required)
-        :type payload: AttachCallbackPayload
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._attach_a_callback_to_an_instance_serialize(
-            id=id,
-            payload=payload,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AttachCallbackResponse",
-            '400': "ErrorResponseModel",
-            '401': "ErrorResponseModel",
-            '404': "ErrorResponseModel",
-            '500': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def attach_a_callback_to_an_instance_without_preload_content(
-        self,
-        id: StrictInt,
-        payload: AttachCallbackPayload,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Attach a callback to an instance
-
-
-        :param id: (required)
-        :type id: int
-        :param payload: (required)
-        :type payload: AttachCallbackPayload
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._attach_a_callback_to_an_instance_serialize(
-            id=id,
-            payload=payload,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AttachCallbackResponse",
-            '400': "ErrorResponseModel",
-            '401': "ErrorResponseModel",
-            '404': "ErrorResponseModel",
-            '500': None,
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _attach_a_callback_to_an_instance_serialize(
+    def _attach_callback_to_virtual_machine_serialize(
         self,
         id,
         payload,
@@ -632,7 +339,306 @@ class CallbacksApi:
 
 
     @validate_call
-    def delete_a_callback_url_for_an_instance(
+    def attach_callback_to_volume(
+        self,
+        id: StrictInt,
+        payload: AttachCallbackPayload,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AttachCallbackResponse:
+        """Attach callback to volume
+
+        Creates a callback URL for a specified volume, enabling the posting of action events executed on the volume to the specified URL. Provide the callback URL in the request body and the ID of the volume to which it is being attached in the path. For more details on volume callback URLs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/webhooks-callbacks).
+
+        :param id: (required)
+        :type id: int
+        :param payload: (required)
+        :type payload: AttachCallbackPayload
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._attach_callback_to_volume_serialize(
+            id=id,
+            payload=payload,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AttachCallbackResponse",
+            '400': "ErrorResponseModel",
+            '401': "ErrorResponseModel",
+            '404': "ErrorResponseModel",
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def attach_callback_to_volume_with_http_info(
+        self,
+        id: StrictInt,
+        payload: AttachCallbackPayload,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AttachCallbackResponse]:
+        """Attach callback to volume
+
+        Creates a callback URL for a specified volume, enabling the posting of action events executed on the volume to the specified URL. Provide the callback URL in the request body and the ID of the volume to which it is being attached in the path. For more details on volume callback URLs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/webhooks-callbacks).
+
+        :param id: (required)
+        :type id: int
+        :param payload: (required)
+        :type payload: AttachCallbackPayload
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._attach_callback_to_volume_serialize(
+            id=id,
+            payload=payload,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AttachCallbackResponse",
+            '400': "ErrorResponseModel",
+            '401': "ErrorResponseModel",
+            '404': "ErrorResponseModel",
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def attach_callback_to_volume_without_preload_content(
+        self,
+        id: StrictInt,
+        payload: AttachCallbackPayload,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Attach callback to volume
+
+        Creates a callback URL for a specified volume, enabling the posting of action events executed on the volume to the specified URL. Provide the callback URL in the request body and the ID of the volume to which it is being attached in the path. For more details on volume callback URLs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/webhooks-callbacks).
+
+        :param id: (required)
+        :type id: int
+        :param payload: (required)
+        :type payload: AttachCallbackPayload
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._attach_callback_to_volume_serialize(
+            id=id,
+            payload=payload,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AttachCallbackResponse",
+            '400': "ErrorResponseModel",
+            '401': "ErrorResponseModel",
+            '404': "ErrorResponseModel",
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _attach_callback_to_volume_serialize(
+        self,
+        id,
+        payload,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if payload is not None:
+            _body_params = payload
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'apiKey', 
+            'accessToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/core/volumes/{id}/attach-callback',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def delete_virtual_machine_callback(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -648,8 +654,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ResponseModel:
-        """Delete a callback URL for an instance
+        """Delete virtual machine callback
 
+        Permanently deletes the callback URL associated with a specified virtual machine by providing the virtual machine ID in the request path. For additional information on virtual machine callback URLs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/webhooks-callbacks).
 
         :param id: (required)
         :type id: int
@@ -675,7 +682,7 @@ class CallbacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_a_callback_url_for_an_instance_serialize(
+        _param = self._delete_virtual_machine_callback_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -702,7 +709,7 @@ class CallbacksApi:
 
 
     @validate_call
-    def delete_a_callback_url_for_an_instance_with_http_info(
+    def delete_virtual_machine_callback_with_http_info(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -718,8 +725,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ResponseModel]:
-        """Delete a callback URL for an instance
+        """Delete virtual machine callback
 
+        Permanently deletes the callback URL associated with a specified virtual machine by providing the virtual machine ID in the request path. For additional information on virtual machine callback URLs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/webhooks-callbacks).
 
         :param id: (required)
         :type id: int
@@ -745,7 +753,7 @@ class CallbacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_a_callback_url_for_an_instance_serialize(
+        _param = self._delete_virtual_machine_callback_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -772,7 +780,7 @@ class CallbacksApi:
 
 
     @validate_call
-    def delete_a_callback_url_for_an_instance_without_preload_content(
+    def delete_virtual_machine_callback_without_preload_content(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -788,8 +796,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Delete a callback URL for an instance
+        """Delete virtual machine callback
 
+        Permanently deletes the callback URL associated with a specified virtual machine by providing the virtual machine ID in the request path. For additional information on virtual machine callback URLs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/webhooks-callbacks).
 
         :param id: (required)
         :type id: int
@@ -815,7 +824,7 @@ class CallbacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_a_callback_url_for_an_instance_serialize(
+        _param = self._delete_virtual_machine_callback_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -837,7 +846,7 @@ class CallbacksApi:
         return response_data.response
 
 
-    def _delete_a_callback_url_for_an_instance_serialize(
+    def _delete_virtual_machine_callback_serialize(
         self,
         id,
         _request_auth,
@@ -900,7 +909,7 @@ class CallbacksApi:
 
 
     @validate_call
-    def delete_callback_url_for_a_volume(
+    def delete_volume_callback(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -916,8 +925,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ResponseModel:
-        """Delete callback URL for a volume
+        """Delete volume callback
 
+        Permanently deletes the callback URL associated with a specified volume by providing the volume ID in the request path. For additional information on volume callback URLs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/webhooks-callbacks).
 
         :param id: (required)
         :type id: int
@@ -943,7 +953,7 @@ class CallbacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_callback_url_for_a_volume_serialize(
+        _param = self._delete_volume_callback_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -970,7 +980,7 @@ class CallbacksApi:
 
 
     @validate_call
-    def delete_callback_url_for_a_volume_with_http_info(
+    def delete_volume_callback_with_http_info(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -986,8 +996,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ResponseModel]:
-        """Delete callback URL for a volume
+        """Delete volume callback
 
+        Permanently deletes the callback URL associated with a specified volume by providing the volume ID in the request path. For additional information on volume callback URLs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/webhooks-callbacks).
 
         :param id: (required)
         :type id: int
@@ -1013,7 +1024,7 @@ class CallbacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_callback_url_for_a_volume_serialize(
+        _param = self._delete_volume_callback_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1040,7 +1051,7 @@ class CallbacksApi:
 
 
     @validate_call
-    def delete_callback_url_for_a_volume_without_preload_content(
+    def delete_volume_callback_without_preload_content(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -1056,8 +1067,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Delete callback URL for a volume
+        """Delete volume callback
 
+        Permanently deletes the callback URL associated with a specified volume by providing the volume ID in the request path. For additional information on volume callback URLs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/webhooks-callbacks).
 
         :param id: (required)
         :type id: int
@@ -1083,7 +1095,7 @@ class CallbacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_callback_url_for_a_volume_serialize(
+        _param = self._delete_volume_callback_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1105,7 +1117,7 @@ class CallbacksApi:
         return response_data.response
 
 
-    def _delete_callback_url_for_a_volume_serialize(
+    def _delete_volume_callback_serialize(
         self,
         id,
         _request_auth,
@@ -1168,7 +1180,7 @@ class CallbacksApi:
 
 
     @validate_call
-    def update_a_callback_url(
+    def update_virtual_machine_callback(
         self,
         id: StrictInt,
         payload: AttachCallbackPayload,
@@ -1185,8 +1197,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AttachCallbackResponse:
-        """Update a callback URL
+        """Update virtual machine callback
 
+        Updates the callback URL for a specified virtual machine. Provide the new callback URL in the request body, along with the ID of the associated virtual machine in the path. For additional information on virtual machine callback URLs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/webhooks-callbacks).
 
         :param id: (required)
         :type id: int
@@ -1214,7 +1227,7 @@ class CallbacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_a_callback_url_serialize(
+        _param = self._update_virtual_machine_callback_serialize(
             id=id,
             payload=payload,
             _request_auth=_request_auth,
@@ -1242,7 +1255,7 @@ class CallbacksApi:
 
 
     @validate_call
-    def update_a_callback_url_with_http_info(
+    def update_virtual_machine_callback_with_http_info(
         self,
         id: StrictInt,
         payload: AttachCallbackPayload,
@@ -1259,8 +1272,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AttachCallbackResponse]:
-        """Update a callback URL
+        """Update virtual machine callback
 
+        Updates the callback URL for a specified virtual machine. Provide the new callback URL in the request body, along with the ID of the associated virtual machine in the path. For additional information on virtual machine callback URLs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/webhooks-callbacks).
 
         :param id: (required)
         :type id: int
@@ -1288,7 +1302,7 @@ class CallbacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_a_callback_url_serialize(
+        _param = self._update_virtual_machine_callback_serialize(
             id=id,
             payload=payload,
             _request_auth=_request_auth,
@@ -1316,7 +1330,7 @@ class CallbacksApi:
 
 
     @validate_call
-    def update_a_callback_url_without_preload_content(
+    def update_virtual_machine_callback_without_preload_content(
         self,
         id: StrictInt,
         payload: AttachCallbackPayload,
@@ -1333,8 +1347,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Update a callback URL
+        """Update virtual machine callback
 
+        Updates the callback URL for a specified virtual machine. Provide the new callback URL in the request body, along with the ID of the associated virtual machine in the path. For additional information on virtual machine callback URLs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/webhooks-callbacks).
 
         :param id: (required)
         :type id: int
@@ -1362,7 +1377,7 @@ class CallbacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_a_callback_url_serialize(
+        _param = self._update_virtual_machine_callback_serialize(
             id=id,
             payload=payload,
             _request_auth=_request_auth,
@@ -1385,7 +1400,7 @@ class CallbacksApi:
         return response_data.response
 
 
-    def _update_a_callback_url_serialize(
+    def _update_virtual_machine_callback_serialize(
         self,
         id,
         payload,
@@ -1464,7 +1479,7 @@ class CallbacksApi:
 
 
     @validate_call
-    def update_callback_url_for_volume(
+    def update_volume_callback(
         self,
         id: StrictInt,
         payload: AttachCallbackPayload,
@@ -1481,8 +1496,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AttachCallbackResponse:
-        """Update callback URL for volume
+        """Update volume callback
 
+        Updates the callback URL for a specified volume. Provide the new callback URL in the request body, along with the ID of the associated volume in the path. For additional information on volume callback URLs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/webhooks-callbacks).
 
         :param id: (required)
         :type id: int
@@ -1510,7 +1526,7 @@ class CallbacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_callback_url_for_volume_serialize(
+        _param = self._update_volume_callback_serialize(
             id=id,
             payload=payload,
             _request_auth=_request_auth,
@@ -1538,7 +1554,7 @@ class CallbacksApi:
 
 
     @validate_call
-    def update_callback_url_for_volume_with_http_info(
+    def update_volume_callback_with_http_info(
         self,
         id: StrictInt,
         payload: AttachCallbackPayload,
@@ -1555,8 +1571,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AttachCallbackResponse]:
-        """Update callback URL for volume
+        """Update volume callback
 
+        Updates the callback URL for a specified volume. Provide the new callback URL in the request body, along with the ID of the associated volume in the path. For additional information on volume callback URLs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/webhooks-callbacks).
 
         :param id: (required)
         :type id: int
@@ -1584,7 +1601,7 @@ class CallbacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_callback_url_for_volume_serialize(
+        _param = self._update_volume_callback_serialize(
             id=id,
             payload=payload,
             _request_auth=_request_auth,
@@ -1612,7 +1629,7 @@ class CallbacksApi:
 
 
     @validate_call
-    def update_callback_url_for_volume_without_preload_content(
+    def update_volume_callback_without_preload_content(
         self,
         id: StrictInt,
         payload: AttachCallbackPayload,
@@ -1629,8 +1646,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Update callback URL for volume
+        """Update volume callback
 
+        Updates the callback URL for a specified volume. Provide the new callback URL in the request body, along with the ID of the associated volume in the path. For additional information on volume callback URLs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/webhooks-callbacks).
 
         :param id: (required)
         :type id: int
@@ -1658,7 +1676,7 @@ class CallbacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_callback_url_for_volume_serialize(
+        _param = self._update_volume_callback_serialize(
             id=id,
             payload=payload,
             _request_auth=_request_auth,
@@ -1681,7 +1699,7 @@ class CallbacksApi:
         return response_data.response
 
 
-    def _update_callback_url_for_volume_serialize(
+    def _update_volume_callback_serialize(
         self,
         id,
         payload,

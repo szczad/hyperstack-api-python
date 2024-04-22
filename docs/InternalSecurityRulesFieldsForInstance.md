@@ -25,7 +25,7 @@ json = "{}"
 # create an instance of InternalSecurityRulesFieldsForInstance from a JSON string
 internal_security_rules_fields_for_instance_instance = InternalSecurityRulesFieldsForInstance.from_json(json)
 # print the JSON string representation of the object
-print InternalSecurityRulesFieldsForInstance.to_json()
+print(InternalSecurityRulesFieldsForInstance.to_json())
 
 # convert the object into a dict
 internal_security_rules_fields_for_instance_dict = internal_security_rules_fields_for_instance_instance.to_dict()

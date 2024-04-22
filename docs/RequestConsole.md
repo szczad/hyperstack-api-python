@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of RequestConsole from a JSON string
 request_console_instance = RequestConsole.from_json(json)
 # print the JSON string representation of the object
-print RequestConsole.to_json()
+print(RequestConsole.to_json())
 
 # convert the object into a dict
 request_console_dict = request_console_instance.to_dict()

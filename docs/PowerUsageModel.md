@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of PowerUsageModel from a JSON string
 power_usage_model_instance = PowerUsageModel.from_json(json)
 # print the JSON string representation of the object
-print PowerUsageModel.to_json()
+print(PowerUsageModel.to_json())
 
 # convert the object into a dict
 power_usage_model_dict = power_usage_model_instance.to_dict()

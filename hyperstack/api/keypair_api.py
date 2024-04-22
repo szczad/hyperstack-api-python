@@ -43,7 +43,7 @@ class KeypairApi:
 
 
     @validate_call
-    def delete_keypair(
+    def delete_key_pair(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -59,8 +59,9 @@ class KeypairApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ResponseModel:
-        """Delete Keypair
+        """Delete key pair
 
+        Permanently deletes a specified key pair. Include the key pair ID in the request path to remove the designated key pair.
 
         :param id: (required)
         :type id: int
@@ -86,7 +87,7 @@ class KeypairApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_keypair_serialize(
+        _param = self._delete_key_pair_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -113,7 +114,7 @@ class KeypairApi:
 
 
     @validate_call
-    def delete_keypair_with_http_info(
+    def delete_key_pair_with_http_info(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -129,8 +130,9 @@ class KeypairApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ResponseModel]:
-        """Delete Keypair
+        """Delete key pair
 
+        Permanently deletes a specified key pair. Include the key pair ID in the request path to remove the designated key pair.
 
         :param id: (required)
         :type id: int
@@ -156,7 +158,7 @@ class KeypairApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_keypair_serialize(
+        _param = self._delete_key_pair_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -183,7 +185,7 @@ class KeypairApi:
 
 
     @validate_call
-    def delete_keypair_without_preload_content(
+    def delete_key_pair_without_preload_content(
         self,
         id: StrictInt,
         _request_timeout: Union[
@@ -199,8 +201,9 @@ class KeypairApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Delete Keypair
+        """Delete key pair
 
+        Permanently deletes a specified key pair. Include the key pair ID in the request path to remove the designated key pair.
 
         :param id: (required)
         :type id: int
@@ -226,7 +229,7 @@ class KeypairApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_keypair_serialize(
+        _param = self._delete_key_pair_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -248,7 +251,7 @@ class KeypairApi:
         return response_data.response
 
 
-    def _delete_keypair_serialize(
+    def _delete_key_pair_serialize(
         self,
         id,
         _request_auth,
@@ -311,7 +314,7 @@ class KeypairApi:
 
 
     @validate_call
-    def import_keypair(
+    def import_key_pair(
         self,
         payload: ImportKeypairPayload,
         _request_timeout: Union[
@@ -327,8 +330,9 @@ class KeypairApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ImportKeypairResponse:
-        """Import Keypair
+        """Import key pair
 
+        Imports a new key pair for secure shell (SSH) access to your resources. To import a new key pair, include the key name, environment name, and public key in the request body. For additional information on importing SSH key pairs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/getting-started/create-keypair#importing-an-ssh-key).
 
         :param payload: (required)
         :type payload: ImportKeypairPayload
@@ -354,7 +358,7 @@ class KeypairApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._import_keypair_serialize(
+        _param = self._import_key_pair_serialize(
             payload=payload,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -382,7 +386,7 @@ class KeypairApi:
 
 
     @validate_call
-    def import_keypair_with_http_info(
+    def import_key_pair_with_http_info(
         self,
         payload: ImportKeypairPayload,
         _request_timeout: Union[
@@ -398,8 +402,9 @@ class KeypairApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ImportKeypairResponse]:
-        """Import Keypair
+        """Import key pair
 
+        Imports a new key pair for secure shell (SSH) access to your resources. To import a new key pair, include the key name, environment name, and public key in the request body. For additional information on importing SSH key pairs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/getting-started/create-keypair#importing-an-ssh-key).
 
         :param payload: (required)
         :type payload: ImportKeypairPayload
@@ -425,7 +430,7 @@ class KeypairApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._import_keypair_serialize(
+        _param = self._import_key_pair_serialize(
             payload=payload,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -453,7 +458,7 @@ class KeypairApi:
 
 
     @validate_call
-    def import_keypair_without_preload_content(
+    def import_key_pair_without_preload_content(
         self,
         payload: ImportKeypairPayload,
         _request_timeout: Union[
@@ -469,8 +474,9 @@ class KeypairApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Import Keypair
+        """Import key pair
 
+        Imports a new key pair for secure shell (SSH) access to your resources. To import a new key pair, include the key name, environment name, and public key in the request body. For additional information on importing SSH key pairs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/getting-started/create-keypair#importing-an-ssh-key).
 
         :param payload: (required)
         :type payload: ImportKeypairPayload
@@ -496,7 +502,7 @@ class KeypairApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._import_keypair_serialize(
+        _param = self._import_key_pair_serialize(
             payload=payload,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -519,7 +525,7 @@ class KeypairApi:
         return response_data.response
 
 
-    def _import_keypair_serialize(
+    def _import_key_pair_serialize(
         self,
         payload,
         _request_auth,
@@ -595,7 +601,7 @@ class KeypairApi:
 
 
     @validate_call
-    def retrieve_user_keypairs(
+    def list_key_pairs(
         self,
         _request_timeout: Union[
             None,
@@ -610,8 +616,9 @@ class KeypairApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Keypairs:
-        """Retrieve Keypairs
+        """List key pairs
 
+        Retrieves a list of your existing SSH key pairs, providing details for each. For additional information on SSH key pairs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/keypairs-available-features).
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -635,7 +642,7 @@ class KeypairApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._retrieve_user_keypairs_serialize(
+        _param = self._list_key_pairs_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -660,7 +667,7 @@ class KeypairApi:
 
 
     @validate_call
-    def retrieve_user_keypairs_with_http_info(
+    def list_key_pairs_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -675,8 +682,9 @@ class KeypairApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Keypairs]:
-        """Retrieve Keypairs
+        """List key pairs
 
+        Retrieves a list of your existing SSH key pairs, providing details for each. For additional information on SSH key pairs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/keypairs-available-features).
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -700,7 +708,7 @@ class KeypairApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._retrieve_user_keypairs_serialize(
+        _param = self._list_key_pairs_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -725,7 +733,7 @@ class KeypairApi:
 
 
     @validate_call
-    def retrieve_user_keypairs_without_preload_content(
+    def list_key_pairs_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -740,8 +748,9 @@ class KeypairApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Retrieve Keypairs
+        """List key pairs
 
+        Retrieves a list of your existing SSH key pairs, providing details for each. For additional information on SSH key pairs, [**click here**](https://infrahub-doc.nexgencloud.com/docs/features/keypairs-available-features).
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -765,7 +774,7 @@ class KeypairApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._retrieve_user_keypairs_serialize(
+        _param = self._list_key_pairs_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -785,7 +794,7 @@ class KeypairApi:
         return response_data.response
 
 
-    def _retrieve_user_keypairs_serialize(
+    def _list_key_pairs_serialize(
         self,
         _request_auth,
         _content_type,
@@ -845,7 +854,7 @@ class KeypairApi:
 
 
     @validate_call
-    def update_keypair_name(
+    def update_key_pair_name(
         self,
         id: StrictInt,
         payload: UpdateKeypairName,
@@ -862,8 +871,9 @@ class KeypairApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> UpdateKeypairnameresponse:
-        """Update Keypair name
+        """Update key pair name
 
+        Updates the name of a specified key pair. Include the key pair ID in the request path and the new `name` of the key pair in the request body.
 
         :param id: (required)
         :type id: int
@@ -891,7 +901,7 @@ class KeypairApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_keypair_name_serialize(
+        _param = self._update_key_pair_name_serialize(
             id=id,
             payload=payload,
             _request_auth=_request_auth,
@@ -919,7 +929,7 @@ class KeypairApi:
 
 
     @validate_call
-    def update_keypair_name_with_http_info(
+    def update_key_pair_name_with_http_info(
         self,
         id: StrictInt,
         payload: UpdateKeypairName,
@@ -936,8 +946,9 @@ class KeypairApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[UpdateKeypairnameresponse]:
-        """Update Keypair name
+        """Update key pair name
 
+        Updates the name of a specified key pair. Include the key pair ID in the request path and the new `name` of the key pair in the request body.
 
         :param id: (required)
         :type id: int
@@ -965,7 +976,7 @@ class KeypairApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_keypair_name_serialize(
+        _param = self._update_key_pair_name_serialize(
             id=id,
             payload=payload,
             _request_auth=_request_auth,
@@ -993,7 +1004,7 @@ class KeypairApi:
 
 
     @validate_call
-    def update_keypair_name_without_preload_content(
+    def update_key_pair_name_without_preload_content(
         self,
         id: StrictInt,
         payload: UpdateKeypairName,
@@ -1010,8 +1021,9 @@ class KeypairApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Update Keypair name
+        """Update key pair name
 
+        Updates the name of a specified key pair. Include the key pair ID in the request path and the new `name` of the key pair in the request body.
 
         :param id: (required)
         :type id: int
@@ -1039,7 +1051,7 @@ class KeypairApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_keypair_name_serialize(
+        _param = self._update_key_pair_name_serialize(
             id=id,
             payload=payload,
             _request_auth=_request_auth,
@@ -1062,7 +1074,7 @@ class KeypairApi:
         return response_data.response
 
 
-    def _update_keypair_name_serialize(
+    def _update_key_pair_name_serialize(
         self,
         id,
         payload,

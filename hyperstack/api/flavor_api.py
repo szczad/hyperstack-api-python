@@ -40,7 +40,7 @@ class FlavorApi:
 
 
     @validate_call
-    def retrieve_flavors(
+    def list_flavors(
         self,
         region: Annotated[Optional[Any], Field(description="Region Name")] = None,
         _request_timeout: Union[
@@ -56,8 +56,9 @@ class FlavorApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> FlavorListResponse:
-        """Retrieve Flavors
+        """List flavors
 
+        Returns a list of available virtual machine specification configurations, referred to as **flavors**. Include a `region_name` in the query string of the request to return only the flavors available in the specified region; the default value will retrieve flavors available in all regions. For more details on flavors, [**click here**](https://infrahub-doc.nexgencloud.com/docs/hardware/flavors).
 
         :param region: Region Name
         :type region: object
@@ -83,7 +84,7 @@ class FlavorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._retrieve_flavors_serialize(
+        _param = self._list_flavors_serialize(
             region=region,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -110,7 +111,7 @@ class FlavorApi:
 
 
     @validate_call
-    def retrieve_flavors_with_http_info(
+    def list_flavors_with_http_info(
         self,
         region: Annotated[Optional[Any], Field(description="Region Name")] = None,
         _request_timeout: Union[
@@ -126,8 +127,9 @@ class FlavorApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[FlavorListResponse]:
-        """Retrieve Flavors
+        """List flavors
 
+        Returns a list of available virtual machine specification configurations, referred to as **flavors**. Include a `region_name` in the query string of the request to return only the flavors available in the specified region; the default value will retrieve flavors available in all regions. For more details on flavors, [**click here**](https://infrahub-doc.nexgencloud.com/docs/hardware/flavors).
 
         :param region: Region Name
         :type region: object
@@ -153,7 +155,7 @@ class FlavorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._retrieve_flavors_serialize(
+        _param = self._list_flavors_serialize(
             region=region,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -180,7 +182,7 @@ class FlavorApi:
 
 
     @validate_call
-    def retrieve_flavors_without_preload_content(
+    def list_flavors_without_preload_content(
         self,
         region: Annotated[Optional[Any], Field(description="Region Name")] = None,
         _request_timeout: Union[
@@ -196,8 +198,9 @@ class FlavorApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Retrieve Flavors
+        """List flavors
 
+        Returns a list of available virtual machine specification configurations, referred to as **flavors**. Include a `region_name` in the query string of the request to return only the flavors available in the specified region; the default value will retrieve flavors available in all regions. For more details on flavors, [**click here**](https://infrahub-doc.nexgencloud.com/docs/hardware/flavors).
 
         :param region: Region Name
         :type region: object
@@ -223,7 +226,7 @@ class FlavorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._retrieve_flavors_serialize(
+        _param = self._list_flavors_serialize(
             region=region,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -245,7 +248,7 @@ class FlavorApi:
         return response_data.response
 
 
-    def _retrieve_flavors_serialize(
+    def _list_flavors_serialize(
         self,
         region,
         _request_auth,

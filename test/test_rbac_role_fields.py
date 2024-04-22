@@ -14,10 +14,10 @@
 
 import unittest
 
-from hyperstack.models.rbac_role_fields import RBACRoleFields
+from hyperstack.models.rbac_role_fields import RbacRoleFields
 
-class TestRBACRoleFields(unittest.TestCase):
-    """RBACRoleFields unit test stubs"""
+class TestRbacRoleFields(unittest.TestCase):
+    """RbacRoleFields unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,16 +25,16 @@ class TestRBACRoleFields(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> RBACRoleFields:
-        """Test RBACRoleFields
+    def make_instance(self, include_optional) -> RbacRoleFields:
+        """Test RbacRoleFields
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `RBACRoleFields`
+        # uncomment below to create an instance of `RbacRoleFields`
         """
-        model = RBACRoleFields()
+        model = RbacRoleFields()
         if include_optional:
-            return RBACRoleFields(
+            return RbacRoleFields(
                 id = 56,
                 name = '',
                 description = '',
@@ -53,12 +53,12 @@ class TestRBACRoleFields(unittest.TestCase):
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else:
-            return RBACRoleFields(
+            return RbacRoleFields(
         )
         """
 
-    def testRBACRoleFields(self):
-        """Test RBACRoleFields"""
+    def testRbacRoleFields(self):
+        """Test RbacRoleFields"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
